@@ -1,0 +1,15 @@
+# Datasets (download via each lab's dataset-link.txt)
+**/data/
+*.csv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS / editor
+.DS_Store
+.vscode/
