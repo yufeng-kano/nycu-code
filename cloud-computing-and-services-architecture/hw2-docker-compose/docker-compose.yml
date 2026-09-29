@@ -1,0 +1,75 @@
+name: hw2
+
+services:
+  db:
+    build: ./db
+    container_name: hw2-db
+    environment:
+      DB_PATH: /data/names.db
+    volumes:
+      - sqlite-data:/data
+    healthcheck:
+      # Passes once the schema has been applied to the shared file.
+      test: ["CMD", "sqlite3", "/data/names.db", "SELECT count(*) FROM names;"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 3s
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: hw2-backend
+    environment:
+      DB_PATH: /data/names.db
+    volumes:
+      - sqlite-data:/data
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=2)",
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: hw2-frontend
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 3s
+    restart: unless-stopped
+
+  proxy:
+    build: ./proxy
+    container_name: hw2-proxy
+    ports:
+      - "8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+      frontend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1/api/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 3s
+    restart: unless-stopped
+
+volumes:
+  sqlite-data:
+    name: hw2-sqlite-data

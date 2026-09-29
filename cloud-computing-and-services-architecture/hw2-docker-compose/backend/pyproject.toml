@@ -1,0 +1,32 @@
+[project]
+name = "hw2-backend"
+version = "0.1.0"
+description = "Flask API for the 3-tier names app (Homework #2)"
+requires-python = ">=3.12"
+dependencies = [
+    "flask>=3.1,<4",
+    "gunicorn>=23,<24",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+    "mypy>=1.11",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ANN", "SIM"]
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+files = ["app", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
