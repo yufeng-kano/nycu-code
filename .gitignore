@@ -13,3 +13,7 @@ __pycache__/
 # OS / editor
 .DS_Store
 .vscode/
+
+# DL Lab 3
+deep-learning/lab-3/Lab3_data_intel_2026/
+*.pt
