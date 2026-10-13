@@ -1,0 +1,12 @@
+- [Concise theory + code](concise-theory-plus-code.md) — DL lab tutoring: formulas + code only, no filler, 繁中
+- [Type hints in own code](type-hints-in-own-code.md) — annotate all code I write, incl. lab TODO fills
+- [User identity](user-identity.md) — 黃毓峰, SID 315834011; HW filename convention
+- [Keep original lab notebook](keep-original-lab-notebook.md) — never rename TA template ipynb; work in HWn_SID copy
+- [Explicit keyword args](explicit-keyword-args.md) — always write calls as f(size=..., p=...), never positional
+- [Call formatting style](call-formatting-style.md) — 3+ args one per line + trailing comma; 1–2 args inline
+- [Discuss design before code](discuss-design-before-code.md) — architecture/strategy choices: options + recommendation, user picks, then code
+- [Inline LaTeX only](inline-latex-only.md) — use $...$, never $$ blocks (renders badly in VS Code panel)
+- [Lab 3 goal: max accuracy](lab3-goal-max-accuracy.md) — user wants best Kaggle score, time not a constraint; due 2026-10-18
+- [Report writing workflow](report-writing-workflow.md) — 7-step lab report process: figures from logs, XeLaTeX layout rules, page-by-page visual review, honest variance
+- [Report fonts](report-fonts.md) — licensed Apple fonts in /jupyter/fonts; reports use PingFang TC + SF Pro, 1.65× leading
+- [Git commit policy](git-commit-policy.md) — commit report PDFs + .claude/memory (symlinked), never weights; repo is public

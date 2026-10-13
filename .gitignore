@@ -17,3 +17,12 @@ __pycache__/
 # DL Lab 3
 deep-learning/lab-3/Lab3_data_intel_2026/
 *.pt
+
+# LaTeX build output (final PDF is copied to the lab root)
+**/report/main.pdf
+**/report/*.aux
+**/report/*.fls
+**/report/*.fdb_latexmk
+**/report/*.xdv
+**/report/*.out
+**/report/main.log
