@@ -12,4 +12,4 @@ In `/jupyter/nycu-code` (remote `yufeng-kano/nycu-code`, **public**):
 
 **Why:** user said (2026-10-13) "memory 要進入 git ... pdf 也要記住權重不用".
 
-**How to apply:** when committing, include memory changes and report PDFs, check `git status` for stray weights. Because the repo is public and course rules forbid sharing solutions/predictions before the deadline, confirm with the user before pushing graded work ahead of its due date. Related: [[report-writing-workflow]].
+**How to apply:** when committing, include memory changes and report PDFs, check `git status` for stray weights. The repo is public; on 2026-10-13 I flagged that pushing Lab 3 before its 10/18 deadline publishes the solution, and the user chose to push publicly anyway. Don't re-ask for routine pushes; only flag genuinely new risks (secrets, credentials, large files). Related: [[report-writing-workflow]].
