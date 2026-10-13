@@ -10,3 +10,4 @@
 - [Report writing workflow](report-writing-workflow.md) — 7-step lab report process: figures from logs, XeLaTeX layout rules, page-by-page visual review, honest variance
 - [Report fonts](report-fonts.md) — licensed Apple fonts in /jupyter/fonts; reports use PingFang TC + SF Pro, 1.65× leading
 - [Git commit policy](git-commit-policy.md) — commit report PDFs + .claude/memory (symlinked), never weights; repo is public
+- [Writing style](writing-style.md) — full output style rules: 結論先行, 短句短段, 無翻譯腔/矯飾, 列點粗體格式, 查證與行動規則
