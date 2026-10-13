@@ -26,3 +26,6 @@ deep-learning/lab-3/Lab3_data_intel_2026/
 **/report/*.xdv
 **/report/*.out
 **/report/main.log
+
+# Submission archives (rebuilt from tracked files)
+*.zip
