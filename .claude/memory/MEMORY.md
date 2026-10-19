@@ -14,4 +14,5 @@
 - [Paper walkthrough format](paper-walkthrough-format.md) — 論文導讀: .md + ./res/ figures, folder = paper short name, claude/index.md, no numeric filename prefixes
 - [Document readability](document-readability.md) — all docs: expand abbreviations, cut filler/meta notes, no source annotations, don't skip math basics; README short, status goes in CLAUDE.md
 - [CCSA HW3 K3s](ccsa-hw3-k3s.md) — HW3 status and decisions live in hw3-k3s/CLAUDE.md; read it first
+- [DS HW2 ATP](ds-hw2-atp.md) — DS HW2 status and decisions live in hw2/CLAUDE.md; read it first
 - [Production practice](production-practice.md) — prefer production-grade setups over the assignment's letter; always list remaining deviations
