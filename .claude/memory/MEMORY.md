@@ -11,3 +11,5 @@
 - [Report fonts](report-fonts.md) — licensed Apple fonts in /jupyter/fonts; reports use PingFang TC + SF Pro, 1.65× leading
 - [Git commit policy](git-commit-policy.md) — commit report PDFs + .claude/memory (symlinked), never weights; repo is public
 - [Writing style](writing-style.md) — full output style rules: 結論先行, 短句短段, 無翻譯腔/矯飾, 列點粗體格式, 查證與行動規則
+- [Paper walkthrough format](paper-walkthrough-format.md) — 論文導讀: .md + ./res/ figures, folder = paper short name, claude/index.md, no numeric filename prefixes
+- [Document readability](document-readability.md) — all docs: expand abbreviations, cut filler/meta notes, no source annotations, don't skip math basics
