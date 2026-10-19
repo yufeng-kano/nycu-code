@@ -5,7 +5,7 @@ Notes for Claude working in this folder. The spec is `AGENTS.md`; the deliverabl
 ## Status (2026-10-19)
 
 - **Done** parts 1–3 and all 5 custom questions (height distribution, win correlates, left-handers, surfaces, ranking gap and upsets). The whole notebook executes cleanly with outputs saved.
-- **Submit** the notebook file itself; nothing else is required.
+- **Submit** the notebook file itself; nothing else is required. Merged into `main` on 2026-10-19 and packaged as `315834011_HW2.zip` (zip files are git-ignored).
 
 ## Decisions
 
