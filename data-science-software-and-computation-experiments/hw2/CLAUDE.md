@@ -21,4 +21,14 @@ Notes for Claude working in this folder. The spec is `AGENTS.md`; the deliverabl
 ## Running
 
 - Data: `git clone --depth 1 https://github.com/Haz22537/JEFFSM_tennis_atp tennis_atp` inside this folder (git-ignored); the first code cell clones it when missing.
-- Re-execute with `jupyter nbconvert --to notebook --execute --inplace 315834011_HW2.ipynb` and check no cell has an error output.
+- Edit code and docs in `~/repo/nycu-code` on idk-server; execute notebooks in the Jupyter container `jupyter-code-server` on the same host. Its `/jupyter` is a bind mount of `~/service/jupyter/notebooks`, so `/jupyter/nycu-code` is a second, root-owned checkout (host path `~/service/jupyter/notebooks/nycu-code`), not the host repo.
+- Keep the container checkout on the same branch and `git pull` it before running. The container has no GitHub push credentials: bring its commits to the host with `docker exec jupyter-code-server git -C /jupyter/nycu-code bundle create /tmp/x.bundle origin/<branch>..<branch>`, `docker cp jupyter-code-server:/tmp/x.bundle .`, then `git fetch x.bundle <branch>` and push from the host.
+- Re-execute from the host (the container venv has ipykernel but not nbconvert, so it is added per run):
+
+  ```sh
+  docker exec -w /jupyter/nycu-code/data-science-software-and-computation-experiments/hw2 jupyter-code-server \
+    uv run --project /app --no-sync --with nbconvert \
+    jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 315834011_HW2.ipynb
+  ```
+
+  Then check that no cell has an error output (`/app/.venv/bin/python` inside the container can parse the ipynb; there is no `python3` on its PATH).
