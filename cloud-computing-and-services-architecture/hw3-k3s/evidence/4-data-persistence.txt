@@ -1,0 +1,37 @@
+# 4. Data persistence: insert, delete the PostgreSQL Pod, verify after it is recreated
+# 2026-10-19T21:21:15+08:00
+
+$ ./scripts/kubectl.sh -n hw3 get pvc data-db-0
+NAME        STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+data-db-0   Bound    pvc-d9d50197-9c44-4d0f-a249-12b4db050983   1Gi        RWO            local-path     <unset>                 25s
+
+$ curl -s -X POST -H 'Content-Type: application/json' -d '{"name":"persist-1792416075"}' http://192.168.56.11:30080/api/add_name
+{"id":4,"name":"persist-1792416075"}
+
+$ ./scripts/kubectl.sh -n hw3 get pod db-0 -o custom-columns=POD:.metadata.name,UID:.metadata.uid,NODE:.spec.nodeName
+POD    UID                                    NODE
+db-0   6a52c220-a9c5-4360-b6c5-cd8cb49b0e9d   hw3-worker
+
+$ ./scripts/kubectl.sh -n hw3 delete pod db-0
+pod "db-0" deleted from hw3 namespace
+
+$ ./scripts/kubectl.sh -n hw3 wait --for=condition=Ready pod/db-0 --timeout=120s
+pod/db-0 condition met
+
+$ ./scripts/kubectl.sh -n hw3 rollout status deployment/api --timeout=60s
+deployment "api" successfully rolled out
+
+$ ./scripts/kubectl.sh -n hw3 get pod db-0 -o custom-columns=POD:.metadata.name,UID:.metadata.uid,NODE:.spec.nodeName
+POD    UID                                    NODE
+db-0   afc30168-cbec-4b43-9f78-9428fbf13d6f   hw3-worker
+
+$ ./scripts/kubectl.sh -n hw3 get pvc data-db-0
+NAME        STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+data-db-0   Bound    pvc-d9d50197-9c44-4d0f-a249-12b4db050983   1Gi        RWO            local-path     <unset>                 28s
+
+$ for i in $(seq 20); do curl -sf http://192.168.56.11:30080/api/get_names && break; sleep 2; done
+{"names":[{"id":4,"name":"persist-1792416075"}]}
+
+[PASS] db-0 was recreated (UID changed)
+
+[PASS] record 'persist-1792416075' survived the Pod recreation

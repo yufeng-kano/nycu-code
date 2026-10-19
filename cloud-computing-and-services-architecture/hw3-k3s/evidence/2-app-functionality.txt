@@ -1,0 +1,31 @@
+# 2. Application functionality through the nginx NodePort (http://192.168.56.11:30080)
+# 2026-10-19T21:21:06+08:00
+
+$ curl -s http://192.168.56.11:30080/ | grep -o '<title>.*</title>'
+<title>Names</title>
+
+$ curl -s -X POST -H 'Content-Type: application/json' -d '{"name":"Alice"}' http://192.168.56.11:30080/api/add_name
+{"id":1,"name":"Alice"}
+
+$ curl -s -X POST -H 'Content-Type: application/json' -d '{"name":"Bob"}' http://192.168.56.11:30080/api/add_name
+{"id":2,"name":"Bob"}
+
+$ curl -s http://192.168.56.11:30080/api/get_names
+{"names":[{"id":1,"name":"Alice"},{"id":2,"name":"Bob"}]}
+
+$ curl -s -X POST -H 'Content-Type: application/json' -d '{"name":"Alice"}' http://192.168.56.11:30080/api/add_name   # duplicate
+{"error":"name 'Alice' already exists"}
+
+$ curl -s -X DELETE 'http://192.168.56.11:30080/api/remove_name?name=Bob'
+{"deleted":"Bob"}
+
+$ curl -s http://192.168.56.11:30080/api/get_names
+{"names":[{"id":1,"name":"Alice"}]}
+
+[PASS] Alice is listed and Bob was removed
+
+$ curl -s -X DELETE 'http://192.168.56.11:30080/api/remove_name?name=Alice'
+{"deleted":"Alice"}
+
+$ curl -s -o /dev/null -w 'NodePort on the server node (192.168.56.10): HTTP %{http_code}\n' http://192.168.56.10:30080/
+NodePort on the server node (192.168.56.10): HTTP 200

@@ -1,0 +1,92 @@
+# 5. Cluster restart: ./k3s-down.sh then ./k3s-up.sh; app and data still work
+# 2026-10-19T21:21:20+08:00
+
+$ curl -s -X POST -H 'Content-Type: application/json' -d '{"name":"restart-1792416080"}' http://192.168.56.11:30080/api/add_name
+{"id":5,"name":"restart-1792416080"}
+
+$ ./k3s-down.sh
+==> Stopping the application (scale web, api, db to 0)
+==> Stopping K3s on hw3-worker
+==> Stopping K3s on hw3-server
+==> Shutting down hw3-worker
+==> Shutting down hw3-server
+==> Done.
++------------+---------+------+-----------------+-----------+
+|    NAME    |  STATE  | IPV4 |      TYPE       | SNAPSHOTS |
++------------+---------+------+-----------------+-----------+
+| hw3-server | STOPPED |      | VIRTUAL-MACHINE | 0         |
++------------+---------+------+-----------------+-----------+
+| hw3-worker | STOPPED |      | VIRTUAL-MACHINE | 0         |
++------------+---------+------+-----------------+-----------+
+
+$ incus list hw3- --columns ns4t
++------------+---------+------+-----------------+
+|    NAME    |  STATE  | IPV4 |      TYPE       |
++------------+---------+------+-----------------+
+| hw3-server | STOPPED |      | VIRTUAL-MACHINE |
++------------+---------+------+-----------------+
+| hw3-worker | STOPPED |      | VIRTUAL-MACHINE |
++------------+---------+------+-----------------+
+
+$ ./k3s-up.sh
+==> Building image hw3/web:1.0 from src/web
+==> Building image hw3/api:1.0 from src/api
+==> Building image hw3/db:1.0 from src/db
+!! no terminal for a sudo password; skipping firewall rules for nycu-cc-hw3-br (see README.md, 防火牆)
+==> Starting hw3-server
+==> Starting hw3-worker
+==> Waiting for hw3-server (192.168.56.10) to boot
+==> Waiting for hw3-worker (192.168.56.11) to boot
+==> K3s server already installed on hw3-server
+==> K3s agent already installed on hw3-worker
+==> Waiting for all 2 nodes to be Ready
+NAME         STATUS   ROLES                AGE   VERSION        INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION              CONTAINER-RUNTIME
+hw3-server   Ready    control-plane,etcd   78s   v1.36.5+k3s1   192.168.56.10   <none>        Ubuntu 24.04.5 LTS   6.8.0-147-generic (amd64)   containerd://2.3.4-k3s1.36
+hw3-worker   Ready    <none>               70s   v1.36.5+k3s1   192.168.56.11   <none>        Ubuntu 24.04.5 LTS   6.8.0-147-generic (amd64)   containerd://2.3.4-k3s1.36
+==> hw3/web:1.0 is already on hw3-worker
+==> hw3/api:1.0 is already on hw3-worker
+==> hw3/db:1.0 is already on hw3-worker
+==> Deploying the application (kubectl apply -k k8s/)
+==> Waiting for the app to answer at http://192.168.56.11:30080/api/health
+NAME                       READY   STATUS    RESTARTS   AGE   IP          NODE         NOMINATED NODE   READINESS GATES
+pod/api-596f887b96-s7pk7   1/1     Running   0          7s    10.42.1.8   hw3-worker   <none>           <none>
+pod/db-0                   1/1     Running   0          7s    10.42.1.9   hw3-worker   <none>           <none>
+pod/web-68966cd6c-xtzft    1/1     Running   0          7s    10.42.1.7   hw3-worker   <none>           <none>
+
+NAME                  TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE   SELECTOR
+service/api           ClusterIP   10.43.65.114   <none>        8000/TCP       72s   app=api
+service/db            ClusterIP   10.43.62.139   <none>        5432/TCP       72s   app=db
+service/db-headless   ClusterIP   None           <none>        5432/TCP       72s   app=db
+service/web           NodePort    10.43.107.6    <none>        80:30080/TCP   72s   app=web
+
+NAME                              STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE   VOLUMEMODE
+persistentvolumeclaim/data-db-0   Bound    pvc-d9d50197-9c44-4d0f-a249-12b4db050983   1Gi        RWO            local-path     <unset>                 72s   Filesystem
+==> Cluster and application are up:
++------------+---------+------------------------+-----------------+-----------+
+|    NAME    |  STATE  |          IPV4          |      TYPE       | SNAPSHOTS |
++------------+---------+------------------------+-----------------+-----------+
+| hw3-server | RUNNING | 192.168.56.10 (enp5s0) | VIRTUAL-MACHINE | 0         |
+|            |         | 10.42.0.1 (cni0)       |                 |           |
+|            |         | 10.42.0.0 (flannel.1)  |                 |           |
++------------+---------+------------------------+-----------------+-----------+
+| hw3-worker | RUNNING | 192.168.56.11 (enp5s0) | VIRTUAL-MACHINE | 0         |
+|            |         | 10.42.1.1 (cni0)       |                 |           |
+|            |         | 10.42.1.0 (flannel.1)  |                 |           |
++------------+---------+------------------------+-----------------+-----------+
+    app:     http://192.168.56.11:30080/   (any node IP works)
+    shell:   ./scripts/vm-shell.sh server|worker
+    kubectl: ./scripts/kubectl.sh -n hw3 get pods
+
+$ ./scripts/kubectl.sh get nodes
+NAME         STATUS   ROLES                AGE   VERSION
+hw3-server   Ready    control-plane,etcd   93s   v1.36.5+k3s1
+hw3-worker   Ready    <none>               85s   v1.36.5+k3s1
+
+$ curl -s http://192.168.56.11:30080/api/get_names
+{"names":[{"id":4,"name":"persist-1792416075"},{"id":5,"name":"restart-1792416080"}]}
+
+[PASS] both nodes are Ready after restart
+
+[PASS] record 'restart-1792416080' survived the restart
+
+[PASS] the app still accepts writes

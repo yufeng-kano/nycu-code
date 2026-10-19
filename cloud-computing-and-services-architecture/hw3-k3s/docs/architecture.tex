@@ -1,0 +1,44 @@
+% HW3 architecture diagram, one A4 landscape page. Build with ./build.sh (converts the SVG first).
+\documentclass{article}
+\usepackage[a4paper,landscape,margin=12mm,top=11mm,bottom=10mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\setmainfont{SF Pro Text}[BoldFont={SF Pro Text Semibold}]
+\setmonofont{Menlo}[Scale=0.9]
+% PingFang.ttc holds HK and TC faces; by name XeTeX picks the first (HK), so select TC by index.
+\setCJKmainfont{PingFang.ttc}[FontIndex=2, BoldFont=PingFang.ttc, BoldFeatures={FontIndex=10}]
+\newfontfamily\titlefont{SF Pro Display Semibold}
+\newCJKfontfamily\titlecjk{PingFang.ttc}[FontIndex=10]
+\xeCJKsetup{CJKecglue={\hskip 0.25em plus 0.1em}}
+\xeCJKDeclareCharClass{Default}{"2013,"2022,"2212,"2192,"00D7}
+
+\definecolor{muted}{HTML}{5B6575}
+\setlength{\parindent}{0pt}
+\AtBeginDocument{\fontsize{10.5}{16}\selectfont}
+\pagestyle{empty}
+
+\begin{document}
+
+{\titlefont\titlecjk\fontsize{17}{21}\selectfont Homework \#3 系統架構}\hfill
+{\color{muted}\small 黃毓峰\quad 315834011\quad Cloud Computing \& Services Architecture}
+
+\vspace{1.5mm}
+{\color{muted}\small 兩節點 K3s 叢集上的三層式網頁應用：一台 control-plane、一台 worker，web、api、db 各一個 replica，PostgreSQL 資料放在 PVC 上。}
+
+\vspace{2mm}
+\centering
+\includegraphics[width=0.9\linewidth]{architecture-diagram.pdf}
+
+\vspace{2mm}
+\raggedright
+\begin{itemize}[leftmargin=1.2em,itemsep=0.4mm,topsep=0mm]
+  \item \textbf{請求路徑}\hspace{0.6em}瀏覽器連 web 的 NodePort 30080，nginx 把 \texttt{/api/} 轉給 Service \texttt{api}，Flask 經 Service \texttt{db} 連 PostgreSQL，各層只寫 Service 名稱。
+  \item \textbf{持久儲存}\hspace{0.6em}db-0 掛載 PVC（PersistentVolumeClaim，儲存空間申請）\texttt{data-db-0}，資料在 worker 磁碟上，Pod 重建或關機重開後仍在。
+  \item \textbf{節點分工}\hspace{0.6em}hw3-server 只跑 K3s 控制元件，hw3-worker 執行三層 App。兩台是 Incus 建立的 KVM 虛擬機，以 \texttt{nycu-cc-hw3-br} 互連。
+\end{itemize}
+
+\end{document}

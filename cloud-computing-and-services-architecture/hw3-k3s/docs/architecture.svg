@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="zh-TW" width="1600" height="960" viewBox="0 0 1600 960">
+  <title>HW3 architecture: two-node K3s cluster on Incus VMs</title>
+  <style>
+    text { font-family: "SF Pro Text", "PingFang TC", sans-serif; fill: #1F2733; }
+    .mono { font-family: "Menlo", "PingFang TC", monospace; }
+    .b { font-weight: 600; }
+    .muted { fill: #5B6575; }
+    .h1 { font-size: 24px; font-weight: 600; }
+    .sub { font-size: 16px; fill: #5B6575; }
+    .t19 { font-size: 20px; font-weight: 600; }
+    .t17 { font-size: 18px; }
+    .t15 { font-size: 16px; }
+    .t14 { font-size: 15px; }
+    .mid { text-anchor: middle; }
+    .end { text-anchor: end; }
+
+    .host { fill: #F5F6F8; stroke: #C5CBD3; stroke-width: 1.5; }
+    .node-fill { fill: #FFFFFF; }
+    .node-line { fill: none; stroke: #8A94A6; stroke-width: 2; }
+    .head { fill: #E4E8EE; }
+    .ns { fill: none; stroke: #9AA3B2; stroke-width: 1.5; stroke-dasharray: 7 5; }
+    .user { fill: #FFFFFF; stroke: #4A5568; stroke-width: 2; }
+    .legend { fill: #FFFFFF; stroke: #C5CBD3; stroke-width: 1.5; }
+
+    .pod-web { fill: #EBF3FF; stroke: #2B6CB0; stroke-width: 2; }
+    .pod-api { fill: #E9F7EF; stroke: #2F855A; stroke-width: 2; }
+    .pod-db  { fill: #FEF2E6; stroke: #C05621; stroke-width: 2; }
+    .svc-web { fill: #FFFFFF; stroke: #2B6CB0; stroke-width: 2; stroke-dasharray: 6 4; }
+    .svc-api { fill: #FFFFFF; stroke: #2F855A; stroke-width: 2; stroke-dasharray: 6 4; }
+    .svc-db  { fill: #FFFFFF; stroke: #C05621; stroke-width: 2; stroke-dasharray: 6 4; }
+    .store   { fill: #F3EEFD; stroke: #6B46C1; stroke-width: 2; }
+    .secret  { fill: #FFF8E6; stroke: #B7791F; stroke-width: 2; }
+    .cp      { fill: #EDF0F4; stroke: #4A5568; stroke-width: 1.5; }
+    .sys     { fill: #F7F8FA; stroke: #8A94A6; stroke-width: 1.5; }
+    .taint   { fill: #FDECEC; stroke: #C53030; stroke-width: 2; }
+    .bridge  { fill: #E4E8EE; stroke: #8A94A6; stroke-width: 1.5; }
+
+    .flow  { fill: none; stroke: #2D3748; stroke-width: 2.2; }
+    .mgmt  { fill: none; stroke: #8A94A6; stroke-width: 2; stroke-dasharray: 7 5; }
+    .inject { fill: none; stroke: #B7791F; stroke-width: 2; stroke-dasharray: 2 4; stroke-linecap: round; }
+    .stub  { fill: none; stroke: #8A94A6; stroke-width: 2; }
+  </style>
+  <defs>
+    <marker id="a-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2D3748"/>
+    </marker>
+    <marker id="a-mgmt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8A94A6"/>
+    </marker>
+    <marker id="a-inject" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#B7791F"/>
+    </marker>
+  </defs>
+
+  <!-- Host -->
+  <rect class="host" x="12" y="12" width="1576" height="936" rx="20"/>
+  <text x="40" y="54"><tspan class="h1">Linux 主機</tspan><tspan class="sub" dx="14">Incus 以 KVM 開兩台虛擬機，k3s-up.sh / k3s-down.sh 用 incus exec 控制</tspan></text>
+
+  <!-- Browser -->
+  <rect class="user" x="36" y="190" width="240" height="100" rx="12"/>
+  <text class="t19 mid" x="156" y="232">瀏覽器</text>
+  <text class="t15 mid mono" x="156" y="262">192.168.56.11:30080</text>
+
+  <!-- Legend -->
+  <rect class="legend" x="36" y="330" width="240" height="320" rx="12"/>
+  <text class="t17 b" x="54" y="362">圖例</text>
+  <rect class="sys" x="54" y="380" width="36" height="28" rx="6"/>
+  <text class="t15" x="102" y="400">Pod：執行中的容器</text>
+  <rect x="54" y="426" width="36" height="28" rx="14" fill="#FFFFFF" stroke="#4A5568" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="t15" x="102" y="446">Service：固定入口</text>
+  <path class="store" d="M54,478 a18,6 0 0 1 36,0 v18 a18,6 0 0 1 -36,0 z"/>
+  <path d="M54,478 a18,6 0 0 0 36,0" fill="none" stroke="#6B46C1" stroke-width="2"/>
+  <text class="t15" x="102" y="493">PVC、磁碟：持久資料</text>
+  <path class="flow" d="M54,530 L90,530" marker-end="url(#a-flow)"/>
+  <text class="t15" x="102" y="535">使用者請求</text>
+  <path class="mgmt" d="M54,574 L90,574" marker-end="url(#a-mgmt)"/>
+  <text class="t15" x="102" y="579">叢集管理、image 匯入</text>
+  <path class="inject" d="M54,618 L90,618" marker-end="url(#a-inject)"/>
+  <text class="t15" x="102" y="623">Secret 注入帳密</text>
+
+  <!-- Docker on the host -->
+  <rect class="user" x="36" y="764" width="240" height="92" rx="12"/>
+  <text class="t19 mid" x="156" y="796">Docker</text>
+  <text class="t14 mid" x="156" y="819">build web、api、db 三個 image</text>
+  <text class="t14 mid mono" x="156" y="841">docker save → ctr import</text>
+
+  <!-- Worker node -->
+  <rect class="node-fill" x="310" y="80" width="720" height="790" rx="16"/>
+  <rect class="head" x="310" y="80" width="720" height="64" rx="16"/>
+  <rect class="head" x="310" y="120" width="720" height="24"/>
+  <rect class="node-line" x="310" y="80" width="720" height="790" rx="16"/>
+  <text class="h1" x="334" y="110">hw3-worker</text>
+  <text class="sub" x="334" y="134">192.168.56.11 · worker 節點 · k3s-agent · 執行 App 的 Pod</text>
+
+  <rect class="ns" x="328" y="160" width="684" height="634" rx="12"/>
+  <text class="t15 muted" x="346" y="184">namespace hw3</text>
+
+  <!-- web tier -->
+  <rect class="svc-web" x="346" y="206" width="160" height="60" rx="30"/>
+  <text class="t17 b mid" x="426" y="232">Service web</text>
+  <text class="t15 mid" x="426" y="253">NodePort 30080</text>
+  <path class="flow" d="M506,236 L543,236" marker-end="url(#a-flow)"/>
+  <rect class="pod-web" x="545" y="196" width="290" height="80" rx="10"/>
+  <text class="t19 mid" x="690" y="228">web Pod</text>
+  <text class="t15 mid" x="690" y="254">nginx：Vue 靜態檔、/api 反向代理</text>
+  <path class="flow" d="M690,276 L690,310" marker-end="url(#a-flow)"/>
+  <text class="t14 mono muted" x="702" y="298">http://api:8000</text>
+
+  <!-- api tier -->
+  <rect class="svc-api" x="580" y="312" width="220" height="56" rx="28"/>
+  <text class="t17 b mid" x="690" y="336">Service api</text>
+  <text class="t15 mid" x="690" y="357">ClusterIP · port 8000</text>
+  <path class="flow" d="M690,368 L690,396" marker-end="url(#a-flow)"/>
+  <rect class="pod-api" x="545" y="398" width="290" height="80" rx="10"/>
+  <text class="t19 mid" x="690" y="430">api Pod</text>
+  <text class="t15 mid" x="690" y="456">Flask + gunicorn</text>
+  <path class="flow" d="M690,478 L690,512" marker-end="url(#a-flow)"/>
+  <text class="t14 mono muted" x="702" y="500">PGHOST=db</text>
+
+  <!-- db tier -->
+  <rect class="svc-db" x="580" y="514" width="220" height="56" rx="28"/>
+  <text class="t17 b mid" x="690" y="538">Service db</text>
+  <text class="t15 mid" x="690" y="559">ClusterIP · port 5432</text>
+  <path class="flow" d="M690,570 L690,598" marker-end="url(#a-flow)"/>
+  <rect class="pod-db" x="545" y="600" width="290" height="80" rx="10"/>
+  <text class="t19 mid" x="690" y="632">db-0 Pod</text>
+  <text class="t15 mid" x="690" y="658">PostgreSQL 17 · StatefulSet</text>
+
+  <!-- storage -->
+  <path class="flow" d="M690,680 L690,700" marker-end="url(#a-flow)"/>
+  <path class="store" d="M580,712 a110,10 0 0 1 220,0 v56 a110,10 0 0 1 -220,0 z"/>
+  <path d="M580,712 a110,10 0 0 0 220,0" fill="none" stroke="#6B46C1" stroke-width="2"/>
+  <text class="t17 b mid" x="690" y="745">PVC data-db-0</text>
+  <text class="t15 mid" x="690" y="766">local-path · 1 GiB</text>
+  <path class="flow" d="M690,778 L690,810" marker-end="url(#a-flow)"/>
+  <rect class="store" x="560" y="812" width="452" height="44" rx="8"/>
+  <text class="t15 mid" x="786" y="840">worker 磁碟<tspan class="mono" dx="6">/var/lib/rancher/k3s/storage</tspan></text>
+
+  <!-- tier names -->
+  <text class="t17 b" x="856" y="242" style="fill:#2B6CB0">Web 層</text>
+  <text class="t17 b" x="856" y="432" style="fill:#2F855A">應用層</text>
+  <text class="t17 b" x="856" y="646" style="fill:#C05621">資料庫層</text>
+
+  <!-- secret -->
+  <rect class="secret" x="860" y="472" width="142" height="96" rx="10"/>
+  <text class="t17 b mid" x="931" y="504">Secret</text>
+  <text class="t14 mid mono" x="931" y="527">db-credentials</text>
+  <text class="t14 mid" x="931" y="549">部署時隨機產生</text>
+  <path class="inject" d="M860,490 L839,466" marker-end="url(#a-inject)"/>
+  <path class="inject" d="M860,550 L839,612" marker-end="url(#a-inject)"/>
+
+  <!-- containerd -->
+  <rect class="sys" x="328" y="812" width="216" height="44" rx="8"/>
+  <text class="t15 mid" x="436" y="840">containerd（3 個 image）</text>
+
+  <!-- Server node -->
+  <rect class="node-fill" x="1066" y="80" width="504" height="790" rx="16"/>
+  <rect class="head" x="1066" y="80" width="504" height="64" rx="16"/>
+  <rect class="head" x="1066" y="120" width="504" height="24"/>
+  <rect class="node-line" x="1066" y="80" width="504" height="790" rx="16"/>
+  <text class="h1" x="1090" y="110">hw3-server</text>
+  <text class="sub" x="1090" y="134">192.168.56.10 · control-plane（k3s server）</text>
+
+  <text class="t15 muted" x="1090" y="184">K3s 控制元件</text>
+  <rect class="cp" x="1090" y="198" width="456" height="66" rx="10"/>
+  <text class="t17 b mid" x="1318" y="226">API server · port 6443</text>
+  <text class="t14 mid" x="1318" y="250">kubectl 與 worker 的 agent 都連這裡</text>
+  <rect class="cp" x="1090" y="278" width="220" height="60" rx="10"/>
+  <text class="t17 b mid" x="1200" y="303">scheduler</text>
+  <text class="t14 mid" x="1200" y="326">決定 Pod 放哪台</text>
+  <rect class="cp" x="1326" y="278" width="220" height="60" rx="10"/>
+  <text class="t17 b mid" x="1436" y="303">controller</text>
+  <text class="t14 mid" x="1436" y="326">維持期望狀態</text>
+  <path class="cp" d="M1090,362 a228,10 0 0 1 456,0 v56 a228,10 0 0 1 -456,0 z"/>
+  <path d="M1090,362 a228,10 0 0 0 456,0" fill="none" stroke="#4A5568" stroke-width="1.5"/>
+  <text class="t17 b mid" x="1318" y="396">etcd</text>
+  <text class="t14 mid" x="1318" y="418">叢集狀態（<tspan class="mono">--cluster-init</tspan>）</text>
+
+  <text class="t15 muted" x="1090" y="460">kube-system Pod</text>
+  <rect class="sys" x="1090" y="474" width="456" height="48" rx="8"/>
+  <text class="t15 mid" x="1318" y="503"><tspan class="b">CoreDNS</tspan>：把 Service 名稱解析成 IP</text>
+  <rect class="sys" x="1090" y="532" width="456" height="48" rx="8"/>
+  <text class="t15 mid" x="1318" y="561"><tspan class="b">local-path-provisioner</tspan>：替 PVC 建立目錄</text>
+  <rect class="sys" x="1090" y="590" width="456" height="48" rx="8"/>
+  <text class="t15 mid" x="1318" y="619"><tspan class="b">metrics-server</tspan>：收集資源用量</text>
+
+  <rect class="taint" x="1090" y="670" width="456" height="80" rx="10"/>
+  <text class="t17 b mid" x="1318" y="702">taint NoSchedule</text>
+  <text class="t15 mid" x="1318" y="728">App 的 Pod 不會排到這台</text>
+
+  <rect class="sys" x="1090" y="780" width="456" height="56" rx="8"/>
+  <text class="t15 mid" x="1318" y="804"><tspan class="b">systemd</tspan>：開機自動啟動 <tspan class="mono">k3s.service</tspan></text>
+  <text class="t14 mid muted" x="1318" y="826">worker 是 <tspan class="mono">k3s-agent.service</tspan>，重開機後叢集自動恢復</text>
+
+  <!-- Links that cross node borders, drawn last so the node boxes do not cover them -->
+  <path class="flow" d="M276,236 L343,236" marker-end="url(#a-flow)"/>
+  <path class="mgmt" d="M276,834 L326,834" marker-end="url(#a-mgmt)"/>
+  <path class="mgmt" d="M1030,231 L1088,231" marker-end="url(#a-mgmt)"/>
+
+  <!-- Bridge network -->
+  <path class="stub" d="M156,856 L156,888"/>
+  <text class="t14 muted" x="164" y="876">主機 .1</text>
+  <path class="stub" d="M980,870 L980,888"/>
+  <text class="t14 muted" x="988" y="884">.11</text>
+  <path class="stub" d="M1318,870 L1318,888"/>
+  <text class="t14 muted" x="1326" y="884">.10</text>
+  <rect class="bridge" x="36" y="888" width="1534" height="44" rx="22"/>
+  <text class="t15" x="60" y="916"><tspan class="b mono">nycu-cc-hw3-br</tspan><tspan dx="12">192.168.56.0/24 · Incus bridge（DHCP、NAT）</tspan></text>
+  <text class="t15 end" x="1546" y="916">flannel VXLAN · Pod 網路 10.42.0.0/16 · Service 網路 10.43.0.0/16</text>
+</svg>

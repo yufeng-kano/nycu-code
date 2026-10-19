@@ -1,0 +1,14 @@
+# Deploy with: kubectl apply -k k8s/
+# Kustomize orders the resources itself (the Namespace always first) and puts every object
+# below into the hw3 namespace, so the individual files do not repeat it.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: hw3
+labels:
+  - pairs:
+      app.kubernetes.io/part-of: hw3-names
+resources:
+  - namespace.yaml
+  - db.yaml
+  - api.yaml
+  - web.yaml

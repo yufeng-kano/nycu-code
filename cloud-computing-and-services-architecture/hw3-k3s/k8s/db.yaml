@@ -1,0 +1,85 @@
+# Database tier: PostgreSQL as a single-replica StatefulSet.
+# The assignment asks for a Deployment; a StatefulSet is used on purpose because it gives the
+# Pod a stable identity (db-0) and binds it to its own PVC (data-db-0) for its whole life.
+# Credentials come from the db-credentials Secret, which ./k3s-up.sh generates (not in git).
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  labels: {app: db}
+spec:
+  type: ClusterIP
+  selector: {app: db}
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: postgres
+---
+# Headless Service that governs the StatefulSet (gives db-0 its own DNS record).
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-headless
+  labels: {app: db}
+spec:
+  clusterIP: None
+  selector: {app: db}
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: postgres
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db
+  labels: {app: db}
+spec:
+  serviceName: db-headless
+  replicas: 1
+  selector:
+    matchLabels: {app: db}
+  template:
+    metadata:
+      labels: {app: db}
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+        - name: postgres
+          image: hw3/db:1.0
+          imagePullPolicy: Never
+          ports:
+            - name: postgres
+              containerPort: 5432
+          envFrom:
+            - secretRef:
+                name: db-credentials
+          env:
+            # A subdirectory, so initdb never trips over files the volume root may contain.
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+          readinessProbe:
+            exec:
+              command: ["sh", "-c", 'pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"']
+            periodSeconds: 5
+          livenessProbe:
+            exec:
+              command: ["sh", "-c", 'pg_isready -U "$POSTGRES_USER" -d "$POSTGRES_DB"']
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          resources:
+            requests: {cpu: 100m, memory: 128Mi}
+            limits: {memory: 512Mi}
+  # Creates PVC data-db-0 from K3s's default local-path StorageClass.
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: [ReadWriteOnce]
+        storageClassName: local-path
+        resources:
+          requests:
+            storage: 1Gi
