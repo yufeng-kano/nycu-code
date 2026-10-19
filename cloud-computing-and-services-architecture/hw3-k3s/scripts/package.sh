@@ -3,12 +3,15 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-out="HW3_315834011.zip"
-git diff --quiet HEAD -- . || { echo "uncommitted changes in $(pwd); commit first" >&2; exit 1; }
+out="$PWD/HW3_315834011.zip"
+prefix="$(git rev-parse --show-prefix)"
+git diff --quiet HEAD -- . || { echo "uncommitted changes in $PWD; commit first" >&2; exit 1; }
 
 rm -f "$out"
-git archive --format=zip --output="$out" "HEAD:$(git rev-parse --show-prefix)" -- . \
+trap 'rm -f "$out"' ERR
+# Pathspecs of `git archive HEAD:<dir>` only resolve from the repository root.
+git -C "$(git rev-parse --show-toplevel)" archive --format=zip --output="$out" "HEAD:$prefix" -- \
   ':(exclude)CLAUDE.md' ':(exclude)Homework3.pdf' ':(exclude)scripts/package.sh'
 # The assignment lists architecture.pdf at the top level of the zip.
 zip -q -j "$out" docs/architecture.pdf
-echo "built $out from commit $(git rev-parse --short HEAD)"
+echo "built $(basename "$out") from commit $(git rev-parse --short HEAD)"
