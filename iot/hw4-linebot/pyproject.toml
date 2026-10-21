@@ -1,0 +1,10 @@
+[project]
+name = "iottalk-hw4-linebot"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "flask>=3.0",
+    "line-bot-sdk>=3.0",
+    "paho-mqtt~=2.1.0",
+    "requests>=2.32",
+]

@@ -1,0 +1,8 @@
+[submodule "iot/hw4-linebot/LineBot-basic"]
+	path = iot/hw4-linebot/LineBot-basic
+	url = https://github.com/IoTtalk/LineBot-basic.git
+	ignore = untracked
+[submodule "iot/hw4-linebot/Dummy_Device_IoTtalk_v1_py"]
+	path = iot/hw4-linebot/Dummy_Device_IoTtalk_v1_py
+	url = https://github.com/IoTtalk/Dummy_Device_IoTtalk_v1_py.git
+	ignore = untracked
