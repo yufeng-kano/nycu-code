@@ -17,7 +17,7 @@ LINE ─ ngrok ─▶ SA_LineBot.py (Flask) ── Msg-I ───────�
 | `LineBot-basic/` | submodule，課程 LineBot 範本（Flask webhook、push message） |
 | `Dummy_Device_IoTtalk_v1_py/` | submodule，IoTtalk 官方 `DAI.py` / `DAN.py` / `csmapi.py` |
 | `SA_LineBot.py` | LineBot 裝置：IDF `Msg-I_315834011`、ODF `Msg-O_315834011`，同時啟動 Flask |
-| `SA_M2.py`、`sensors.py` | 氣象站，沿用 HW1 的 `M2_315834011` |
+| `SA_M2.py`、`sensors.py` | 氣象站，沿用 HW3 的 `M2_315834011` |
 | `join_function.py` | 貼到 IoTtalk GUI 的 join function |
 | `config.example.py` | 複製成 `config.py` 填入 LINE channel 資訊（已 git-ignore） |
 
@@ -73,8 +73,8 @@ PYTHONPATH=.:LineBot-basic uv run python Dummy_Device_IoTtalk_v1_py/DAI.py SA_Li
 - **為什麼不用內建的 x1 / x2**：伺服器把 join 的結果整包當成一個參數交給 ODF function，內建 `x2`（`return args[1]`）會 `IndexError`，整個 project 因此停止。自訂的 y1 / y2 改從 `args[0]` 取值
 - **回覆用 push 而非 reply**：沿用課程 `LineBot.pushLineMsg`，會推給所有傳過訊息的使用者。LINE 免費方案的 push 每月有則數上限
 - **剛啟動時沒有溫溼度**：`sensors.py` 約 20 秒後才有第一筆，這段期間會回覆 `... is not available yet.`
-- **不要同時跑 HW1 的 `SA_M2.py`**：兩份用同一個 `device_id`，會互相搶註冊
+- **不要同時跑 HW3 的 `SA_M2.py`**：兩份用同一個 `device_id`，會互相搶註冊
 
 ## HW2
 
-用 ChatGPT 完成和 HW1 相同的作業，結果對錯不計，把對話的分享連結（ChatGPT 右上角 Share → Copy link）交到 E3。
+用 ChatGPT 完成和 HW3 相同的作業，結果對錯不計，把對話的分享連結（ChatGPT 右上角 Share → Copy link）交到 E3。

@@ -10,3 +10,7 @@
 	path = iot/hw5-timer/Dummy_Device_IoTtalk_v1_py
 	url = https://github.com/IoTtalk/Dummy_Device_IoTtalk_v1_py.git
 	ignore = untracked
+[submodule "iot/hw3-m2-dummy/Dummy_Device_IoTtalk_v1_py"]
+	path = iot/hw3-m2-dummy/Dummy_Device_IoTtalk_v1_py
+	url = https://github.com/IoTtalk/Dummy_Device_IoTtalk_v1_py.git
+	ignore = untracked
