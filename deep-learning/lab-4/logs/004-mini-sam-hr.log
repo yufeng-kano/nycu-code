@@ -1,0 +1,195 @@
+Experiment: 004-mini-sam-hr
+Config: {'seed': 2026, 'img_size': 320, 'scale_range': (0.5, 2.0), 'translate': 0.2, 'rotate_deg': 10.0, 'affine_p': 0.8, 'batch_size': 16, 'num_workers': 16, 'stem_dim': 32, 'dims': (64, 128, 256, 512), 'depths': (2, 2, 6, 2), 'heads': (2, 4, 8, 16), 'windows': (8, 8, 0, 0), 'stage_types': ('attn', 'attn', 'attn', 'attn'), 'mlp_ratio': 4.0, 'layer_scale_init': 0.1, 'drop_path_rate': 0.1, 'neck_dim': 256, 'decoder_depth': 2, 'decoder_heads': 8, 'decoder_mlp_dim': 1024, 'mask_dim': 64, 'aux_weight': 0.4, 'edge_weight': 0.3, 'ce_weight': 0.5, 'dice_weight': 0.5, 'epochs': 100, 'warmup_epochs': 5, 'lr': 0.0008, 'min_lr': 1e-05, 'weight_decay': 0.05, 'grad_clip': 1.0, 'ema_decay': 0.9995, 'tta_hflip': True, 'notes': []}
+Device: NVIDIA RTX PRO 6000 Blackwell Server Edition, torch 2.11.0+cu130
+train 28280 / val 1000 images, 1767 steps per epoch
+MiniSAM params: 17.13M
+epoch 1/100 | lr 1.60e-04 | train loss 2.077 | val raw 0.1889/0.6660/0.906 ema 0.0848/0.6068/1.527 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (raw): Backgr=0.72 Hat=0.00 Hair=0.35 Glove=0.00 Sungla=0.00 Upper-=0.27 Dress=0.00 Coat=0.22 Socks=0.00 Pants=0.18 Torso-=0.09 Scarf=0.00 Skirt=0.00 Face=0.41 Left-a=0.02 Right-=0.12 Left-l=0.02 Right-=0.00 Left-s=0.00 Right-=0.00
+epoch 2/100 | lr 3.20e-04 | train loss 1.548 | val raw 0.2518/0.7259/0.746 ema 0.1460/0.6648/1.040 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (raw): Backgr=0.78 Hat=0.01 Hair=0.45 Glove=0.00 Sungla=0.00 Upper-=0.34 Dress=0.01 Coat=0.29 Socks=0.00 Pants=0.29 Torso-=0.28 Scarf=0.00 Skirt=0.00 Face=0.61 Left-a=0.21 Right-=0.02 Left-l=0.02 Right-=0.14 Left-s=0.05 Right-=0.00
+epoch 3/100 | lr 4.80e-04 | train loss 1.346 | val raw 0.2920/0.7651/0.655 ema 0.2612/0.7401/0.760 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (raw): Backgr=0.80 Hat=0.16 Hair=0.53 Glove=0.00 Sungla=0.00 Upper-=0.38 Dress=0.10 Coat=0.31 Socks=0.00 Pants=0.30 Torso-=0.39 Scarf=0.00 Skirt=0.00 Face=0.71 Left-a=0.26 Right-=0.05 Left-l=0.09 Right-=0.17 Left-s=0.10 Right-=0.06
+epoch 4/100 | lr 6.40e-04 | train loss 1.223 | val raw 0.3372/0.7919/0.603 ema 0.3257/0.7829/0.621 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (raw): Backgr=0.83 Hat=0.21 Hair=0.56 Glove=0.00 Sungla=0.04 Upper-=0.44 Dress=0.20 Coat=0.37 Socks=0.00 Pants=0.39 Torso-=0.46 Scarf=0.00 Skirt=0.00 Face=0.75 Left-a=0.27 Right-=0.27 Left-l=0.22 Right-=0.03 Left-s=0.07 Right-=0.06
+epoch 5/100 | lr 8.00e-04 | train loss 1.149 | val raw 0.3487/0.7937/0.580 ema 0.3671/0.8053/0.562 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.85 Hat=0.20 Hair=0.60 Glove=0.00 Sungla=0.06 Upper-=0.45 Dress=0.21 Coat=0.40 Socks=0.00 Pants=0.43 Torso-=0.49 Scarf=0.00 Skirt=0.00 Face=0.77 Left-a=0.28 Right-=0.34 Left-l=0.25 Right-=0.14 Left-s=0.03 Right-=0.15
+epoch 6/100 | lr 8.00e-04 | train loss 1.082 | val raw 0.3469/0.8054/0.551 ema 0.3860/0.8176/0.523 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.87 Hat=0.28 Hair=0.63 Glove=0.00 Sungla=0.15 Upper-=0.48 Dress=0.24 Coat=0.42 Socks=0.00 Pants=0.47 Torso-=0.52 Scarf=0.00 Skirt=0.00 Face=0.78 Left-a=0.34 Right-=0.39 Left-l=0.25 Right-=0.28 Left-s=0.01 Right-=0.17
+epoch 7/100 | lr 7.99e-04 | train loss 1.027 | val raw 0.3741/0.8232/0.512 ema 0.4037/0.8279/0.495 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.87 Hat=0.34 Hair=0.66 Glove=0.00 Sungla=0.20 Upper-=0.50 Dress=0.29 Coat=0.43 Socks=0.02 Pants=0.49 Torso-=0.55 Scarf=0.00 Skirt=0.00 Face=0.80 Left-a=0.39 Right-=0.41 Left-l=0.28 Right-=0.30 Left-s=0.08 Right-=0.18
+epoch 8/100 | lr 7.98e-04 | train loss 0.985 | val raw 0.4029/0.8296/0.492 ema 0.4192/0.8352/0.474 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.88 Hat=0.38 Hair=0.67 Glove=0.00 Sungla=0.26 Upper-=0.51 Dress=0.33 Coat=0.45 Socks=0.06 Pants=0.51 Torso-=0.57 Scarf=0.00 Skirt=0.01 Face=0.81 Left-a=0.41 Right-=0.43 Left-l=0.31 Right-=0.32 Left-s=0.14 Right-=0.18
+epoch 9/100 | lr 7.97e-04 | train loss 0.950 | val raw 0.4184/0.8330/0.475 ema 0.4310/0.8425/0.455 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.89 Hat=0.41 Hair=0.69 Glove=0.01 Sungla=0.30 Upper-=0.52 Dress=0.35 Coat=0.47 Socks=0.11 Pants=0.53 Torso-=0.58 Scarf=0.00 Skirt=0.05 Face=0.82 Left-a=0.43 Right-=0.45 Left-l=0.32 Right-=0.33 Left-s=0.16 Right-=0.18
+epoch 10/100 | lr 7.95e-04 | train loss 0.932 | val raw 0.4231/0.8360/0.466 ema 0.4390/0.8474/0.442 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.89 Hat=0.43 Hair=0.70 Glove=0.01 Sungla=0.31 Upper-=0.53 Dress=0.38 Coat=0.48 Socks=0.15 Pants=0.54 Torso-=0.59 Scarf=0.00 Skirt=0.11 Face=0.82 Left-a=0.44 Right-=0.46 Left-l=0.34 Right-=0.34 Left-s=0.18 Right-=0.19
+epoch 11/100 | lr 7.92e-04 | train loss 0.905 | val raw 0.4364/0.8395/0.466 ema 0.4480/0.8518/0.431 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.89 Hat=0.45 Hair=0.71 Glove=0.02 Sungla=0.32 Upper-=0.54 Dress=0.39 Coat=0.49 Socks=0.17 Pants=0.56 Torso-=0.60 Scarf=0.00 Skirt=0.13 Face=0.83 Left-a=0.46 Right-=0.47 Left-l=0.35 Right-=0.35 Left-s=0.18 Right-=0.20
+epoch 12/100 | lr 7.89e-04 | train loss 0.889 | val raw 0.4317/0.8454/0.447 ema 0.4558/0.8561/0.421 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.90 Hat=0.47 Hair=0.71 Glove=0.02 Sungla=0.34 Upper-=0.55 Dress=0.41 Coat=0.50 Socks=0.17 Pants=0.57 Torso-=0.61 Scarf=0.00 Skirt=0.13 Face=0.83 Left-a=0.47 Right-=0.49 Left-l=0.35 Right-=0.36 Left-s=0.19 Right-=0.20
+epoch 13/100 | lr 7.86e-04 | train loss 0.869 | val raw 0.4437/0.8505/0.439 ema 0.4630/0.8593/0.412 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.90 Hat=0.48 Hair=0.72 Glove=0.02 Sungla=0.34 Upper-=0.56 Dress=0.42 Coat=0.50 Socks=0.17 Pants=0.57 Torso-=0.61 Scarf=0.00 Skirt=0.15 Face=0.84 Left-a=0.48 Right-=0.50 Left-l=0.37 Right-=0.37 Left-s=0.19 Right-=0.21
+epoch 14/100 | lr 7.83e-04 | train loss 0.846 | val raw 0.4462/0.8494/0.439 ema 0.4683/0.8627/0.405 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.90 Hat=0.50 Hair=0.73 Glove=0.02 Sungla=0.34 Upper-=0.57 Dress=0.43 Coat=0.51 Socks=0.18 Pants=0.58 Torso-=0.62 Scarf=0.01 Skirt=0.16 Face=0.84 Left-a=0.49 Right-=0.51 Left-l=0.39 Right-=0.38 Left-s=0.20 Right-=0.21
+epoch 15/100 | lr 7.79e-04 | train loss 0.843 | val raw 0.4253/0.8498/0.434 ema 0.4728/0.8650/0.398 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.91 Hat=0.50 Hair=0.73 Glove=0.03 Sungla=0.34 Upper-=0.57 Dress=0.44 Coat=0.52 Socks=0.19 Pants=0.59 Torso-=0.63 Scarf=0.02 Skirt=0.17 Face=0.84 Left-a=0.50 Right-=0.52 Left-l=0.40 Right-=0.40 Left-s=0.21 Right-=0.22
+epoch 16/100 | lr 7.74e-04 | train loss 0.825 | val raw 0.4593/0.8577/0.421 ema 0.4773/0.8678/0.391 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.91 Hat=0.52 Hair=0.73 Glove=0.03 Sungla=0.35 Upper-=0.58 Dress=0.45 Coat=0.53 Socks=0.19 Pants=0.60 Torso-=0.63 Scarf=0.03 Skirt=0.17 Face=0.84 Left-a=0.51 Right-=0.53 Left-l=0.41 Right-=0.40 Left-s=0.21 Right-=0.23
+epoch 17/100 | lr 7.69e-04 | train loss 0.818 | val raw 0.4472/0.8560/0.425 ema 0.4810/0.8694/0.387 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.91 Hat=0.52 Hair=0.73 Glove=0.03 Sungla=0.35 Upper-=0.58 Dress=0.46 Coat=0.53 Socks=0.20 Pants=0.60 Torso-=0.64 Scarf=0.04 Skirt=0.21 Face=0.85 Left-a=0.51 Right-=0.53 Left-l=0.42 Right-=0.41 Left-s=0.22 Right-=0.24
+epoch 18/100 | lr 7.64e-04 | train loss 0.807 | val raw 0.4718/0.8616/0.415 ema 0.4851/0.8710/0.382 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.91 Hat=0.52 Hair=0.74 Glove=0.03 Sungla=0.36 Upper-=0.58 Dress=0.47 Coat=0.54 Socks=0.21 Pants=0.60 Torso-=0.64 Scarf=0.05 Skirt=0.21 Face=0.85 Left-a=0.52 Right-=0.54 Left-l=0.43 Right-=0.41 Left-s=0.22 Right-=0.24
+epoch 19/100 | lr 7.58e-04 | train loss 0.798 | val raw 0.4556/0.8648/0.407 ema 0.4897/0.8721/0.378 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.91 Hat=0.53 Hair=0.74 Glove=0.03 Sungla=0.36 Upper-=0.58 Dress=0.48 Coat=0.54 Socks=0.21 Pants=0.61 Torso-=0.65 Scarf=0.05 Skirt=0.22 Face=0.85 Left-a=0.53 Right-=0.54 Left-l=0.43 Right-=0.42 Left-s=0.23 Right-=0.24
+epoch 20/100 | lr 7.52e-04 | train loss 0.790 | val raw 0.4664/0.8623/0.404 ema 0.4907/0.8728/0.375 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.91 Hat=0.53 Hair=0.74 Glove=0.04 Sungla=0.36 Upper-=0.58 Dress=0.48 Coat=0.54 Socks=0.21 Pants=0.61 Torso-=0.65 Scarf=0.06 Skirt=0.22 Face=0.85 Left-a=0.53 Right-=0.55 Left-l=0.43 Right-=0.42 Left-s=0.23 Right-=0.25
+epoch 21/100 | lr 7.46e-04 | train loss 0.782 | val raw 0.4642/0.8641/0.401 ema 0.4940/0.8746/0.372 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.91 Hat=0.54 Hair=0.74 Glove=0.04 Sungla=0.36 Upper-=0.59 Dress=0.48 Coat=0.54 Socks=0.22 Pants=0.62 Torso-=0.65 Scarf=0.06 Skirt=0.25 Face=0.85 Left-a=0.54 Right-=0.55 Left-l=0.44 Right-=0.43 Left-s=0.24 Right-=0.25
+epoch 22/100 | lr 7.39e-04 | train loss 0.770 | val raw 0.4786/0.8646/0.399 ema 0.4959/0.8758/0.368 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.91 Hat=0.54 Hair=0.74 Glove=0.04 Sungla=0.37 Upper-=0.59 Dress=0.48 Coat=0.55 Socks=0.22 Pants=0.62 Torso-=0.66 Scarf=0.06 Skirt=0.27 Face=0.85 Left-a=0.54 Right-=0.56 Left-l=0.44 Right-=0.43 Left-s=0.24 Right-=0.26
+epoch 23/100 | lr 7.32e-04 | train loss 0.765 | val raw 0.4782/0.8669/0.395 ema 0.4997/0.8770/0.365 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.91 Hat=0.55 Hair=0.75 Glove=0.04 Sungla=0.38 Upper-=0.59 Dress=0.48 Coat=0.55 Socks=0.23 Pants=0.62 Torso-=0.66 Scarf=0.07 Skirt=0.27 Face=0.86 Left-a=0.54 Right-=0.56 Left-l=0.44 Right-=0.43 Left-s=0.24 Right-=0.26
+epoch 24/100 | lr 7.25e-04 | train loss 0.760 | val raw 0.4806/0.8673/0.395 ema 0.5006/0.8782/0.363 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.91 Hat=0.56 Hair=0.75 Glove=0.04 Sungla=0.37 Upper-=0.60 Dress=0.48 Coat=0.55 Socks=0.23 Pants=0.62 Torso-=0.66 Scarf=0.06 Skirt=0.24 Face=0.86 Left-a=0.55 Right-=0.57 Left-l=0.45 Right-=0.44 Left-s=0.25 Right-=0.26
+epoch 25/100 | lr 7.17e-04 | train loss 0.756 | val raw 0.4662/0.8637/0.394 ema 0.5032/0.8787/0.361 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.56 Hair=0.75 Glove=0.04 Sungla=0.37 Upper-=0.60 Dress=0.49 Coat=0.55 Socks=0.23 Pants=0.63 Torso-=0.66 Scarf=0.07 Skirt=0.24 Face=0.86 Left-a=0.55 Right-=0.57 Left-l=0.45 Right-=0.44 Left-s=0.25 Right-=0.26
+epoch 26/100 | lr 7.09e-04 | train loss 0.747 | val raw 0.4818/0.8683/0.392 ema 0.5054/0.8801/0.357 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.57 Hair=0.75 Glove=0.04 Sungla=0.37 Upper-=0.60 Dress=0.49 Coat=0.56 Socks=0.23 Pants=0.63 Torso-=0.67 Scarf=0.08 Skirt=0.28 Face=0.86 Left-a=0.56 Right-=0.58 Left-l=0.45 Right-=0.44 Left-s=0.25 Right-=0.27
+epoch 27/100 | lr 7.00e-04 | train loss 0.745 | val raw 0.4878/0.8680/0.387 ema 0.5071/0.8803/0.355 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.57 Hair=0.75 Glove=0.05 Sungla=0.38 Upper-=0.60 Dress=0.49 Coat=0.55 Socks=0.23 Pants=0.64 Torso-=0.67 Scarf=0.08 Skirt=0.28 Face=0.86 Left-a=0.56 Right-=0.58 Left-l=0.46 Right-=0.44 Left-s=0.25 Right-=0.27
+epoch 28/100 | lr 6.91e-04 | train loss 0.732 | val raw 0.4879/0.8698/0.381 ema 0.5079/0.8805/0.353 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.58 Hair=0.75 Glove=0.05 Sungla=0.39 Upper-=0.60 Dress=0.49 Coat=0.55 Socks=0.23 Pants=0.64 Torso-=0.67 Scarf=0.09 Skirt=0.28 Face=0.86 Left-a=0.56 Right-=0.58 Left-l=0.47 Right-=0.45 Left-s=0.25 Right-=0.28
+epoch 29/100 | lr 6.82e-04 | train loss 0.733 | val raw 0.4888/0.8706/0.382 ema 0.5098/0.8815/0.350 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.58 Hair=0.75 Glove=0.05 Sungla=0.38 Upper-=0.61 Dress=0.50 Coat=0.55 Socks=0.23 Pants=0.64 Torso-=0.67 Scarf=0.10 Skirt=0.26 Face=0.86 Left-a=0.57 Right-=0.58 Left-l=0.47 Right-=0.46 Left-s=0.25 Right-=0.28
+epoch 30/100 | lr 6.73e-04 | train loss 0.726 | val raw 0.4939/0.8743/0.377 ema 0.5116/0.8829/0.349 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.59 Hair=0.76 Glove=0.05 Sungla=0.39 Upper-=0.61 Dress=0.50 Coat=0.56 Socks=0.23 Pants=0.64 Torso-=0.67 Scarf=0.09 Skirt=0.28 Face=0.86 Left-a=0.57 Right-=0.58 Left-l=0.47 Right-=0.46 Left-s=0.26 Right-=0.28
+epoch 31/100 | lr 6.63e-04 | train loss 0.719 | val raw 0.4884/0.8745/0.376 ema 0.5102/0.8829/0.347 (mIoU/acc/loss) | 1.2 min
+epoch 32/100 | lr 6.53e-04 | train loss 0.715 | val raw 0.4828/0.8740/0.375 ema 0.5136/0.8838/0.346 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.58 Hair=0.76 Glove=0.06 Sungla=0.40 Upper-=0.61 Dress=0.50 Coat=0.57 Socks=0.23 Pants=0.64 Torso-=0.67 Scarf=0.09 Skirt=0.28 Face=0.86 Left-a=0.58 Right-=0.59 Left-l=0.48 Right-=0.46 Left-s=0.26 Right-=0.28
+epoch 33/100 | lr 6.42e-04 | train loss 0.711 | val raw 0.4830/0.8698/0.385 ema 0.5139/0.8843/0.345 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.58 Hair=0.76 Glove=0.05 Sungla=0.40 Upper-=0.61 Dress=0.51 Coat=0.57 Socks=0.23 Pants=0.65 Torso-=0.67 Scarf=0.10 Skirt=0.28 Face=0.86 Left-a=0.58 Right-=0.59 Left-l=0.48 Right-=0.46 Left-s=0.27 Right-=0.29
+epoch 34/100 | lr 6.32e-04 | train loss 0.707 | val raw 0.5046/0.8756/0.373 ema 0.5170/0.8850/0.343 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.59 Hair=0.76 Glove=0.06 Sungla=0.40 Upper-=0.61 Dress=0.50 Coat=0.57 Socks=0.23 Pants=0.65 Torso-=0.67 Scarf=0.10 Skirt=0.31 Face=0.86 Left-a=0.59 Right-=0.60 Left-l=0.49 Right-=0.47 Left-s=0.27 Right-=0.29
+epoch 35/100 | lr 6.21e-04 | train loss 0.705 | val raw 0.4963/0.8765/0.365 ema 0.5174/0.8852/0.341 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.60 Hair=0.76 Glove=0.07 Sungla=0.40 Upper-=0.61 Dress=0.51 Coat=0.57 Socks=0.24 Pants=0.65 Torso-=0.67 Scarf=0.11 Skirt=0.31 Face=0.86 Left-a=0.59 Right-=0.60 Left-l=0.48 Right-=0.46 Left-s=0.27 Right-=0.30
+epoch 36/100 | lr 6.10e-04 | train loss 0.699 | val raw 0.4921/0.8754/0.366 ema 0.5202/0.8860/0.339 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.60 Hair=0.76 Glove=0.09 Sungla=0.40 Upper-=0.61 Dress=0.50 Coat=0.57 Socks=0.24 Pants=0.65 Torso-=0.68 Scarf=0.11 Skirt=0.31 Face=0.86 Left-a=0.59 Right-=0.60 Left-l=0.49 Right-=0.48 Left-s=0.27 Right-=0.29
+epoch 37/100 | lr 5.99e-04 | train loss 0.695 | val raw 0.4946/0.8759/0.364 ema 0.5209/0.8864/0.338 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.60 Hair=0.76 Glove=0.09 Sungla=0.40 Upper-=0.61 Dress=0.51 Coat=0.57 Socks=0.23 Pants=0.66 Torso-=0.68 Scarf=0.10 Skirt=0.33 Face=0.86 Left-a=0.59 Right-=0.61 Left-l=0.49 Right-=0.48 Left-s=0.27 Right-=0.29
+epoch 38/100 | lr 5.87e-04 | train loss 0.690 | val raw 0.5025/0.8770/0.363 ema 0.5226/0.8867/0.336 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.61 Hair=0.76 Glove=0.10 Sungla=0.40 Upper-=0.61 Dress=0.52 Coat=0.57 Socks=0.25 Pants=0.66 Torso-=0.68 Scarf=0.13 Skirt=0.32 Face=0.86 Left-a=0.59 Right-=0.61 Left-l=0.49 Right-=0.48 Left-s=0.28 Right-=0.30
+epoch 39/100 | lr 5.76e-04 | train loss 0.688 | val raw 0.4997/0.8763/0.368 ema 0.5233/0.8867/0.335 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.61 Hair=0.76 Glove=0.11 Sungla=0.40 Upper-=0.61 Dress=0.52 Coat=0.57 Socks=0.26 Pants=0.66 Torso-=0.68 Scarf=0.12 Skirt=0.33 Face=0.86 Left-a=0.59 Right-=0.61 Left-l=0.49 Right-=0.48 Left-s=0.27 Right-=0.29
+epoch 40/100 | lr 5.64e-04 | train loss 0.677 | val raw 0.5099/0.8779/0.361 ema 0.5250/0.8872/0.334 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.61 Hair=0.76 Glove=0.11 Sungla=0.41 Upper-=0.61 Dress=0.51 Coat=0.57 Socks=0.27 Pants=0.66 Torso-=0.68 Scarf=0.14 Skirt=0.33 Face=0.86 Left-a=0.60 Right-=0.61 Left-l=0.50 Right-=0.48 Left-s=0.28 Right-=0.30
+epoch 41/100 | lr 5.52e-04 | train loss 0.674 | val raw 0.5106/0.8800/0.357 ema 0.5255/0.8877/0.333 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.61 Hair=0.77 Glove=0.12 Sungla=0.41 Upper-=0.61 Dress=0.51 Coat=0.57 Socks=0.28 Pants=0.66 Torso-=0.68 Scarf=0.16 Skirt=0.33 Face=0.86 Left-a=0.60 Right-=0.61 Left-l=0.49 Right-=0.48 Left-s=0.27 Right-=0.29
+epoch 42/100 | lr 5.39e-04 | train loss 0.671 | val raw 0.4990/0.8767/0.364 ema 0.5276/0.8882/0.332 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.61 Hair=0.77 Glove=0.12 Sungla=0.41 Upper-=0.62 Dress=0.51 Coat=0.57 Socks=0.29 Pants=0.66 Torso-=0.68 Scarf=0.17 Skirt=0.32 Face=0.87 Left-a=0.60 Right-=0.62 Left-l=0.49 Right-=0.49 Left-s=0.28 Right-=0.30
+epoch 43/100 | lr 5.27e-04 | train loss 0.667 | val raw 0.5071/0.8789/0.360 ema 0.5289/0.8891/0.331 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.61 Hair=0.77 Glove=0.12 Sungla=0.42 Upper-=0.62 Dress=0.52 Coat=0.57 Socks=0.29 Pants=0.67 Torso-=0.69 Scarf=0.17 Skirt=0.33 Face=0.87 Left-a=0.61 Right-=0.62 Left-l=0.49 Right-=0.49 Left-s=0.28 Right-=0.30
+epoch 44/100 | lr 5.15e-04 | train loss 0.660 | val raw 0.5043/0.8824/0.352 ema 0.5299/0.8895/0.330 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.61 Hair=0.77 Glove=0.12 Sungla=0.42 Upper-=0.62 Dress=0.52 Coat=0.57 Socks=0.28 Pants=0.67 Torso-=0.69 Scarf=0.16 Skirt=0.34 Face=0.87 Left-a=0.61 Right-=0.62 Left-l=0.50 Right-=0.49 Left-s=0.28 Right-=0.30
+epoch 45/100 | lr 5.02e-04 | train loss 0.657 | val raw 0.5081/0.8810/0.358 ema 0.5317/0.8900/0.329 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.61 Hair=0.77 Glove=0.13 Sungla=0.42 Upper-=0.62 Dress=0.53 Coat=0.58 Socks=0.28 Pants=0.67 Torso-=0.69 Scarf=0.17 Skirt=0.35 Face=0.87 Left-a=0.61 Right-=0.62 Left-l=0.50 Right-=0.50 Left-s=0.28 Right-=0.31
+epoch 46/100 | lr 4.89e-04 | train loss 0.654 | val raw 0.5116/0.8832/0.352 ema 0.5308/0.8902/0.329 (mIoU/acc/loss) | 1.2 min
+epoch 47/100 | lr 4.76e-04 | train loss 0.653 | val raw 0.5072/0.8788/0.362 ema 0.5319/0.8901/0.328 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.61 Hair=0.77 Glove=0.14 Sungla=0.41 Upper-=0.62 Dress=0.54 Coat=0.57 Socks=0.26 Pants=0.67 Torso-=0.69 Scarf=0.18 Skirt=0.36 Face=0.87 Left-a=0.61 Right-=0.63 Left-l=0.51 Right-=0.50 Left-s=0.28 Right-=0.30
+epoch 48/100 | lr 4.64e-04 | train loss 0.641 | val raw 0.5109/0.8799/0.354 ema 0.5319/0.8896/0.328 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.62 Hair=0.77 Glove=0.14 Sungla=0.42 Upper-=0.62 Dress=0.53 Coat=0.57 Socks=0.27 Pants=0.67 Torso-=0.69 Scarf=0.18 Skirt=0.36 Face=0.87 Left-a=0.62 Right-=0.63 Left-l=0.50 Right-=0.50 Left-s=0.28 Right-=0.30
+epoch 49/100 | lr 4.51e-04 | train loss 0.639 | val raw 0.5083/0.8821/0.351 ema 0.5327/0.8905/0.327 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.62 Hair=0.77 Glove=0.14 Sungla=0.41 Upper-=0.62 Dress=0.53 Coat=0.57 Socks=0.27 Pants=0.67 Torso-=0.69 Scarf=0.18 Skirt=0.35 Face=0.87 Left-a=0.62 Right-=0.63 Left-l=0.52 Right-=0.51 Left-s=0.29 Right-=0.31
+epoch 50/100 | lr 4.38e-04 | train loss 0.633 | val raw 0.5155/0.8822/0.348 ema 0.5346/0.8913/0.325 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.62 Hair=0.77 Glove=0.16 Sungla=0.41 Upper-=0.63 Dress=0.54 Coat=0.57 Socks=0.29 Pants=0.67 Torso-=0.69 Scarf=0.18 Skirt=0.36 Face=0.87 Left-a=0.62 Right-=0.63 Left-l=0.51 Right-=0.50 Left-s=0.29 Right-=0.31
+epoch 51/100 | lr 4.25e-04 | train loss 0.631 | val raw 0.5196/0.8845/0.346 ema 0.5350/0.8916/0.323 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.62 Hair=0.77 Glove=0.15 Sungla=0.42 Upper-=0.63 Dress=0.55 Coat=0.58 Socks=0.27 Pants=0.67 Torso-=0.69 Scarf=0.19 Skirt=0.36 Face=0.87 Left-a=0.62 Right-=0.63 Left-l=0.51 Right-=0.50 Left-s=0.29 Right-=0.31
+epoch 52/100 | lr 4.12e-04 | train loss 0.624 | val raw 0.5159/0.8847/0.343 ema 0.5356/0.8914/0.322 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.92 Hat=0.62 Hair=0.77 Glove=0.15 Sungla=0.43 Upper-=0.63 Dress=0.54 Coat=0.57 Socks=0.29 Pants=0.67 Torso-=0.69 Scarf=0.19 Skirt=0.35 Face=0.87 Left-a=0.62 Right-=0.63 Left-l=0.51 Right-=0.50 Left-s=0.29 Right-=0.31
+epoch 53/100 | lr 3.98e-04 | train loss 0.619 | val raw 0.5253/0.8832/0.348 ema 0.5356/0.8919/0.322 (mIoU/acc/loss) | 1.2 min
+epoch 54/100 | lr 3.85e-04 | train loss 0.616 | val raw 0.5232/0.8845/0.344 ema 0.5369/0.8923/0.323 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.62 Hair=0.77 Glove=0.16 Sungla=0.42 Upper-=0.63 Dress=0.54 Coat=0.58 Socks=0.27 Pants=0.68 Torso-=0.69 Scarf=0.20 Skirt=0.37 Face=0.87 Left-a=0.62 Right-=0.63 Left-l=0.52 Right-=0.52 Left-s=0.30 Right-=0.32
+epoch 55/100 | lr 3.72e-04 | train loss 0.610 | val raw 0.5127/0.8826/0.346 ema 0.5376/0.8925/0.324 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.62 Hair=0.77 Glove=0.18 Sungla=0.42 Upper-=0.63 Dress=0.53 Coat=0.58 Socks=0.29 Pants=0.68 Torso-=0.69 Scarf=0.22 Skirt=0.37 Face=0.87 Left-a=0.62 Right-=0.63 Left-l=0.52 Right-=0.52 Left-s=0.30 Right-=0.32
+epoch 56/100 | lr 3.59e-04 | train loss 0.606 | val raw 0.5160/0.8833/0.345 ema 0.5395/0.8933/0.323 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.77 Glove=0.20 Sungla=0.43 Upper-=0.63 Dress=0.54 Coat=0.58 Socks=0.30 Pants=0.68 Torso-=0.69 Scarf=0.22 Skirt=0.37 Face=0.87 Left-a=0.62 Right-=0.63 Left-l=0.52 Right-=0.52 Left-s=0.30 Right-=0.32
+epoch 57/100 | lr 3.46e-04 | train loss 0.601 | val raw 0.5286/0.8883/0.338 ema 0.5395/0.8935/0.323 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.77 Glove=0.22 Sungla=0.43 Upper-=0.63 Dress=0.53 Coat=0.58 Socks=0.29 Pants=0.68 Torso-=0.69 Scarf=0.23 Skirt=0.36 Face=0.87 Left-a=0.63 Right-=0.63 Left-l=0.52 Right-=0.52 Left-s=0.30 Right-=0.32
+epoch 58/100 | lr 3.34e-04 | train loss 0.593 | val raw 0.5153/0.8866/0.343 ema 0.5404/0.8943/0.322 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.78 Glove=0.22 Sungla=0.43 Upper-=0.63 Dress=0.54 Coat=0.58 Socks=0.28 Pants=0.68 Torso-=0.69 Scarf=0.21 Skirt=0.36 Face=0.87 Left-a=0.63 Right-=0.63 Left-l=0.53 Right-=0.53 Left-s=0.30 Right-=0.32
+epoch 59/100 | lr 3.21e-04 | train loss 0.592 | val raw 0.5277/0.8884/0.338 ema 0.5411/0.8945/0.321 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.77 Glove=0.22 Sungla=0.43 Upper-=0.63 Dress=0.54 Coat=0.58 Socks=0.27 Pants=0.68 Torso-=0.69 Scarf=0.23 Skirt=0.37 Face=0.87 Left-a=0.63 Right-=0.64 Left-l=0.54 Right-=0.53 Left-s=0.30 Right-=0.31
+epoch 60/100 | lr 3.08e-04 | train loss 0.586 | val raw 0.5180/0.8872/0.341 ema 0.5419/0.8946/0.322 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.62 Hair=0.77 Glove=0.23 Sungla=0.44 Upper-=0.63 Dress=0.54 Coat=0.58 Socks=0.27 Pants=0.68 Torso-=0.69 Scarf=0.23 Skirt=0.38 Face=0.87 Left-a=0.63 Right-=0.64 Left-l=0.53 Right-=0.51 Left-s=0.30 Right-=0.32
+epoch 61/100 | lr 2.95e-04 | train loss 0.582 | val raw 0.5301/0.8885/0.339 ema 0.5424/0.8951/0.321 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.62 Hair=0.78 Glove=0.22 Sungla=0.44 Upper-=0.63 Dress=0.54 Coat=0.59 Socks=0.26 Pants=0.68 Torso-=0.69 Scarf=0.23 Skirt=0.38 Face=0.87 Left-a=0.63 Right-=0.64 Left-l=0.53 Right-=0.52 Left-s=0.30 Right-=0.32
+epoch 62/100 | lr 2.83e-04 | train loss 0.573 | val raw 0.5255/0.8899/0.337 ema 0.5426/0.8949/0.321 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.62 Hair=0.78 Glove=0.24 Sungla=0.44 Upper-=0.63 Dress=0.54 Coat=0.59 Socks=0.28 Pants=0.68 Torso-=0.69 Scarf=0.24 Skirt=0.38 Face=0.87 Left-a=0.63 Right-=0.64 Left-l=0.54 Right-=0.53 Left-s=0.30 Right-=0.32
+epoch 63/100 | lr 2.71e-04 | train loss 0.571 | val raw 0.5232/0.8880/0.340 ema 0.5430/0.8953/0.321 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.62 Hair=0.78 Glove=0.25 Sungla=0.43 Upper-=0.63 Dress=0.53 Coat=0.59 Socks=0.30 Pants=0.69 Torso-=0.70 Scarf=0.24 Skirt=0.39 Face=0.87 Left-a=0.63 Right-=0.64 Left-l=0.54 Right-=0.54 Left-s=0.30 Right-=0.32
+epoch 64/100 | lr 2.58e-04 | train loss 0.564 | val raw 0.5245/0.8900/0.335 ema 0.5443/0.8959/0.320 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.78 Glove=0.25 Sungla=0.44 Upper-=0.63 Dress=0.52 Coat=0.60 Socks=0.32 Pants=0.68 Torso-=0.70 Scarf=0.24 Skirt=0.38 Face=0.87 Left-a=0.63 Right-=0.64 Left-l=0.55 Right-=0.55 Left-s=0.30 Right-=0.32
+epoch 65/100 | lr 2.46e-04 | train loss 0.558 | val raw 0.5406/0.8908/0.343 ema 0.5443/0.8962/0.320 (mIoU/acc/loss) | 1.2 min
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.78 Glove=0.25 Sungla=0.44 Upper-=0.64 Dress=0.53 Coat=0.60 Socks=0.32 Pants=0.68 Torso-=0.70 Scarf=0.24 Skirt=0.39 Face=0.87 Left-a=0.63 Right-=0.64 Left-l=0.55 Right-=0.53 Left-s=0.30 Right-=0.33
+epoch 66/100 | lr 2.34e-04 | train loss 0.554 | val raw 0.5343/0.8898/0.338 ema 0.5443/0.8952/0.320 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.78 Glove=0.25 Sungla=0.44 Upper-=0.63 Dress=0.52 Coat=0.59 Socks=0.31 Pants=0.68 Torso-=0.70 Scarf=0.23 Skirt=0.39 Face=0.87 Left-a=0.64 Right-=0.65 Left-l=0.55 Right-=0.53 Left-s=0.30 Right-=0.33
+epoch 67/100 | lr 2.23e-04 | train loss 0.549 | val raw 0.5337/0.8896/0.337 ema 0.5446/0.8957/0.321 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.78 Glove=0.26 Sungla=0.44 Upper-=0.63 Dress=0.52 Coat=0.59 Socks=0.29 Pants=0.69 Torso-=0.70 Scarf=0.22 Skirt=0.39 Face=0.87 Left-a=0.64 Right-=0.65 Left-l=0.54 Right-=0.53 Left-s=0.31 Right-=0.33
+epoch 68/100 | lr 2.11e-04 | train loss 0.543 | val raw 0.5336/0.8890/0.335 ema 0.5443/0.8952/0.322 (mIoU/acc/loss) | 1.2 min
+epoch 69/100 | lr 2.00e-04 | train loss 0.537 | val raw 0.5332/0.8918/0.335 ema 0.5456/0.8956/0.323 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.78 Glove=0.27 Sungla=0.44 Upper-=0.63 Dress=0.52 Coat=0.59 Socks=0.27 Pants=0.69 Torso-=0.70 Scarf=0.24 Skirt=0.40 Face=0.87 Left-a=0.64 Right-=0.65 Left-l=0.52 Right-=0.52 Left-s=0.32 Right-=0.33
+epoch 70/100 | lr 1.89e-04 | train loss 0.534 | val raw 0.5316/0.8876/0.351 ema 0.5465/0.8956/0.324 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.78 Glove=0.27 Sungla=0.44 Upper-=0.63 Dress=0.52 Coat=0.59 Socks=0.26 Pants=0.69 Torso-=0.70 Scarf=0.26 Skirt=0.40 Face=0.87 Left-a=0.64 Right-=0.65 Left-l=0.52 Right-=0.52 Left-s=0.32 Right-=0.33
+epoch 71/100 | lr 1.78e-04 | train loss 0.529 | val raw 0.5465/0.8922/0.335 ema 0.5464/0.8952/0.326 (mIoU/acc/loss) | 1.2 min
+epoch 72/100 | lr 1.68e-04 | train loss 0.522 | val raw 0.5357/0.8923/0.335 ema 0.5468/0.8952/0.327 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.78 Glove=0.26 Sungla=0.44 Upper-=0.63 Dress=0.53 Coat=0.58 Socks=0.28 Pants=0.69 Torso-=0.70 Scarf=0.29 Skirt=0.37 Face=0.87 Left-a=0.64 Right-=0.65 Left-l=0.52 Right-=0.53 Left-s=0.32 Right-=0.34
+epoch 73/100 | lr 1.57e-04 | train loss 0.517 | val raw 0.5346/0.8924/0.335 ema 0.5484/0.8965/0.327 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.78 Glove=0.26 Sungla=0.44 Upper-=0.63 Dress=0.53 Coat=0.59 Socks=0.26 Pants=0.69 Torso-=0.70 Scarf=0.28 Skirt=0.39 Face=0.87 Left-a=0.64 Right-=0.65 Left-l=0.52 Right-=0.52 Left-s=0.33 Right-=0.34
+epoch 74/100 | lr 1.47e-04 | train loss 0.510 | val raw 0.5400/0.8910/0.339 ema 0.5484/0.8966/0.327 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.78 Glove=0.25 Sungla=0.44 Upper-=0.63 Dress=0.52 Coat=0.59 Socks=0.27 Pants=0.69 Torso-=0.70 Scarf=0.29 Skirt=0.38 Face=0.87 Left-a=0.64 Right-=0.65 Left-l=0.53 Right-=0.53 Left-s=0.33 Right-=0.34
+epoch 75/100 | lr 1.37e-04 | train loss 0.510 | val raw 0.5400/0.8940/0.336 ema 0.5493/0.8973/0.326 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.63 Hair=0.78 Glove=0.25 Sungla=0.44 Upper-=0.64 Dress=0.52 Coat=0.60 Socks=0.27 Pants=0.69 Torso-=0.70 Scarf=0.28 Skirt=0.39 Face=0.87 Left-a=0.64 Right-=0.66 Left-l=0.53 Right-=0.52 Left-s=0.33 Right-=0.34
+epoch 76/100 | lr 1.28e-04 | train loss 0.502 | val raw 0.5448/0.8941/0.341 ema 0.5502/0.8970/0.327 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.78 Glove=0.25 Sungla=0.44 Upper-=0.63 Dress=0.52 Coat=0.59 Socks=0.27 Pants=0.69 Torso-=0.70 Scarf=0.28 Skirt=0.40 Face=0.87 Left-a=0.65 Right-=0.66 Left-l=0.52 Right-=0.53 Left-s=0.33 Right-=0.34
+epoch 77/100 | lr 1.19e-04 | train loss 0.497 | val raw 0.5410/0.8943/0.338 ema 0.5492/0.8963/0.328 (mIoU/acc/loss) | 1.2 min
+epoch 78/100 | lr 1.10e-04 | train loss 0.496 | val raw 0.5373/0.8921/0.342 ema 0.5509/0.8961/0.330 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.78 Glove=0.26 Sungla=0.44 Upper-=0.63 Dress=0.50 Coat=0.59 Socks=0.27 Pants=0.69 Torso-=0.70 Scarf=0.27 Skirt=0.39 Face=0.87 Left-a=0.65 Right-=0.66 Left-l=0.53 Right-=0.53 Left-s=0.33 Right-=0.35
+epoch 79/100 | lr 1.01e-04 | train loss 0.491 | val raw 0.5408/0.8936/0.346 ema 0.5498/0.8961/0.331 (mIoU/acc/loss) | 1.2 min
+epoch 80/100 | lr 9.33e-05 | train loss 0.484 | val raw 0.5431/0.8932/0.339 ema 0.5512/0.8965/0.333 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.78 Glove=0.25 Sungla=0.44 Upper-=0.63 Dress=0.51 Coat=0.59 Socks=0.26 Pants=0.69 Torso-=0.70 Scarf=0.29 Skirt=0.39 Face=0.87 Left-a=0.65 Right-=0.66 Left-l=0.52 Right-=0.53 Left-s=0.34 Right-=0.35
+epoch 81/100 | lr 8.54e-05 | train loss 0.480 | val raw 0.5477/0.8946/0.339 ema 0.5510/0.8965/0.334 (mIoU/acc/loss) | 1.2 min
+epoch 82/100 | lr 7.79e-05 | train loss 0.478 | val raw 0.5468/0.8953/0.341 ema 0.5521/0.8968/0.334 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.78 Glove=0.26 Sungla=0.43 Upper-=0.63 Dress=0.53 Coat=0.59 Socks=0.26 Pants=0.69 Torso-=0.70 Scarf=0.29 Skirt=0.39 Face=0.87 Left-a=0.65 Right-=0.66 Left-l=0.53 Right-=0.53 Left-s=0.34 Right-=0.35
+epoch 83/100 | lr 7.08e-05 | train loss 0.475 | val raw 0.5490/0.8956/0.341 ema 0.5507/0.8968/0.336 (mIoU/acc/loss) | 1.2 min
+epoch 84/100 | lr 6.40e-05 | train loss 0.469 | val raw 0.5445/0.8943/0.346 ema 0.5516/0.8968/0.338 (mIoU/acc/loss) | 1.2 min
+epoch 85/100 | lr 5.76e-05 | train loss 0.467 | val raw 0.5481/0.8941/0.346 ema 0.5520/0.8965/0.339 (mIoU/acc/loss) | 1.2 min
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.78 Glove=0.27 Sungla=0.43 Upper-=0.63 Dress=0.51 Coat=0.59 Socks=0.26 Pants=0.69 Torso-=0.70 Scarf=0.29 Skirt=0.40 Face=0.87 Left-a=0.65 Right-=0.66 Left-l=0.52 Right-=0.53 Left-s=0.34 Right-=0.35
+epoch 86/100 | lr 5.16e-05 | train loss 0.463 | val raw 0.5434/0.8941/0.346 ema 0.5522/0.8963/0.341 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.79 Glove=0.27 Sungla=0.43 Upper-=0.63 Dress=0.51 Coat=0.59 Socks=0.26 Pants=0.69 Torso-=0.70 Scarf=0.29 Skirt=0.40 Face=0.87 Left-a=0.65 Right-=0.65 Left-l=0.52 Right-=0.54 Left-s=0.34 Right-=0.35
+epoch 87/100 | lr 4.59e-05 | train loss 0.459 | val raw 0.5518/0.8956/0.345 ema 0.5528/0.8965/0.343 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.78 Glove=0.26 Sungla=0.43 Upper-=0.63 Dress=0.51 Coat=0.59 Socks=0.24 Pants=0.69 Torso-=0.70 Scarf=0.29 Skirt=0.41 Face=0.87 Left-a=0.65 Right-=0.65 Left-l=0.52 Right-=0.54 Left-s=0.34 Right-=0.35
+epoch 88/100 | lr 4.07e-05 | train loss 0.457 | val raw 0.5485/0.8956/0.345 ema 0.5522/0.8965/0.343 (mIoU/acc/loss) | 1.2 min
+epoch 89/100 | lr 3.58e-05 | train loss 0.452 | val raw 0.5490/0.8960/0.349 ema 0.5526/0.8961/0.345 (mIoU/acc/loss) | 1.2 min
+epoch 90/100 | lr 3.14e-05 | train loss 0.451 | val raw 0.5486/0.8962/0.347 ema 0.5530/0.8965/0.346 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.78 Glove=0.25 Sungla=0.44 Upper-=0.63 Dress=0.51 Coat=0.59 Socks=0.24 Pants=0.70 Torso-=0.70 Scarf=0.29 Skirt=0.42 Face=0.87 Left-a=0.65 Right-=0.66 Left-l=0.53 Right-=0.54 Left-s=0.33 Right-=0.35
+epoch 91/100 | lr 2.74e-05 | train loss 0.449 | val raw 0.5536/0.8964/0.346 ema 0.5534/0.8969/0.345 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (raw): Backgr=0.93 Hat=0.64 Hair=0.79 Glove=0.23 Sungla=0.44 Upper-=0.62 Dress=0.51 Coat=0.59 Socks=0.22 Pants=0.69 Torso-=0.70 Scarf=0.28 Skirt=0.41 Face=0.87 Left-a=0.65 Right-=0.66 Left-l=0.52 Right-=0.53 Left-s=0.34 Right-=0.35
+epoch 92/100 | lr 2.37e-05 | train loss 0.447 | val raw 0.5547/0.8965/0.350 ema 0.5543/0.8970/0.347 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (raw): Backgr=0.93 Hat=0.65 Hair=0.78 Glove=0.25 Sungla=0.45 Upper-=0.63 Dress=0.50 Coat=0.59 Socks=0.25 Pants=0.69 Torso-=0.70 Scarf=0.28 Skirt=0.40 Face=0.87 Left-a=0.65 Right-=0.66 Left-l=0.52 Right-=0.53 Left-s=0.33 Right-=0.35
+epoch 93/100 | lr 2.05e-05 | train loss 0.444 | val raw 0.5548/0.8965/0.348 ema 0.5537/0.8969/0.347 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (raw): Backgr=0.93 Hat=0.64 Hair=0.79 Glove=0.26 Sungla=0.44 Upper-=0.62 Dress=0.50 Coat=0.59 Socks=0.25 Pants=0.70 Torso-=0.70 Scarf=0.29 Skirt=0.38 Face=0.87 Left-a=0.65 Right-=0.66 Left-l=0.53 Right-=0.54 Left-s=0.33 Right-=0.35
+epoch 94/100 | lr 1.78e-05 | train loss 0.444 | val raw 0.5515/0.8961/0.350 ema 0.5544/0.8968/0.349 (mIoU/acc/loss) | 1.2 min
+epoch 95/100 | lr 1.54e-05 | train loss 0.442 | val raw 0.5541/0.8969/0.349 ema 0.5547/0.8971/0.349 (mIoU/acc/loss) | 1.2 min
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.79 Glove=0.26 Sungla=0.43 Upper-=0.63 Dress=0.50 Coat=0.59 Socks=0.23 Pants=0.70 Torso-=0.70 Scarf=0.29 Skirt=0.40 Face=0.87 Left-a=0.65 Right-=0.66 Left-l=0.53 Right-=0.53 Left-s=0.34 Right-=0.35
+epoch 96/100 | lr 1.35e-05 | train loss 0.440 | val raw 0.5532/0.8966/0.351 ema 0.5539/0.8971/0.350 (mIoU/acc/loss) | 1.2 min
+epoch 97/100 | lr 1.19e-05 | train loss 0.440 | val raw 0.5520/0.8968/0.354 ema 0.5538/0.8971/0.350 (mIoU/acc/loss) | 1.2 min
+epoch 98/100 | lr 1.09e-05 | train loss 0.439 | val raw 0.5560/0.8970/0.351 ema 0.5543/0.8972/0.351 (mIoU/acc/loss) | 1.2 min *
+  per-class IoU (raw): Backgr=0.93 Hat=0.64 Hair=0.79 Glove=0.26 Sungla=0.45 Upper-=0.62 Dress=0.51 Coat=0.59 Socks=0.23 Pants=0.70 Torso-=0.70 Scarf=0.29 Skirt=0.39 Face=0.87 Left-a=0.65 Right-=0.66 Left-l=0.53 Right-=0.54 Left-s=0.34 Right-=0.35
+epoch 99/100 | lr 1.02e-05 | train loss 0.439 | val raw 0.5531/0.8975/0.348 ema 0.5537/0.8972/0.351 (mIoU/acc/loss) | 1.2 min
+epoch 100/100 | lr 1.00e-05 | train loss 0.437 | val raw 0.5537/0.8966/0.353 ema 0.5539/0.8972/0.352 (mIoU/acc/loss) | 1.2 min
+  per-class IoU (ema): Backgr=0.93 Hat=0.64 Hair=0.79 Glove=0.26 Sungla=0.44 Upper-=0.63 Dress=0.50 Coat=0.59 Socks=0.23 Pants=0.70 Torso-=0.70 Scarf=0.29 Skirt=0.40 Face=0.88 Left-a=0.65 Right-=0.66 Left-l=0.53 Right-=0.54 Left-s=0.34 Right-=0.36
+Best val mIoU: 0.5560 (raw)
+Val mIoU with hflip TTA: 0.5689 (acc 0.8990); without: 0.5560
+Current best: 0.5811 -> new record: False
+Saved 004-mini-sam-hr.csv (3961 rows) and 004-mini-sam-hr.pt
+RESULT 004-mini-sam-hr val=0.5689 best_epoch_val=0.5560 tta=True
+Elapsed: 121.3 min

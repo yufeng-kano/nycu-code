@@ -1,0 +1,20 @@
+Experiment: 001-mini-sam
+Config: {'seed': 2026, 'img_size': 320, 'scale_range': (0.5, 2.0), 'translate': 0.2, 'rotate_deg': 10.0, 'affine_p': 0.8, 'batch_size': 16, 'num_workers': 8, 'stem_dim': 32, 'dims': (64, 128, 256, 512), 'depths': (2, 2, 6, 2), 'heads': (2, 4, 8, 16), 'windows': (8, 8, 0, 0), 'stage_types': ('attn', 'attn', 'attn', 'attn'), 'mlp_ratio': 4.0, 'layer_scale_init': 0.1, 'drop_path_rate': 0.1, 'neck_dim': 256, 'decoder_depth': 2, 'decoder_heads': 8, 'decoder_mlp_dim': 1024, 'mask_dim': 64, 'aux_weight': 0.4, 'ce_weight': 0.5, 'dice_weight': 0.5, 'epochs': 40, 'warmup_epochs': 3, 'lr': 0.0008, 'min_lr': 1e-05, 'weight_decay': 0.05, 'grad_clip': 1.0, 'ema_decay': 0.9995, 'tta_hflip': True, 'notes': []}
+Device: NVIDIA GeForce RTX 3090 Ti, torch 2.9.1+cu126
+train 28280 / val 1000 images, 1767 steps per epoch
+MiniSAM params: 17.13M
+epoch 1/40 | lr 2.67e-04 | train loss 1.739 | val raw 0.2166/0.6887/0.904 ema 0.0941/0.6103/1.445 (mIoU/acc/loss) | 4.2 min *
+  per-class IoU (raw): Backgr=0.73 Hat=0.00 Hair=0.37 Glove=0.00 Sungla=0.00 Upper-=0.29 Dress=0.00 Coat=0.20 Socks=0.00 Pants=0.21 Torso-=0.20 Scarf=0.00 Skirt=0.00 Face=0.45 Left-a=0.16 Right-=0.08 Left-l=0.11 Right-=0.00 Left-s=0.00 Right-=0.00
+epoch 2/40 | lr 5.33e-04 | train loss 1.350 | val raw 0.2509/0.7317/0.789 ema 0.1745/0.6840/1.017 (mIoU/acc/loss) | 4.6 min *
+  per-class IoU (raw): Backgr=0.78 Hat=0.13 Hair=0.46 Glove=0.00 Sungla=0.07 Upper-=0.26 Dress=0.15 Coat=0.31 Socks=0.00 Pants=0.30 Torso-=0.29 Scarf=0.00 Skirt=0.00 Face=0.61 Left-a=0.19 Right-=0.21 Left-l=0.12 Right-=0.17 Left-s=0.09 Right-=0.03
+epoch 3/40 | lr 8.00e-04 | train loss 1.200 | val raw 0.2844/0.7592/0.731 ema 0.2782/0.7487/0.777 (mIoU/acc/loss) | 4.6 min *
+  per-class IoU (raw): Backgr=0.81 Hat=0.23 Hair=0.47 Glove=0.00 Sungla=0.14 Upper-=0.38 Dress=0.17 Coat=0.33 Socks=0.01 Pants=0.35 Torso-=0.37 Scarf=0.00 Skirt=0.00 Face=0.68 Left-a=0.24 Right-=0.28 Left-l=0.18 Right-=0.19 Left-s=0.07 Right-=0.09
+epoch 4/40 | lr 7.99e-04 | train loss 1.105 | val raw 0.3327/0.7864/0.661 ema 0.3357/0.7873/0.672 (mIoU/acc/loss) | 4.1 min *
+  per-class IoU (ema): Backgr=0.83 Hat=0.18 Hair=0.56 Glove=0.00 Sungla=0.15 Upper-=0.41 Dress=0.18 Coat=0.37 Socks=0.01 Pants=0.38 Torso-=0.43 Scarf=0.00 Skirt=0.00 Face=0.72 Left-a=0.29 Right-=0.30 Left-l=0.23 Right-=0.21 Left-s=0.13 Right-=0.12
+epoch 5/40 | lr 7.94e-04 | train loss 1.021 | val raw 0.3308/0.7914/0.647 ema 0.3671/0.8044/0.620 (mIoU/acc/loss) | 4.6 min *
+  per-class IoU (ema): Backgr=0.85 Hat=0.27 Hair=0.60 Glove=0.00 Sungla=0.20 Upper-=0.44 Dress=0.23 Coat=0.41 Socks=0.06 Pants=0.43 Torso-=0.48 Scarf=0.00 Skirt=0.01 Face=0.76 Left-a=0.34 Right-=0.34 Left-l=0.26 Right-=0.25 Left-s=0.14 Right-=0.15
+epoch 6/40 | lr 7.87e-04 | train loss 0.975 | val raw 0.3707/0.8128/0.603 ema 0.3877/0.8160/0.589 (mIoU/acc/loss) | 4.6 min *
+  per-class IoU (ema): Backgr=0.86 Hat=0.34 Hair=0.63 Glove=0.01 Sungla=0.26 Upper-=0.47 Dress=0.27 Coat=0.43 Socks=0.10 Pants=0.46 Torso-=0.51 Scarf=0.00 Skirt=0.03 Face=0.78 Left-a=0.37 Right-=0.37 Left-l=0.27 Right-=0.28 Left-s=0.15 Right-=0.16
+epoch 7/40 | lr 7.77e-04 | train loss 0.930 | val raw 0.3623/0.8146/0.592 ema 0.4031/0.8242/0.565 (mIoU/acc/loss) | 4.3 min *
+  per-class IoU (ema): Backgr=0.87 Hat=0.38 Hair=0.65 Glove=0.02 Sungla=0.30 Upper-=0.48 Dress=0.30 Coat=0.44 Socks=0.13 Pants=0.48 Torso-=0.53 Scarf=0.00 Skirt=0.06 Face=0.79 Left-a=0.39 Right-=0.41 Left-l=0.29 Right-=0.30 Left-s=0.15 Right-=0.17
+# stopped by user at 15:22 after epoch 7 (moved to Colab G4 as 002)

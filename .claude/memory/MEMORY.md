@@ -16,3 +16,6 @@
 - [CCSA HW3 K3s](ccsa-hw3-k3s.md) — HW3 status and decisions live in hw3-k3s/CLAUDE.md; read it first
 - [DS HW2 ATP](ds-hw2-atp.md) — DS HW2 status and decisions live in hw2/CLAUDE.md; read it first
 - [Production practice](production-practice.md) — prefer production-grade setups over the assignment's letter; always list remaining deviations
+- [DL lab project layout](dl-lab-project-layout.md) — mirror lab-3 folder layout (scripts/logs/result/checkpoints/report, NNN-name runs, data folder gitignored)
+- [DL Lab 4 CIHP](dl-lab4-cihp.md) — Lab 4 status and decisions live in lab-4/CLAUDE.md; read it first
+- [DL Lab 4 iteration loop](dl-lab4-iteration-loop.md) — keep iterating on Colab until told to stop; cost-effective changes; search papers when stuck; no manual log syncing
