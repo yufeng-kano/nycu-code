@@ -13,3 +13,5 @@ In `/jupyter/nycu-code` (remote `yufeng-kano/nycu-code`, **public**):
 **Why:** user said (2026-10-13) "memory 要進入 git ... pdf 也要記住權重不用".
 
 **How to apply:** when committing, include memory changes and report PDFs, check `git status` for stray weights. The repo is public; on 2026-10-13 I flagged that pushing Lab 3 before its 10/18 deadline publishes the solution, and the user chose to push publicly anyway. Don't re-ask for routine pushes; only flag genuinely new risks (secrets, credentials, large files). Related: [[report-writing-workflow]].
+
+**Push auth:** git uses `gh auth git-credential` (in `/root/.gitconfig`). The `gh` binary vanishes on container restart while the login in `~/.config/gh/hosts.yml` survives, so if push fails with "gh: not found", run `apt-get install -y gh`. The remote also gets commits from another machine (IoT work), so `git pull --rebase` before pushing.
