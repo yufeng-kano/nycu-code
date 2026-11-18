@@ -1,0 +1,28 @@
+launching 011 at Sat Nov  7 09:57:01 AM UTC 2026
+2026-11-07 15:38:56 011 done, running predict
+2026-11-07 15:59:41 predict exit 0, running notebook smoke
+2026-11-07 16:00:33 smoke exit 0
+2026-11-08 02:06:18 chain: predict 012 @1024 TTA + csv
+2026-11-08 02:33:02 predict exit 0; sweeps
+2026-11-08 02:50:39 sweeps done; ensembles
+2026-11-08 03:39:27 ensembles done; launching 013
+2026-11-08 08:39:32 chain 014: waiting for 013 (pid 146575)
+2026-11-08 09:11:27 chain 014 (no ensembles, user rule): waiting for 013 (pid 146575)
+2026-11-08 10:09:27 013 exited; predict 013 @896 TTA + csv
+2026-11-08 10:34:31 launching 014 with batch 6
+2026-11-08 18:33:35 chain 015: predict 014 (best ep20) @896 TTA, val only
+2026-11-08 18:45:32 predict exit 0; launching 015
+2026-11-08 23:13:32 chain 016: waiting for 015 (pid 178735)
+2026-11-09 01:14:32 015 exited; predict 015 @896 TTA + csv
+2026-11-09 01:38:50 predict exit 0; launching scripts/train/016-copy-paste-1.py
+2026-11-09 04:49:51 chain 017: waiting for 016 (pid 187571)
+2026-11-09 04:52:20 chain 017: waiting for 016 (pid 187571)
+2026-11-09 08:08:20 016 exited; predict 016 @896 TTA + csv
+2026-11-09 08:32:39 predict exit 0; notebook smoke (015 recipe, train_on_val)
+2026-11-09 08:37:32 smoke exit 0
+2026-11-09 08:37:32 launching scripts/train/017-30ep.py
+2026-11-09 12:44:15 chain 018: waiting for 017 (pid 199030)
+2026-11-09 13:34:15 017 exited; predict 017 @896 TTA, val only
+2026-11-09 13:42:04 predict exit 0
+2026-11-09 13:42:04 launching scripts/train/018-layer-decay.py
+2026-11-09 14:26:25 018 stopped by hand at the user's request (iteration ended)

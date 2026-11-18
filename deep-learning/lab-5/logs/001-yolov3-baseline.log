@@ -1,0 +1,286 @@
+[001-yolov3-baseline] config: {"seed": 2026, "image_size": 416, "batch_size": 16, "num_workers": 8, "epochs": 50, "lr": 0.0001, "min_lr": 1e-06, "weight_decay": 0.0005, "eval_interval": 5, "eval_conf_thres": 0.01, "nms_thres": 0.4, "lambda_coord": 5.0, "lambda_obj": 1.0, "lambda_noobj": 0.5, "lambda_class": 1.0, "box_loss_type": "giou", "model_name": "darknet53.c2ns_in1k"}
+train 10,193 images | val 3,397 images
+params 61.63M | backbone darknet53.c2ns_in1k
+epoch 1/50 | train loss 4.4996 | val loss 3.6963 | lr 1.00e-04 | 1.6 min
+epoch 2/50 | train loss 3.3891 | val loss 3.1871 | lr 9.99e-05 | 1.3 min
+epoch 3/50 | train loss 2.9437 | val loss 3.0043 | lr 9.96e-05 | 1.3 min
+epoch 4/50 | train loss 2.6687 | val loss 2.9366 | lr 9.91e-05 | 1.3 min
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.43s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=5.72s).
+Accumulating evaluation results...
+DONE (t=1.60s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.052
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.165
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.017
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.016
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.058
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.090
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.087
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.156
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.175
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.064
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.185
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.279
+epoch 5/50 | train loss 2.4445 | val loss 2.8042 | lr 9.84e-05 | 1.3 min | AP 0.0516 | AP50 0.1654 | AP75 0.0172 | APs 0.0159 | APm 0.0578 | APl 0.0898 *
+epoch 6/50 | train loss 2.2767 | val loss 2.7757 | lr 9.76e-05 | 1.5 min
+epoch 7/50 | train loss 2.1412 | val loss 2.6948 | lr 9.65e-05 | 1.7 min
+epoch 8/50 | train loss 2.0224 | val loss 2.6899 | lr 9.53e-05 | 2.1 min
+epoch 9/50 | train loss 1.8874 | val loss 2.6903 | lr 9.39e-05 | 2.1 min
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.45s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=6.35s).
+Accumulating evaluation results...
+DONE (t=1.85s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.076
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.209
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.039
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.024
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.091
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.128
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.118
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.202
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.220
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.094
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.248
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.336
+epoch 10/50 | train loss 1.7979 | val loss 2.6904 | lr 9.23e-05 | 1.4 min | AP 0.0761 | AP50 0.2089 | AP75 0.0385 | APs 0.0239 | APm 0.0915 | APl 0.1284 *
+epoch 11/50 | train loss 1.7234 | val loss 2.6622 | lr 9.05e-05 | 2.4 min
+epoch 12/50 | train loss 1.6493 | val loss 2.6797 | lr 8.86e-05 | 3.3 min
+epoch 13/50 | train loss 1.5796 | val loss 2.6783 | lr 8.66e-05 | 3.5 min
+epoch 14/50 | train loss 1.5274 | val loss 2.6733 | lr 8.44e-05 | 3.4 min
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.48s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=6.59s).
+Accumulating evaluation results...
+DONE (t=1.99s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.093
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.228
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.067
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.027
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.104
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.169
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.138
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.230
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.250
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.113
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.273
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.363
+epoch 15/50 | train loss 1.4451 | val loss 2.6417 | lr 8.21e-05 | 3.4 min | AP 0.0931 | AP50 0.2281 | AP75 0.0668 | APs 0.0266 | APm 0.1041 | APl 0.1690 *
+epoch 16/50 | train loss 1.3885 | val loss 2.6847 | lr 7.96e-05 | 3.4 min
+epoch 17/50 | train loss 1.3367 | val loss 2.6733 | lr 7.70e-05 | 2.7 min
+epoch 18/50 | train loss 1.2869 | val loss 2.7247 | lr 7.43e-05 | 3.4 min
+epoch 19/50 | train loss 1.2574 | val loss 2.6565 | lr 7.16e-05 | 3.4 min
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.55s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=6.50s).
+Accumulating evaluation results...
+DONE (t=1.93s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.098
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.227
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.075
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.023
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.115
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.192
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.147
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.245
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.266
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.120
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.294
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.401
+epoch 20/50 | train loss 1.1924 | val loss 2.6689 | lr 6.87e-05 | 3.4 min | AP 0.0983 | AP50 0.2269 | AP75 0.0745 | APs 0.0226 | APm 0.1151 | APl 0.1925 *
+epoch 21/50 | train loss 1.1626 | val loss 2.6703 | lr 6.58e-05 | 3.4 min
+epoch 22/50 | train loss 1.1216 | val loss 2.6714 | lr 6.28e-05 | 3.4 min
+epoch 23/50 | train loss 1.0769 | val loss 2.6801 | lr 5.98e-05 | 3.1 min
+epoch 24/50 | train loss 1.0397 | val loss 2.7071 | lr 5.67e-05 | 3.2 min
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.45s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=6.47s).
+Accumulating evaluation results...
+DONE (t=1.94s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.104
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.238
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.079
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.027
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.123
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.203
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.155
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.253
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.271
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.120
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.300
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.416
+epoch 25/50 | train loss 1.0078 | val loss 2.6794 | lr 5.36e-05 | 3.4 min | AP 0.1041 | AP50 0.2385 | AP75 0.0790 | APs 0.0267 | APm 0.1231 | APl 0.2033 *
+epoch 26/50 | train loss 0.9774 | val loss 2.6906 | lr 5.05e-05 | 3.4 min
+epoch 27/50 | train loss 0.9420 | val loss 2.6902 | lr 4.74e-05 | 3.4 min
+epoch 28/50 | train loss 0.9117 | val loss 2.6968 | lr 4.43e-05 | 3.4 min
+epoch 29/50 | train loss 0.8857 | val loss 2.7100 | lr 4.12e-05 | 3.4 min
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.48s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=6.80s).
+Accumulating evaluation results...
+DONE (t=1.99s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.113
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.249
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.093
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.029
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.131
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.216
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.163
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.264
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.283
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.127
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.315
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.430
+epoch 30/50 | train loss 0.8485 | val loss 2.7315 | lr 3.82e-05 | 2.9 min | AP 0.1130 | AP50 0.2488 | AP75 0.0932 | APs 0.0294 | APm 0.1314 | APl 0.2157 *
+epoch 31/50 | train loss 0.8128 | val loss 2.7305 | lr 3.52e-05 | 3.4 min
+epoch 32/50 | train loss 0.7880 | val loss 2.7169 | lr 3.23e-05 | 3.4 min
+epoch 33/50 | train loss 0.7704 | val loss 2.7256 | lr 2.94e-05 | 3.4 min
+epoch 34/50 | train loss 0.7263 | val loss 2.7329 | lr 2.67e-05 | 3.4 min
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.69s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=6.71s).
+Accumulating evaluation results...
+DONE (t=1.96s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.111
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.241
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.092
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.025
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.128
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.234
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.165
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.263
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.282
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.125
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.308
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.436
+epoch 35/50 | train loss 0.7112 | val loss 2.7471 | lr 2.40e-05 | 3.5 min | AP 0.1113 | AP50 0.2410 | AP75 0.0919 | APs 0.0255 | APm 0.1276 | APl 0.2344
+epoch 36/50 | train loss 0.6818 | val loss 2.7529 | lr 2.14e-05 | 3.4 min
+epoch 37/50 | train loss 0.6538 | val loss 2.7603 | lr 1.89e-05 | 3.4 min
+epoch 38/50 | train loss 0.6374 | val loss 2.7569 | lr 1.66e-05 | 3.4 min
+epoch 39/50 | train loss 0.6170 | val loss 2.7789 | lr 1.44e-05 | 3.5 min
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.51s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=6.69s).
+Accumulating evaluation results...
+DONE (t=2.00s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.115
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.248
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.098
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.027
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.133
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.233
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.168
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.267
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.286
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.125
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.313
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.441
+epoch 40/50 | train loss 0.5972 | val loss 2.7757 | lr 1.24e-05 | 3.4 min | AP 0.1152 | AP50 0.2476 | AP75 0.0977 | APs 0.0272 | APm 0.1330 | APl 0.2335 *
+epoch 41/50 | train loss 0.5867 | val loss 2.7778 | lr 1.05e-05 | 3.2 min
+epoch 42/50 | train loss 0.5666 | val loss 2.7819 | lr 8.71e-06 | 3.1 min
+epoch 43/50 | train loss 0.5596 | val loss 2.7740 | lr 7.12e-06 | 3.4 min
+epoch 44/50 | train loss 0.5445 | val loss 2.7765 | lr 5.71e-06 | 3.4 min
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.56s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=6.75s).
+Accumulating evaluation results...
+DONE (t=2.26s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.115
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.248
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.097
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.027
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.133
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.235
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.168
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.269
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.288
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.127
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.317
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.441
+epoch 45/50 | train loss 0.5356 | val loss 2.7937 | lr 4.48e-06 | 3.4 min | AP 0.1153 | AP50 0.2479 | AP75 0.0974 | APs 0.0275 | APm 0.1327 | APl 0.2350 *
+epoch 46/50 | train loss 0.5287 | val loss 2.7845 | lr 3.42e-06 | 3.4 min
+epoch 47/50 | train loss 0.5212 | val loss 2.7935 | lr 2.56e-06 | 3.2 min
+epoch 48/50 | train loss 0.5202 | val loss 2.8018 | lr 1.88e-06 | 3.0 min
+epoch 49/50 | train loss 0.5144 | val loss 2.7914 | lr 1.39e-06 | 3.4 min
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.70s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=6.49s).
+Accumulating evaluation results...
+DONE (t=2.02s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.120
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.252
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.102
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.029
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.134
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.241
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.172
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.272
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.291
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.125
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.319
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.451
+epoch 50/50 | train loss 0.5093 | val loss 2.7931 | lr 1.10e-06 | 3.4 min | AP 0.1195 | AP50 0.2522 | AP75 0.1024 | APs 0.0289 | APm 0.1341 | APl 0.2414 *
+done: best val AP 0.1195 at epoch 50 | best val loss 2.6417 | elapsed 158.7 min
+per-class AP (last eval): bottle 0.074, wine glass 0.076, cup 0.146, fork 0.033, knife 0.012, spoon 0.012, bowl 0.139, chair 0.060, couch 0.178, potted plant 0.071, dining table 0.122, tv 0.325, laptop 0.312, mouse 0.253, remote 0.042, keyboard 0.144, cell phone 0.038, book 0.022, clock 0.220, vase 0.112
+Wrote 9,060 images to /jupyter/nycu-code/deep-learning/lab-5/result/001-yolov3-baseline.csv

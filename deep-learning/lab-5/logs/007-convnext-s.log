@@ -1,0 +1,787 @@
+[007-convnext-s] config: {"seed": 2026, "image_size": 800, "multi_scale": [0.6, 1.0], "multi_scale_every": 10, "mosaic": 1.0, "mixup": 0.15, "affine_scale": [0.5, 1.5], "affine_translate": 0.1, "close_mosaic": 10, "batch_size": 16, "num_workers": 12, "model_name": "convnext_small.fb_in1k", "width": 256, "depth": 2, "reg_max": 16, "drop_path_rate": 0.4, "grad_checkpointing": true, "top_k": 10, "alpha": 0.5, "beta": 6.0, "box_weight": 7.5, "cls_weight": 0.5, "dfl_weight": 1.5, "epochs": 60, "warmup_epochs": 3, "lr": 0.0004, "backbone_lr_mult": 0.25, "min_lr": 1e-06, "weight_decay": 0.05, "grad_clip": 10.0, "ema_decay": 0.9998, "ema_tau": 2000, "eval_interval": 5, "conf_thres": 0.001, "nms_thres": 0.65, "tta_hflip": true}
+train 10,193 | val 3,397 | test 9,060
+model.safetensors:   0%|          | 0.00/201M [00:00<?, ?B/s]model.safetensors:   0%|          | 83.8k/201M [00:02<1:27:33, 38.2kB/s]model.safetensors:   0%|          | 611k/201M [00:02<09:28, 352kB/s]    model.safetensors:   0%|          | 994k/201M [00:02<05:45, 578kB/s]model.safetensors:   1%|          | 1.80M/201M [00:02<02:40, 1.24MB/s]model.safetensors:   5%|4         | 9.09M/201M [00:02<00:20, 9.47MB/s]model.safetensors:   6%|6         | 12.1M/201M [00:02<00:17, 10.5MB/s]model.safetensors:   7%|7         | 14.9M/201M [00:03<00:16, 11.0MB/s]model.safetensors:   9%|8         | 17.5M/201M [00:03<00:14, 12.9MB/s]model.safetensors:  13%|#3        | 26.9M/201M [00:03<00:06, 25.4MB/s]model.safetensors:  19%|#9        | 38.3M/201M [00:03<00:05, 31.4MB/s]model.safetensors:  21%|##1       | 42.3M/201M [00:03<00:05, 27.6MB/s]model.safetensors:  23%|##2       | 45.5M/201M [00:04<00:05, 26.1MB/s]model.safetensors:  30%|###       | 61.2M/201M [00:04<00:02, 49.5MB/s]model.safetensors:  34%|###4      | 68.5M/201M [00:04<00:02, 50.1MB/s]model.safetensors:  37%|###7      | 74.9M/201M [00:04<00:03, 32.3MB/s]model.safetensors:  41%|####      | 81.8M/201M [00:04<00:03, 36.1MB/s]model.safetensors:  44%|####3     | 87.8M/201M [00:05<00:03, 33.0MB/s]model.safetensors:  47%|####7     | 95.3M/201M [00:05<00:02, 39.2MB/s]model.safetensors:  50%|#####     | 101M/201M [00:05<00:02, 39.4MB/s] model.safetensors:  59%|#####8    | 118M/201M [00:05<00:01, 67.7MB/s]model.safetensors:  63%|######3   | 127M/201M [00:05<00:01, 57.9MB/s]model.safetensors:  67%|######6   | 134M/201M [00:05<00:01, 48.3MB/s]model.safetensors:  71%|#######   | 142M/201M [00:06<00:01, 51.0MB/s]model.safetensors:  74%|#######3  | 149M/201M [00:06<00:01, 45.2MB/s]model.safetensors:  77%|#######7  | 155M/201M [00:06<00:00, 48.7MB/s]model.safetensors:  81%|########  | 162M/201M [00:06<00:00, 41.7MB/s]model.safetensors:  84%|########3 | 169M/201M [00:06<00:01, 32.3MB/s]model.safetensors: 100%|##########| 201M/201M [00:18<00:00, 3.93MB/s]model.safetensors: 100%|##########| 201M/201M [00:18<00:00, 10.7MB/s]
+params 61.54M (backbone 49.45M) | convnext_small.fb_in1k
+  epoch 1 step 0/637 | loss 13.543 | box 0.535 cls 10.676 dfl 2.797 | fg 807 | size 512
+  epoch 1 step 100/637 | loss 12.446 | box 0.466 cls 9.937 dfl 2.655 | fg 982 | size 672
+  epoch 1 step 200/637 | loss 10.575 | box 0.453 cls 7.716 dfl 2.216 | fg 802 | size 512
+  epoch 1 step 300/637 | loss 9.269 | box 0.387 cls 7.037 dfl 1.898 | fg 1536 | size 672
+  epoch 1 step 400/637 | loss 7.933 | box 0.307 cls 6.298 dfl 1.655 | fg 1266 | size 736
+  epoch 1 step 500/637 | loss 7.125 | box 0.287 cls 5.386 dfl 1.518 | fg 1466 | size 640
+  epoch 1 step 600/637 | loss 6.915 | box 0.290 cls 5.073 dfl 1.467 | fg 1469 | size 672
+epoch 1/60 | loss 9.5757 (box 0.386 cls 7.329 dfl 2.009) | fg/img 74.2 | lr 3.33e-05 | mosaic on | 6.0 min
+  epoch 2 step 0/637 | loss 7.033 | box 0.293 cls 5.263 dfl 1.471 | fg 1647 | size 672
+  epoch 2 step 100/637 | loss 6.280 | box 0.257 cls 4.884 dfl 1.272 | fg 1079 | size 576
+  epoch 2 step 200/637 | loss 6.614 | box 0.270 cls 5.092 dfl 1.363 | fg 1260 | size 704
+  epoch 2 step 300/637 | loss 6.399 | box 0.269 cls 4.663 dfl 1.368 | fg 1414 | size 672
+  epoch 2 step 400/637 | loss 6.995 | box 0.258 cls 5.879 dfl 1.415 | fg 884 | size 608
+  epoch 2 step 500/637 | loss 6.239 | box 0.260 cls 4.863 dfl 1.240 | fg 931 | size 640
+  epoch 2 step 600/637 | loss 7.177 | box 0.317 cls 5.540 dfl 1.353 | fg 1476 | size 480
+epoch 2/60 | loss 6.4726 (box 0.264 cls 5.009 dfl 1.324) | fg/img 81.4 | lr 6.67e-05 | mosaic on | 4.8 min
+  epoch 3 step 0/637 | loss 5.863 | box 0.253 cls 4.636 dfl 1.100 | fg 991 | size 512
+  epoch 3 step 100/637 | loss 6.030 | box 0.235 cls 4.863 dfl 1.223 | fg 1115 | size 608
+  epoch 3 step 200/637 | loss 5.731 | box 0.248 cls 4.233 dfl 1.168 | fg 1184 | size 480
+  epoch 3 step 300/637 | loss 5.317 | box 0.232 cls 3.912 dfl 1.082 | fg 887 | size 480
+  epoch 3 step 400/637 | loss 5.825 | box 0.229 cls 4.687 dfl 1.174 | fg 1225 | size 768
+  epoch 3 step 500/637 | loss 5.405 | box 0.216 cls 4.126 dfl 1.150 | fg 1390 | size 736
+  epoch 3 step 600/637 | loss 5.694 | box 0.244 cls 4.125 dfl 1.200 | fg 1354 | size 672
+epoch 3/60 | loss 5.8108 (box 0.241 cls 4.440 dfl 1.186) | fg/img 81.1 | lr 1.00e-04 | mosaic on | 4.6 min
+  epoch 4 step 0/637 | loss 5.714 | box 0.244 cls 4.408 dfl 1.118 | fg 1307 | size 576
+  epoch 4 step 100/637 | loss 5.680 | box 0.234 cls 4.474 dfl 1.127 | fg 1055 | size 480
+  epoch 4 step 200/637 | loss 5.294 | box 0.199 cls 4.469 dfl 1.045 | fg 849 | size 704
+  epoch 4 step 300/637 | loss 4.775 | box 0.190 cls 3.801 dfl 0.965 | fg 1103 | size 768
+  epoch 4 step 400/637 | loss 5.444 | box 0.232 cls 4.057 dfl 1.116 | fg 886 | size 576
+  epoch 4 step 500/637 | loss 4.967 | box 0.218 cls 3.679 dfl 0.997 | fg 1381 | size 704
+  epoch 4 step 600/637 | loss 5.436 | box 0.226 cls 3.952 dfl 1.178 | fg 1581 | size 800
+epoch 4/60 | loss 5.4242 (box 0.226 cls 4.111 dfl 1.117) | fg/img 80.5 | lr 9.99e-05 | mosaic on | 4.6 min
+  epoch 5 step 0/637 | loss 5.296 | box 0.221 cls 4.084 dfl 1.064 | fg 1417 | size 672
+  epoch 5 step 100/637 | loss 5.166 | box 0.212 cls 4.025 dfl 1.043 | fg 1195 | size 704
+  epoch 5 step 200/637 | loss 5.296 | box 0.238 cls 4.103 dfl 0.971 | fg 1451 | size 512
+  epoch 5 step 300/637 | loss 5.646 | box 0.229 cls 4.331 dfl 1.174 | fg 1247 | size 800
+  epoch 5 step 400/637 | loss 5.597 | box 0.223 cls 4.240 dfl 1.202 | fg 1226 | size 736
+  epoch 5 step 500/637 | loss 4.844 | box 0.189 cls 3.842 dfl 1.003 | fg 1106 | size 576
+  epoch 5 step 600/637 | loss 5.709 | box 0.246 cls 4.282 dfl 1.149 | fg 1509 | size 512
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.43s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=6.02s).
+Accumulating evaluation results...
+DONE (t=1.99s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.298
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.491
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.310
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.182
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.363
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.366
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.281
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.479
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.519
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.348
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.597
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.627
+epoch 5/60 | loss 5.1138 (box 0.214 cls 3.814 dfl 1.067) | fg/img 81.8 | lr 9.97e-05 | mosaic on | 4.5 min | AP 0.2977 | AP50 0.4906 | AP75 0.3098 | APs 0.1825 | APm 0.3632 | APl 0.3663 *
+  epoch 6 step 0/637 | loss 5.016 | box 0.208 cls 3.726 dfl 1.060 | fg 1624 | size 800
+  epoch 6 step 100/637 | loss 4.953 | box 0.196 cls 3.721 dfl 1.082 | fg 1326 | size 768
+  epoch 6 step 200/637 | loss 4.981 | box 0.213 cls 3.673 dfl 1.029 | fg 1698 | size 608
+  epoch 6 step 300/637 | loss 5.229 | box 0.215 cls 3.926 dfl 1.100 | fg 1550 | size 800
+  epoch 6 step 400/637 | loss 5.259 | box 0.233 cls 3.946 dfl 1.027 | fg 1203 | size 480
+  epoch 6 step 500/637 | loss 5.017 | box 0.201 cls 3.848 dfl 1.058 | fg 1342 | size 800
+  epoch 6 step 600/637 | loss 4.953 | box 0.214 cls 3.665 dfl 1.011 | fg 1145 | size 480
+epoch 6/60 | loss 4.9196 (box 0.206 cls 3.647 dfl 1.035) | fg/img 81.4 | lr 9.93e-05 | mosaic on | 4.5 min
+  epoch 7 step 0/637 | loss 4.510 | box 0.195 cls 3.318 dfl 0.927 | fg 1276 | size 512
+  epoch 7 step 100/637 | loss 4.703 | box 0.210 cls 3.318 dfl 0.977 | fg 1199 | size 480
+  epoch 7 step 200/637 | loss 4.834 | box 0.194 cls 3.627 dfl 1.042 | fg 1103 | size 768
+  epoch 7 step 300/637 | loss 4.723 | box 0.197 cls 3.446 dfl 1.015 | fg 1160 | size 672
+  epoch 7 step 400/637 | loss 5.061 | box 0.191 cls 3.806 dfl 1.149 | fg 1395 | size 800
+  epoch 7 step 500/637 | loss 4.760 | box 0.186 cls 3.807 dfl 0.974 | fg 1043 | size 608
+  epoch 7 step 600/637 | loss 3.907 | box 0.160 cls 2.869 dfl 0.848 | fg 1218 | size 544
+epoch 7/60 | loss 4.7554 (box 0.200 cls 3.463 dfl 1.014) | fg/img 81.8 | lr 9.88e-05 | mosaic on | 4.4 min
+  epoch 8 step 0/637 | loss 4.808 | box 0.199 cls 3.517 dfl 1.038 | fg 1803 | size 736
+  epoch 8 step 100/637 | loss 5.228 | box 0.214 cls 4.013 dfl 1.080 | fg 1266 | size 576
+  epoch 8 step 200/637 | loss 5.548 | box 0.222 cls 4.148 dfl 1.206 | fg 785 | size 736
+  epoch 8 step 300/637 | loss 5.014 | box 0.212 cls 3.451 dfl 1.134 | fg 1533 | size 704
+  epoch 8 step 400/637 | loss 4.746 | box 0.208 cls 3.458 dfl 0.970 | fg 1225 | size 480
+  epoch 8 step 500/637 | loss 4.893 | box 0.206 cls 3.509 dfl 1.063 | fg 1117 | size 736
+  epoch 8 step 600/637 | loss 4.489 | box 0.196 cls 3.215 dfl 0.941 | fg 1210 | size 480
+epoch 8/60 | loss 4.6671 (box 0.196 cls 3.396 dfl 0.998) | fg/img 81.6 | lr 9.81e-05 | mosaic on | 4.6 min
+  epoch 9 step 0/637 | loss 4.415 | box 0.187 cls 3.176 dfl 0.949 | fg 1399 | size 736
+  epoch 9 step 100/637 | loss 4.775 | box 0.200 cls 3.407 dfl 1.048 | fg 1137 | size 736
+  epoch 9 step 200/637 | loss 4.569 | box 0.193 cls 3.300 dfl 0.980 | fg 1275 | size 736
+  epoch 9 step 300/637 | loss 4.233 | box 0.172 cls 3.006 dfl 0.960 | fg 1136 | size 704
+  epoch 9 step 400/637 | loss 4.542 | box 0.202 cls 3.195 dfl 0.953 | fg 1233 | size 544
+  epoch 9 step 500/637 | loss 4.373 | box 0.184 cls 3.092 dfl 0.966 | fg 1263 | size 640
+  epoch 9 step 600/637 | loss 3.820 | box 0.158 cls 2.661 dfl 0.872 | fg 1292 | size 640
+epoch 9/60 | loss 4.5154 (box 0.191 cls 3.245 dfl 0.976) | fg/img 81.3 | lr 9.73e-05 | mosaic on | 4.4 min
+  epoch 10 step 0/637 | loss 4.540 | box 0.197 cls 3.227 dfl 0.966 | fg 1645 | size 672
+  epoch 10 step 100/637 | loss 4.075 | box 0.172 cls 2.772 dfl 0.931 | fg 1110 | size 736
+  epoch 10 step 200/637 | loss 4.469 | box 0.205 cls 2.968 dfl 0.962 | fg 1617 | size 512
+  epoch 10 step 300/637 | loss 4.443 | box 0.170 cls 3.441 dfl 0.967 | fg 1128 | size 736
+  epoch 10 step 400/637 | loss 4.525 | box 0.189 cls 3.271 dfl 0.980 | fg 1405 | size 576
+  epoch 10 step 500/637 | loss 4.399 | box 0.185 cls 3.084 dfl 0.978 | fg 1490 | size 800
+  epoch 10 step 600/637 | loss 4.884 | box 0.214 cls 3.475 dfl 1.028 | fg 1224 | size 544
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.43s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=5.76s).
+Accumulating evaluation results...
+DONE (t=1.87s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.364
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.555
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.395
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.223
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.438
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.455
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.322
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.534
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.570
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.398
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.645
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.695
+epoch 10/60 | loss 4.4180 (box 0.187 cls 3.144 dfl 0.964) | fg/img 83.2 | lr 9.63e-05 | mosaic on | 4.6 min | AP 0.3642 | AP50 0.5550 | AP75 0.3951 | APs 0.2230 | APm 0.4381 | APl 0.4546 *
+  epoch 11 step 0/637 | loss 4.165 | box 0.171 cls 2.896 dfl 0.958 | fg 1112 | size 576
+  epoch 11 step 100/637 | loss 4.995 | box 0.201 cls 3.776 dfl 1.069 | fg 1080 | size 672
+  epoch 11 step 200/637 | loss 4.675 | box 0.199 cls 3.273 dfl 1.028 | fg 2121 | size 704
+  epoch 11 step 300/637 | loss 4.611 | box 0.204 cls 3.266 dfl 0.964 | fg 1680 | size 640
+  epoch 11 step 400/637 | loss 4.495 | box 0.188 cls 3.345 dfl 0.942 | fg 1195 | size 768
+  epoch 11 step 500/637 | loss 4.163 | box 0.164 cls 2.891 dfl 0.990 | fg 1407 | size 800
+  epoch 11 step 600/637 | loss 3.973 | box 0.151 cls 3.105 dfl 0.861 | fg 1465 | size 768
+epoch 11/60 | loss 4.3679 (box 0.184 cls 3.105 dfl 0.958) | fg/img 81.8 | lr 9.52e-05 | mosaic on | 4.7 min
+  epoch 12 step 0/637 | loss 4.180 | box 0.177 cls 2.957 dfl 0.915 | fg 1490 | size 736
+  epoch 12 step 100/637 | loss 4.433 | box 0.186 cls 3.210 dfl 0.957 | fg 1120 | size 768
+  epoch 12 step 200/637 | loss 3.954 | box 0.182 cls 2.448 dfl 0.912 | fg 1545 | size 736
+  epoch 12 step 300/637 | loss 5.370 | box 0.234 cls 4.042 dfl 1.063 | fg 1996 | size 576
+  epoch 12 step 400/637 | loss 4.654 | box 0.203 cls 3.299 dfl 0.991 | fg 1601 | size 608
+  epoch 12 step 500/637 | loss 4.563 | box 0.190 cls 3.289 dfl 0.996 | fg 1208 | size 640
+  epoch 12 step 600/637 | loss 4.949 | box 0.200 cls 3.674 dfl 1.073 | fg 1209 | size 768
+epoch 12/60 | loss 4.2682 (box 0.181 cls 3.002 dfl 0.941) | fg/img 81.8 | lr 9.40e-05 | mosaic on | 4.5 min
+  epoch 13 step 0/637 | loss 4.505 | box 0.198 cls 2.968 dfl 1.023 | fg 1520 | size 800
+  epoch 13 step 100/637 | loss 4.220 | box 0.191 cls 2.825 dfl 0.918 | fg 1306 | size 736
+  epoch 13 step 200/637 | loss 4.742 | box 0.199 cls 3.360 dfl 1.049 | fg 1209 | size 736
+  epoch 13 step 300/637 | loss 3.948 | box 0.177 cls 2.708 dfl 0.845 | fg 1403 | size 480
+  epoch 13 step 400/637 | loss 4.320 | box 0.170 cls 3.315 dfl 0.922 | fg 958 | size 608
+  epoch 13 step 500/637 | loss 3.882 | box 0.156 cls 2.685 dfl 0.915 | fg 1271 | size 768
+  epoch 13 step 600/637 | loss 4.356 | box 0.184 cls 3.095 dfl 0.954 | fg 1370 | size 768
+epoch 13/60 | loss 4.1914 (box 0.177 cls 2.926 dfl 0.933) | fg/img 83.8 | lr 9.26e-05 | mosaic on | 4.8 min
+  epoch 14 step 0/637 | loss 4.113 | box 0.170 cls 3.058 dfl 0.875 | fg 1209 | size 608
+  epoch 14 step 100/637 | loss 4.409 | box 0.202 cls 2.886 dfl 0.966 | fg 1352 | size 544
+  epoch 14 step 200/637 | loss 3.964 | box 0.171 cls 2.833 dfl 0.844 | fg 1120 | size 480
+  epoch 14 step 300/637 | loss 4.150 | box 0.179 cls 2.947 dfl 0.887 | fg 1540 | size 544
+  epoch 14 step 400/637 | loss 3.864 | box 0.146 cls 2.828 dfl 0.903 | fg 877 | size 768
+  epoch 14 step 500/637 | loss 3.746 | box 0.159 cls 2.458 dfl 0.881 | fg 961 | size 672
+  epoch 14 step 600/637 | loss 4.340 | box 0.186 cls 2.995 dfl 0.966 | fg 1344 | size 736
+epoch 14/60 | loss 4.1077 (box 0.175 cls 2.837 dfl 0.918) | fg/img 80.9 | lr 9.11e-05 | mosaic on | 4.3 min
+  epoch 15 step 0/637 | loss 3.810 | box 0.166 cls 2.439 dfl 0.895 | fg 1040 | size 640
+  epoch 15 step 100/637 | loss 4.029 | box 0.169 cls 2.930 dfl 0.866 | fg 1501 | size 576
+  epoch 15 step 200/637 | loss 4.342 | box 0.181 cls 2.921 dfl 1.014 | fg 1549 | size 800
+  epoch 15 step 300/637 | loss 4.082 | box 0.169 cls 2.895 dfl 0.912 | fg 998 | size 608
+  epoch 15 step 400/637 | loss 3.756 | box 0.166 cls 2.424 dfl 0.867 | fg 994 | size 544
+  epoch 15 step 500/637 | loss 4.125 | box 0.161 cls 3.014 dfl 0.942 | fg 1053 | size 768
+  epoch 15 step 600/637 | loss 4.058 | box 0.184 cls 2.730 dfl 0.873 | fg 1327 | size 640
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.59s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=5.70s).
+Accumulating evaluation results...
+DONE (t=1.78s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.392
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.580
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.426
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.245
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.463
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.498
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.338
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.554
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.590
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.417
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.666
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.719
+epoch 15/60 | loss 4.0625 (box 0.173 cls 2.788 dfl 0.913) | fg/img 82.3 | lr 8.95e-05 | mosaic on | 4.7 min | AP 0.3919 | AP50 0.5798 | AP75 0.4257 | APs 0.2450 | APm 0.4632 | APl 0.4984 *
+  epoch 16 step 0/637 | loss 3.908 | box 0.163 cls 2.852 dfl 0.842 | fg 1233 | size 512
+  epoch 16 step 100/637 | loss 4.066 | box 0.178 cls 2.721 dfl 0.912 | fg 1586 | size 768
+  epoch 16 step 200/637 | loss 4.181 | box 0.190 cls 2.811 dfl 0.899 | fg 1495 | size 544
+  epoch 16 step 300/637 | loss 4.379 | box 0.195 cls 3.182 dfl 0.883 | fg 1483 | size 480
+  epoch 16 step 400/637 | loss 3.585 | box 0.150 cls 2.367 dfl 0.849 | fg 1192 | size 576
+  epoch 16 step 500/637 | loss 4.214 | box 0.183 cls 2.948 dfl 0.912 | fg 1345 | size 704
+  epoch 16 step 600/637 | loss 3.509 | box 0.149 cls 2.360 dfl 0.807 | fg 1545 | size 672
+epoch 16/60 | loss 4.0044 (box 0.171 cls 2.746 dfl 0.901) | fg/img 80.7 | lr 8.77e-05 | mosaic on | 4.4 min
+  epoch 17 step 0/637 | loss 4.284 | box 0.176 cls 2.753 dfl 1.059 | fg 1217 | size 704
+  epoch 17 step 100/637 | loss 3.792 | box 0.148 cls 2.703 dfl 0.885 | fg 912 | size 640
+  epoch 17 step 200/637 | loss 3.785 | box 0.168 cls 2.569 dfl 0.827 | fg 976 | size 512
+  epoch 17 step 300/637 | loss 3.713 | box 0.166 cls 2.383 dfl 0.850 | fg 1467 | size 512
+  epoch 17 step 400/637 | loss 3.664 | box 0.160 cls 2.442 dfl 0.830 | fg 1442 | size 736
+  epoch 17 step 500/637 | loss 4.222 | box 0.196 cls 2.767 dfl 0.911 | fg 1034 | size 512
+  epoch 17 step 600/637 | loss 4.487 | box 0.182 cls 3.247 dfl 0.999 | fg 1368 | size 576
+epoch 17/60 | loss 3.9657 (box 0.170 cls 2.691 dfl 0.898) | fg/img 83.0 | lr 8.59e-05 | mosaic on | 4.4 min
+  epoch 18 step 0/637 | loss 3.997 | box 0.175 cls 2.701 dfl 0.890 | fg 1097 | size 480
+  epoch 18 step 100/637 | loss 4.002 | box 0.166 cls 2.657 dfl 0.954 | fg 1469 | size 768
+  epoch 18 step 200/637 | loss 4.055 | box 0.164 cls 2.954 dfl 0.897 | fg 938 | size 736
+  epoch 18 step 300/637 | loss 3.717 | box 0.155 cls 2.524 dfl 0.863 | fg 1440 | size 672
+  epoch 18 step 400/637 | loss 3.833 | box 0.170 cls 2.433 dfl 0.895 | fg 1445 | size 704
+  epoch 18 step 500/637 | loss 3.993 | box 0.182 cls 2.594 dfl 0.888 | fg 1265 | size 640
+  epoch 18 step 600/637 | loss 3.718 | box 0.160 cls 2.462 dfl 0.859 | fg 1214 | size 512
+epoch 18/60 | loss 3.9143 (box 0.167 cls 2.647 dfl 0.890) | fg/img 82.7 | lr 8.39e-05 | mosaic on | 4.4 min
+  epoch 19 step 0/637 | loss 3.641 | box 0.150 cls 2.571 dfl 0.822 | fg 1110 | size 576
+  epoch 19 step 100/637 | loss 3.896 | box 0.170 cls 2.660 dfl 0.860 | fg 1118 | size 480
+  epoch 19 step 200/637 | loss 3.709 | box 0.168 cls 2.382 dfl 0.841 | fg 1211 | size 640
+  epoch 19 step 300/637 | loss 4.170 | box 0.172 cls 3.096 dfl 0.888 | fg 1122 | size 576
+  epoch 19 step 400/637 | loss 3.545 | box 0.153 cls 2.403 dfl 0.798 | fg 1198 | size 480
+  epoch 19 step 500/637 | loss 3.911 | box 0.174 cls 2.683 dfl 0.844 | fg 1276 | size 544
+  epoch 19 step 600/637 | loss 3.769 | box 0.166 cls 2.478 dfl 0.859 | fg 1410 | size 736
+epoch 19/60 | loss 3.8742 (box 0.165 cls 2.614 dfl 0.886) | fg/img 82.4 | lr 8.18e-05 | mosaic on | 4.6 min
+  epoch 20 step 0/637 | loss 4.165 | box 0.189 cls 2.810 dfl 0.894 | fg 1544 | size 608
+  epoch 20 step 100/637 | loss 3.489 | box 0.151 cls 2.259 dfl 0.817 | fg 1486 | size 704
+  epoch 20 step 200/637 | loss 3.547 | box 0.152 cls 2.338 dfl 0.823 | fg 1114 | size 704
+  epoch 20 step 300/637 | loss 3.592 | box 0.158 cls 2.339 dfl 0.828 | fg 1163 | size 544
+  epoch 20 step 400/637 | loss 4.563 | box 0.191 cls 3.248 dfl 1.003 | fg 1486 | size 800
+  epoch 20 step 500/637 | loss 3.719 | box 0.158 cls 2.559 dfl 0.839 | fg 1186 | size 736
+  epoch 20 step 600/637 | loss 3.609 | box 0.158 cls 2.351 dfl 0.833 | fg 1169 | size 640
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.40s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=5.34s).
+Accumulating evaluation results...
+DONE (t=1.38s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.403
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.590
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.438
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.262
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.475
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.514
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.345
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.565
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.597
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.436
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.667
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.738
+epoch 20/60 | loss 3.8050 (box 0.163 cls 2.540 dfl 0.876) | fg/img 82.6 | lr 7.97e-05 | mosaic on | 4.5 min | AP 0.4030 | AP50 0.5904 | AP75 0.4380 | APs 0.2616 | APm 0.4746 | APl 0.5137 *
+  epoch 21 step 0/637 | loss 3.850 | box 0.165 cls 2.543 dfl 0.892 | fg 1348 | size 736
+  epoch 21 step 100/637 | loss 3.640 | box 0.162 cls 2.329 dfl 0.842 | fg 1413 | size 544
+  epoch 21 step 200/637 | loss 4.104 | box 0.184 cls 2.657 dfl 0.932 | fg 1399 | size 768
+  epoch 21 step 300/637 | loss 3.614 | box 0.144 cls 2.551 dfl 0.839 | fg 788 | size 608
+  epoch 21 step 400/637 | loss 3.403 | box 0.144 cls 2.156 dfl 0.829 | fg 1338 | size 672
+  epoch 21 step 500/637 | loss 3.315 | box 0.141 cls 2.096 dfl 0.805 | fg 1327 | size 640
+  epoch 21 step 600/637 | loss 3.910 | box 0.179 cls 2.548 dfl 0.862 | fg 1689 | size 544
+epoch 21/60 | loss 3.7537 (box 0.160 cls 2.495 dfl 0.871) | fg/img 83.3 | lr 7.74e-05 | mosaic on | 4.8 min
+  epoch 22 step 0/637 | loss 3.504 | box 0.153 cls 2.249 dfl 0.821 | fg 1449 | size 640
+  epoch 22 step 100/637 | loss 3.348 | box 0.148 cls 2.003 dfl 0.826 | fg 1586 | size 768
+  epoch 22 step 200/637 | loss 4.713 | box 0.211 cls 3.304 dfl 0.984 | fg 1224 | size 480
+  epoch 22 step 300/637 | loss 4.391 | box 0.182 cls 3.082 dfl 0.990 | fg 1395 | size 800
+  epoch 22 step 400/637 | loss 4.308 | box 0.189 cls 2.995 dfl 0.927 | fg 2190 | size 640
+  epoch 22 step 500/637 | loss 3.525 | box 0.145 cls 2.428 dfl 0.815 | fg 974 | size 480
+  epoch 22 step 600/637 | loss 3.985 | box 0.153 cls 2.981 dfl 0.898 | fg 1037 | size 640
+epoch 22/60 | loss 3.7353 (box 0.160 cls 2.478 dfl 0.862) | fg/img 82.6 | lr 7.51e-05 | mosaic on | 4.3 min
+  epoch 23 step 0/637 | loss 3.170 | box 0.137 cls 2.017 dfl 0.758 | fg 877 | size 544
+  epoch 23 step 100/637 | loss 3.694 | box 0.165 cls 2.309 dfl 0.870 | fg 1647 | size 640
+  epoch 23 step 200/637 | loss 4.103 | box 0.185 cls 2.633 dfl 0.934 | fg 1530 | size 576
+  epoch 23 step 300/637 | loss 3.775 | box 0.158 cls 2.539 dfl 0.877 | fg 1599 | size 672
+  epoch 23 step 400/637 | loss 3.381 | box 0.134 cls 2.363 dfl 0.796 | fg 1130 | size 608
+  epoch 23 step 500/637 | loss 3.739 | box 0.163 cls 2.483 dfl 0.850 | fg 1193 | size 576
+  epoch 23 step 600/637 | loss 4.038 | box 0.172 cls 2.715 dfl 0.926 | fg 1519 | size 768
+epoch 23/60 | loss 3.6921 (box 0.158 cls 2.430 dfl 0.861) | fg/img 83.3 | lr 7.26e-05 | mosaic on | 4.5 min
+  epoch 24 step 0/637 | loss 4.058 | box 0.160 cls 2.916 dfl 0.931 | fg 787 | size 768
+  epoch 24 step 100/637 | loss 4.162 | box 0.194 cls 2.619 dfl 0.930 | fg 1737 | size 672
+  epoch 24 step 200/637 | loss 4.234 | box 0.184 cls 2.972 dfl 0.911 | fg 1584 | size 704
+  epoch 24 step 300/637 | loss 3.598 | box 0.159 cls 2.440 dfl 0.789 | fg 1684 | size 608
+  epoch 24 step 400/637 | loss 3.401 | box 0.142 cls 2.046 dfl 0.873 | fg 1257 | size 736
+  epoch 24 step 500/637 | loss 3.652 | box 0.162 cls 2.288 dfl 0.864 | fg 1291 | size 480
+  epoch 24 step 600/637 | loss 3.438 | box 0.145 cls 2.193 dfl 0.839 | fg 1366 | size 736
+epoch 24/60 | loss 3.6472 (box 0.157 cls 2.382 dfl 0.853) | fg/img 83.0 | lr 7.02e-05 | mosaic on | 4.6 min
+  epoch 25 step 0/637 | loss 3.982 | box 0.163 cls 2.702 dfl 0.939 | fg 1269 | size 768
+  epoch 25 step 100/637 | loss 3.658 | box 0.153 cls 2.454 dfl 0.855 | fg 1094 | size 576
+  epoch 25 step 200/637 | loss 3.280 | box 0.143 cls 2.112 dfl 0.769 | fg 1347 | size 736
+  epoch 25 step 300/637 | loss 3.722 | box 0.150 cls 2.504 dfl 0.896 | fg 970 | size 672
+  epoch 25 step 400/637 | loss 3.300 | box 0.139 cls 2.088 dfl 0.811 | fg 1147 | size 512
+  epoch 25 step 500/637 | loss 3.117 | box 0.132 cls 1.937 dfl 0.775 | fg 1114 | size 608
+  epoch 25 step 600/637 | loss 3.377 | box 0.134 cls 2.343 dfl 0.801 | fg 1177 | size 576
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.38s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=5.19s).
+Accumulating evaluation results...
+DONE (t=1.57s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.410
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.595
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.445
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.258
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.479
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.530
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.348
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.567
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.601
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.439
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.669
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.745
+epoch 25/60 | loss 3.6311 (box 0.156 cls 2.374 dfl 0.851) | fg/img 82.1 | lr 6.76e-05 | mosaic on | 4.4 min | AP 0.4096 | AP50 0.5954 | AP75 0.4454 | APs 0.2579 | APm 0.4794 | APl 0.5300 *
+  epoch 26 step 0/637 | loss 3.398 | box 0.153 cls 2.129 dfl 0.790 | fg 913 | size 480
+  epoch 26 step 100/637 | loss 3.093 | box 0.128 cls 1.935 dfl 0.776 | fg 984 | size 640
+  epoch 26 step 200/637 | loss 3.310 | box 0.145 cls 2.085 dfl 0.785 | fg 1075 | size 512
+  epoch 26 step 300/637 | loss 3.482 | box 0.152 cls 2.216 dfl 0.823 | fg 1156 | size 640
+  epoch 26 step 400/637 | loss 3.074 | box 0.134 cls 1.863 dfl 0.760 | fg 1205 | size 608
+  epoch 26 step 500/637 | loss 3.526 | box 0.151 cls 2.386 dfl 0.803 | fg 1237 | size 512
+  epoch 26 step 600/637 | loss 3.364 | box 0.147 cls 2.064 dfl 0.821 | fg 1260 | size 576
+epoch 26/60 | loss 3.5612 (box 0.153 cls 2.299 dfl 0.842) | fg/img 82.1 | lr 6.50e-05 | mosaic on | 4.4 min
+  epoch 27 step 0/637 | loss 3.593 | box 0.161 cls 2.347 dfl 0.808 | fg 1193 | size 480
+  epoch 27 step 100/637 | loss 3.661 | box 0.160 cls 2.386 dfl 0.844 | fg 1332 | size 608
+  epoch 27 step 200/637 | loss 3.806 | box 0.162 cls 2.639 dfl 0.847 | fg 1285 | size 512
+  epoch 27 step 300/637 | loss 3.524 | box 0.146 cls 2.278 dfl 0.862 | fg 1452 | size 640
+  epoch 27 step 400/637 | loss 3.210 | box 0.138 cls 1.980 dfl 0.792 | fg 1425 | size 800
+  epoch 27 step 500/637 | loss 3.500 | box 0.141 cls 2.289 dfl 0.863 | fg 1135 | size 800
+  epoch 27 step 600/637 | loss 3.675 | box 0.160 cls 2.411 dfl 0.845 | fg 1715 | size 608
+epoch 27/60 | loss 3.5549 (box 0.153 cls 2.294 dfl 0.841) | fg/img 81.8 | lr 6.24e-05 | mosaic on | 4.5 min
+  epoch 28 step 0/637 | loss 3.343 | box 0.142 cls 2.132 dfl 0.809 | fg 1215 | size 640
+  epoch 28 step 100/637 | loss 3.589 | box 0.168 cls 2.244 dfl 0.804 | fg 1390 | size 480
+  epoch 28 step 200/637 | loss 3.442 | box 0.152 cls 2.081 dfl 0.840 | fg 1649 | size 800
+  epoch 28 step 300/637 | loss 3.188 | box 0.141 cls 1.937 dfl 0.773 | fg 1278 | size 608
+  epoch 28 step 400/637 | loss 3.332 | box 0.145 cls 2.109 dfl 0.791 | fg 1557 | size 544
+  epoch 28 step 500/637 | loss 3.426 | box 0.154 cls 2.070 dfl 0.822 | fg 1438 | size 608
+  epoch 28 step 600/637 | loss 3.633 | box 0.158 cls 2.411 dfl 0.830 | fg 1383 | size 576
+epoch 28/60 | loss 3.5085 (box 0.151 cls 2.246 dfl 0.835) | fg/img 83.5 | lr 5.97e-05 | mosaic on | 4.6 min
+  epoch 29 step 0/637 | loss 3.705 | box 0.146 cls 2.600 dfl 0.874 | fg 1263 | size 768
+  epoch 29 step 100/637 | loss 3.494 | box 0.155 cls 2.303 dfl 0.787 | fg 1334 | size 544
+  epoch 29 step 200/637 | loss 3.289 | box 0.147 cls 1.905 dfl 0.822 | fg 1025 | size 704
+  epoch 29 step 300/637 | loss 3.390 | box 0.146 cls 2.129 dfl 0.820 | fg 1642 | size 512
+  epoch 29 step 400/637 | loss 3.472 | box 0.143 cls 2.286 dfl 0.838 | fg 1227 | size 608
+  epoch 29 step 500/637 | loss 3.123 | box 0.138 cls 1.867 dfl 0.771 | fg 1266 | size 608
+  epoch 29 step 600/637 | loss 3.404 | box 0.149 cls 2.078 dfl 0.832 | fg 1678 | size 704
+epoch 29/60 | loss 3.4749 (box 0.150 cls 2.216 dfl 0.827) | fg/img 83.5 | lr 5.70e-05 | mosaic on | 4.4 min
+  epoch 30 step 0/637 | loss 3.681 | box 0.159 cls 2.548 dfl 0.810 | fg 1223 | size 512
+  epoch 30 step 100/637 | loss 3.302 | box 0.135 cls 2.162 dfl 0.807 | fg 1279 | size 768
+  epoch 30 step 200/637 | loss 3.454 | box 0.156 cls 2.239 dfl 0.777 | fg 1675 | size 480
+  epoch 30 step 300/637 | loss 3.148 | box 0.132 cls 2.073 dfl 0.748 | fg 1028 | size 768
+  epoch 30 step 400/637 | loss 3.478 | box 0.154 cls 2.238 dfl 0.804 | fg 1388 | size 480
+  epoch 30 step 500/637 | loss 3.750 | box 0.177 cls 2.245 dfl 0.865 | fg 1175 | size 704
+  epoch 30 step 600/637 | loss 3.499 | box 0.145 cls 2.289 dfl 0.847 | fg 1144 | size 640
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.39s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=5.10s).
+Accumulating evaluation results...
+DONE (t=1.52s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.412
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.596
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.448
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.257
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.481
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.536
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.350
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.569
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.602
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.437
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.670
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.748
+epoch 30/60 | loss 3.4809 (box 0.151 cls 2.227 dfl 0.821) | fg/img 82.8 | lr 5.42e-05 | mosaic on | 4.0 min | AP 0.4118 | AP50 0.5964 | AP75 0.4479 | APs 0.2574 | APm 0.4806 | APl 0.5363 *
+  epoch 31 step 0/637 | loss 3.508 | box 0.157 cls 2.196 dfl 0.820 | fg 1464 | size 544
+  epoch 31 step 100/637 | loss 2.856 | box 0.127 cls 1.689 dfl 0.707 | fg 1257 | size 576
+  epoch 31 step 200/637 | loss 4.032 | box 0.178 cls 2.608 dfl 0.930 | fg 2025 | size 704
+  epoch 31 step 300/637 | loss 2.817 | box 0.109 cls 1.787 dfl 0.735 | fg 1225 | size 672
+  epoch 31 step 400/637 | loss 3.012 | box 0.133 cls 1.703 dfl 0.773 | fg 1146 | size 640
+  epoch 31 step 500/637 | loss 3.438 | box 0.150 cls 2.174 dfl 0.816 | fg 1664 | size 512
+  epoch 31 step 600/637 | loss 3.727 | box 0.169 cls 2.282 dfl 0.877 | fg 1676 | size 672
+epoch 31/60 | loss 3.4172 (box 0.148 cls 2.163 dfl 0.818) | fg/img 82.1 | lr 5.15e-05 | mosaic on | 4.2 min
+  epoch 32 step 0/637 | loss 3.124 | box 0.123 cls 2.111 dfl 0.765 | fg 995 | size 512
+  epoch 32 step 100/637 | loss 3.380 | box 0.138 cls 2.347 dfl 0.779 | fg 1322 | size 672
+  epoch 32 step 200/637 | loss 3.531 | box 0.163 cls 2.179 dfl 0.813 | fg 1357 | size 576
+  epoch 32 step 300/637 | loss 3.578 | box 0.151 cls 2.270 dfl 0.872 | fg 1011 | size 704
+  epoch 32 step 400/637 | loss 3.715 | box 0.159 cls 2.418 dfl 0.878 | fg 1427 | size 800
+  epoch 32 step 500/637 | loss 3.125 | box 0.127 cls 1.844 dfl 0.836 | fg 1208 | size 768
+  epoch 32 step 600/637 | loss 3.296 | box 0.133 cls 2.041 dfl 0.852 | fg 1154 | size 800
+epoch 32/60 | loss 3.3906 (box 0.146 cls 2.137 dfl 0.816) | fg/img 82.9 | lr 4.88e-05 | mosaic on | 4.5 min
+  epoch 33 step 0/637 | loss 3.379 | box 0.147 cls 2.132 dfl 0.809 | fg 1231 | size 544
+  epoch 33 step 100/637 | loss 3.189 | box 0.146 cls 1.864 dfl 0.773 | fg 1356 | size 640
+  epoch 33 step 200/637 | loss 3.288 | box 0.137 cls 2.108 dfl 0.804 | fg 1071 | size 736
+  epoch 33 step 300/637 | loss 3.584 | box 0.153 cls 2.431 dfl 0.813 | fg 912 | size 512
+  epoch 33 step 400/637 | loss 3.672 | box 0.163 cls 2.386 dfl 0.836 | fg 1302 | size 672
+  epoch 33 step 500/637 | loss 3.471 | box 0.153 cls 2.021 dfl 0.878 | fg 1580 | size 736
+  epoch 33 step 600/637 | loss 3.198 | box 0.139 cls 1.858 dfl 0.818 | fg 1447 | size 736
+epoch 33/60 | loss 3.3830 (box 0.146 cls 2.131 dfl 0.815) | fg/img 82.7 | lr 4.60e-05 | mosaic on | 4.5 min
+  epoch 34 step 0/637 | loss 3.237 | box 0.137 cls 2.042 dfl 0.791 | fg 1309 | size 704
+  epoch 34 step 100/637 | loss 3.386 | box 0.145 cls 2.081 dfl 0.839 | fg 1162 | size 768
+  epoch 34 step 200/637 | loss 3.652 | box 0.157 cls 2.426 dfl 0.839 | fg 1649 | size 640
+  epoch 34 step 300/637 | loss 3.273 | box 0.147 cls 1.783 dfl 0.851 | fg 1574 | size 704
+  epoch 34 step 400/637 | loss 3.420 | box 0.139 cls 2.256 dfl 0.834 | fg 1511 | size 800
+  epoch 34 step 500/637 | loss 3.077 | box 0.133 cls 1.813 dfl 0.782 | fg 1376 | size 800
+  epoch 34 step 600/637 | loss 3.250 | box 0.140 cls 2.075 dfl 0.773 | fg 1204 | size 512
+epoch 34/60 | loss 3.3431 (box 0.145 cls 2.082 dfl 0.808) | fg/img 82.7 | lr 4.33e-05 | mosaic on | 4.2 min
+  epoch 35 step 0/637 | loss 3.585 | box 0.167 cls 2.217 dfl 0.815 | fg 1451 | size 480
+  epoch 35 step 100/637 | loss 2.780 | box 0.116 cls 1.611 dfl 0.738 | fg 1223 | size 640
+  epoch 35 step 200/637 | loss 3.789 | box 0.162 cls 2.508 dfl 0.877 | fg 1592 | size 736
+  epoch 35 step 300/637 | loss 3.246 | box 0.146 cls 1.908 dfl 0.799 | fg 1297 | size 672
+  epoch 35 step 400/637 | loss 3.340 | box 0.140 cls 2.151 dfl 0.809 | fg 830 | size 576
+  epoch 35 step 500/637 | loss 2.935 | box 0.127 cls 1.815 dfl 0.718 | fg 984 | size 480
+  epoch 35 step 600/637 | loss 3.478 | box 0.157 cls 2.151 dfl 0.814 | fg 1591 | size 608
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.38s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=5.38s).
+Accumulating evaluation results...
+DONE (t=1.27s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.412
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.596
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.448
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.262
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.479
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.539
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.351
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.569
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.601
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.438
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.666
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.750
+epoch 35/60 | loss 3.3022 (box 0.143 cls 2.051 dfl 0.801) | fg/img 81.3 | lr 4.06e-05 | mosaic on | 4.2 min | AP 0.4123 | AP50 0.5962 | AP75 0.4482 | APs 0.2620 | APm 0.4792 | APl 0.5394 *
+  epoch 36 step 0/637 | loss 3.261 | box 0.147 cls 1.902 dfl 0.802 | fg 1350 | size 544
+  epoch 36 step 100/637 | loss 3.379 | box 0.137 cls 2.305 dfl 0.799 | fg 1424 | size 608
+  epoch 36 step 200/637 | loss 2.779 | box 0.118 cls 1.572 dfl 0.739 | fg 762 | size 576
+  epoch 36 step 300/637 | loss 4.106 | box 0.176 cls 2.632 dfl 0.982 | fg 2059 | size 768
+  epoch 36 step 400/637 | loss 3.535 | box 0.153 cls 2.297 dfl 0.826 | fg 1219 | size 608
+  epoch 36 step 500/637 | loss 4.039 | box 0.172 cls 2.787 dfl 0.904 | fg 1475 | size 736
+  epoch 36 step 600/637 | loss 3.275 | box 0.145 cls 1.979 dfl 0.798 | fg 1554 | size 608
+epoch 36/60 | loss 3.2720 (box 0.142 cls 2.014 dfl 0.801) | fg/img 84.0 | lr 3.79e-05 | mosaic on | 4.6 min
+  epoch 37 step 0/637 | loss 3.794 | box 0.156 cls 2.703 dfl 0.847 | fg 952 | size 480
+  epoch 37 step 100/637 | loss 2.845 | box 0.128 cls 1.568 dfl 0.736 | fg 1659 | size 672
+  epoch 37 step 200/637 | loss 3.420 | box 0.147 cls 2.007 dfl 0.875 | fg 1169 | size 640
+  epoch 37 step 300/637 | loss 3.423 | box 0.153 cls 2.070 dfl 0.827 | fg 1017 | size 480
+  epoch 37 step 400/637 | loss 3.287 | box 0.150 cls 1.930 dfl 0.800 | fg 2003 | size 736
+  epoch 37 step 500/637 | loss 3.228 | box 0.135 cls 2.207 dfl 0.741 | fg 949 | size 480
+  epoch 37 step 600/637 | loss 3.081 | box 0.136 cls 1.886 dfl 0.745 | fg 1270 | size 544
+epoch 37/60 | loss 3.2786 (box 0.142 cls 2.023 dfl 0.801) | fg/img 82.9 | lr 3.52e-05 | mosaic on | 4.5 min
+  epoch 38 step 0/637 | loss 3.705 | box 0.167 cls 2.443 dfl 0.823 | fg 1634 | size 480
+  epoch 38 step 100/637 | loss 2.859 | box 0.123 cls 1.665 dfl 0.734 | fg 1186 | size 608
+  epoch 38 step 200/637 | loss 2.943 | box 0.129 cls 1.689 dfl 0.753 | fg 996 | size 608
+  epoch 38 step 300/637 | loss 2.875 | box 0.130 cls 1.567 dfl 0.743 | fg 1222 | size 544
+  epoch 38 step 400/637 | loss 3.896 | box 0.169 cls 2.566 dfl 0.896 | fg 1384 | size 512
+  epoch 38 step 500/637 | loss 3.658 | box 0.137 cls 2.598 dfl 0.889 | fg 1324 | size 800
+  epoch 38 step 600/637 | loss 3.131 | box 0.125 cls 1.946 dfl 0.812 | fg 1253 | size 768
+epoch 38/60 | loss 3.2431 (box 0.140 cls 1.990 dfl 0.797) | fg/img 83.1 | lr 3.26e-05 | mosaic on | 4.5 min
+  epoch 39 step 0/637 | loss 3.198 | box 0.145 cls 1.986 dfl 0.746 | fg 1479 | size 544
+  epoch 39 step 100/637 | loss 3.437 | box 0.143 cls 2.250 dfl 0.824 | fg 1555 | size 704
+  epoch 39 step 200/637 | loss 2.969 | box 0.124 cls 1.829 dfl 0.748 | fg 1311 | size 512
+  epoch 39 step 300/637 | loss 3.476 | box 0.143 cls 2.290 dfl 0.838 | fg 1395 | size 768
+  epoch 39 step 400/637 | loss 3.564 | box 0.144 cls 2.373 dfl 0.866 | fg 1383 | size 768
+  epoch 39 step 500/637 | loss 2.863 | box 0.125 cls 1.629 dfl 0.742 | fg 1060 | size 544
+  epoch 39 step 600/637 | loss 3.212 | box 0.135 cls 2.069 dfl 0.777 | fg 1067 | size 640
+epoch 39/60 | loss 3.2456 (box 0.141 cls 1.995 dfl 0.795) | fg/img 84.0 | lr 3.01e-05 | mosaic on | 4.3 min
+  epoch 40 step 0/637 | loss 3.376 | box 0.148 cls 2.210 dfl 0.777 | fg 1279 | size 480
+  epoch 40 step 100/637 | loss 3.492 | box 0.149 cls 2.263 dfl 0.827 | fg 1369 | size 704
+  epoch 40 step 200/637 | loss 3.282 | box 0.146 cls 1.975 dfl 0.800 | fg 1609 | size 512
+  epoch 40 step 300/637 | loss 3.081 | box 0.131 cls 1.769 dfl 0.811 | fg 1020 | size 736
+  epoch 40 step 400/637 | loss 2.869 | box 0.124 cls 1.616 dfl 0.753 | fg 1382 | size 512
+  epoch 40 step 500/637 | loss 2.942 | box 0.116 cls 1.888 dfl 0.749 | fg 1022 | size 672
+  epoch 40 step 600/637 | loss 2.941 | box 0.127 cls 1.659 dfl 0.770 | fg 1542 | size 800
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.35s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=5.14s).
+Accumulating evaluation results...
+DONE (t=1.21s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.414
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.597
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.448
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.263
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.479
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.547
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.352
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.568
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.600
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.431
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.664
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.752
+epoch 40/60 | loss 3.2090 (box 0.139 cls 1.961 dfl 0.790) | fg/img 82.7 | lr 2.76e-05 | mosaic on | 4.4 min | AP 0.4136 | AP50 0.5974 | AP75 0.4485 | APs 0.2627 | APm 0.4789 | APl 0.5471 *
+  epoch 41 step 0/637 | loss 2.900 | box 0.124 cls 1.706 dfl 0.746 | fg 1078 | size 480
+  epoch 41 step 100/637 | loss 3.558 | box 0.158 cls 2.183 dfl 0.856 | fg 1433 | size 800
+  epoch 41 step 200/637 | loss 2.979 | box 0.127 cls 1.813 dfl 0.749 | fg 1399 | size 640
+  epoch 41 step 300/637 | loss 3.206 | box 0.130 cls 2.027 dfl 0.813 | fg 1260 | size 800
+  epoch 41 step 400/637 | loss 2.726 | box 0.109 cls 1.530 dfl 0.762 | fg 949 | size 640
+  epoch 41 step 500/637 | loss 2.866 | box 0.116 cls 1.684 dfl 0.771 | fg 1222 | size 768
+  epoch 41 step 600/637 | loss 3.218 | box 0.147 cls 1.909 dfl 0.775 | fg 1170 | size 672
+epoch 41/60 | loss 3.1982 (box 0.138 cls 1.946 dfl 0.792) | fg/img 83.6 | lr 2.52e-05 | mosaic on | 4.7 min
+  epoch 42 step 0/637 | loss 3.143 | box 0.140 cls 1.778 dfl 0.804 | fg 1465 | size 736
+  epoch 42 step 100/637 | loss 2.961 | box 0.130 cls 1.671 dfl 0.770 | fg 1706 | size 800
+  epoch 42 step 200/637 | loss 3.012 | box 0.123 cls 1.822 dfl 0.785 | fg 1534 | size 768
+  epoch 42 step 300/637 | loss 3.325 | box 0.142 cls 2.137 dfl 0.793 | fg 1132 | size 512
+  epoch 42 step 400/637 | loss 3.098 | box 0.135 cls 1.837 dfl 0.780 | fg 1642 | size 608
+  epoch 42 step 500/637 | loss 3.562 | box 0.151 cls 2.290 dfl 0.857 | fg 1317 | size 800
+  epoch 42 step 600/637 | loss 3.550 | box 0.158 cls 2.193 dfl 0.845 | fg 1635 | size 608
+epoch 42/60 | loss 3.1705 (box 0.137 cls 1.915 dfl 0.789) | fg/img 85.5 | lr 2.28e-05 | mosaic on | 4.7 min
+  epoch 43 step 0/637 | loss 3.595 | box 0.161 cls 2.310 dfl 0.822 | fg 1432 | size 672
+  epoch 43 step 100/637 | loss 3.066 | box 0.135 cls 1.771 dfl 0.777 | fg 1631 | size 640
+  epoch 43 step 200/637 | loss 3.182 | box 0.135 cls 1.946 dfl 0.796 | fg 1459 | size 672
+  epoch 43 step 300/637 | loss 3.028 | box 0.125 cls 1.825 dfl 0.784 | fg 1184 | size 704
+  epoch 43 step 400/637 | loss 3.274 | box 0.144 cls 2.026 dfl 0.788 | fg 1898 | size 544
+  epoch 43 step 500/637 | loss 3.466 | box 0.149 cls 2.199 dfl 0.832 | fg 992 | size 544
+  epoch 43 step 600/637 | loss 3.527 | box 0.153 cls 2.246 dfl 0.836 | fg 1777 | size 704
+epoch 43/60 | loss 3.1492 (box 0.136 cls 1.899 dfl 0.786) | fg/img 83.0 | lr 2.06e-05 | mosaic on | 4.6 min
+  epoch 44 step 0/637 | loss 2.945 | box 0.123 cls 1.726 dfl 0.773 | fg 1022 | size 704
+  epoch 44 step 100/637 | loss 3.797 | box 0.165 cls 2.445 dfl 0.892 | fg 1455 | size 768
+  epoch 44 step 200/637 | loss 3.495 | box 0.150 cls 2.299 dfl 0.813 | fg 1282 | size 480
+  epoch 44 step 300/637 | loss 3.592 | box 0.159 cls 2.233 dfl 0.856 | fg 1672 | size 672
+  epoch 44 step 400/637 | loss 3.136 | box 0.131 cls 1.941 dfl 0.791 | fg 894 | size 672
+  epoch 44 step 500/637 | loss 3.126 | box 0.140 cls 1.795 dfl 0.788 | fg 1797 | size 736
+  epoch 44 step 600/637 | loss 3.087 | box 0.134 cls 1.741 dfl 0.809 | fg 1339 | size 768
+epoch 44/60 | loss 3.1332 (box 0.135 cls 1.887 dfl 0.785) | fg/img 84.1 | lr 1.84e-05 | mosaic on | 4.7 min
+  epoch 45 step 0/637 | loss 2.885 | box 0.117 cls 1.754 dfl 0.752 | fg 1003 | size 544
+  epoch 45 step 100/637 | loss 2.902 | box 0.116 cls 1.854 dfl 0.739 | fg 986 | size 480
+  epoch 45 step 200/637 | loss 3.718 | box 0.165 cls 2.381 dfl 0.862 | fg 1484 | size 512
+  epoch 45 step 300/637 | loss 3.145 | box 0.138 cls 1.874 dfl 0.780 | fg 1024 | size 576
+  epoch 45 step 400/637 | loss 3.250 | box 0.147 cls 1.941 dfl 0.784 | fg 1401 | size 640
+  epoch 45 step 500/637 | loss 3.159 | box 0.142 cls 1.861 dfl 0.776 | fg 1168 | size 576
+  epoch 45 step 600/637 | loss 3.042 | box 0.130 cls 1.831 dfl 0.770 | fg 1010 | size 544
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.36s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=4.90s).
+Accumulating evaluation results...
+DONE (t=1.45s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.413
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.596
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.450
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.263
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.476
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.556
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.352
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.567
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.597
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.430
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.660
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.751
+epoch 45/60 | loss 3.1200 (box 0.135 cls 1.876 dfl 0.778) | fg/img 82.4 | lr 1.63e-05 | mosaic on | 4.4 min | AP 0.4135 | AP50 0.5962 | AP75 0.4504 | APs 0.2630 | APm 0.4764 | APl 0.5562
+  epoch 46 step 0/637 | loss 2.807 | box 0.123 cls 1.597 dfl 0.723 | fg 1566 | size 608
+  epoch 46 step 100/637 | loss 2.831 | box 0.122 cls 1.683 dfl 0.715 | fg 1135 | size 608
+  epoch 46 step 200/637 | loss 3.340 | box 0.145 cls 2.105 dfl 0.802 | fg 1224 | size 736
+  epoch 46 step 300/637 | loss 3.166 | box 0.147 cls 1.892 dfl 0.744 | fg 1499 | size 512
+  epoch 46 step 400/637 | loss 3.080 | box 0.122 cls 2.012 dfl 0.773 | fg 1287 | size 608
+  epoch 46 step 500/637 | loss 2.716 | box 0.116 cls 1.568 dfl 0.709 | fg 1104 | size 512
+  epoch 46 step 600/637 | loss 2.764 | box 0.121 cls 1.548 dfl 0.720 | fg 1366 | size 512
+epoch 46/60 | loss 3.0954 (box 0.134 cls 1.847 dfl 0.776) | fg/img 81.9 | lr 1.44e-05 | mosaic on | 4.3 min
+  epoch 47 step 0/637 | loss 3.004 | box 0.122 cls 1.787 dfl 0.794 | fg 1101 | size 672
+  epoch 47 step 100/637 | loss 3.259 | box 0.137 cls 2.122 dfl 0.782 | fg 1125 | size 544
+  epoch 47 step 200/637 | loss 2.791 | box 0.125 cls 1.565 dfl 0.713 | fg 1586 | size 608
+  epoch 47 step 300/637 | loss 3.711 | box 0.166 cls 2.449 dfl 0.830 | fg 1290 | size 480
+  epoch 47 step 400/637 | loss 2.827 | box 0.126 cls 1.539 dfl 0.744 | fg 1340 | size 704
+  epoch 47 step 500/637 | loss 3.008 | box 0.135 cls 1.869 dfl 0.709 | fg 1206 | size 544
+  epoch 47 step 600/637 | loss 2.862 | box 0.122 cls 1.609 dfl 0.761 | fg 1009 | size 544
+epoch 47/60 | loss 3.1037 (box 0.134 cls 1.860 dfl 0.777) | fg/img 83.7 | lr 1.25e-05 | mosaic on | 4.3 min
+  epoch 48 step 0/637 | loss 2.737 | box 0.120 cls 1.541 dfl 0.712 | fg 1232 | size 608
+  epoch 48 step 100/637 | loss 2.646 | box 0.107 cls 1.559 dfl 0.709 | fg 1015 | size 544
+  epoch 48 step 200/637 | loss 2.771 | box 0.116 cls 1.599 dfl 0.733 | fg 1268 | size 608
+  epoch 48 step 300/637 | loss 3.376 | box 0.149 cls 2.072 dfl 0.813 | fg 1428 | size 640
+  epoch 48 step 400/637 | loss 3.106 | box 0.139 cls 1.879 dfl 0.747 | fg 1209 | size 480
+  epoch 48 step 500/637 | loss 3.105 | box 0.133 cls 1.857 dfl 0.784 | fg 1813 | size 800
+  epoch 48 step 600/637 | loss 3.068 | box 0.126 cls 1.896 dfl 0.782 | fg 1312 | size 736
+epoch 48/60 | loss 3.0612 (box 0.132 cls 1.824 dfl 0.771) | fg/img 83.4 | lr 1.08e-05 | mosaic on | 4.5 min
+  epoch 49 step 0/637 | loss 3.167 | box 0.136 cls 2.018 dfl 0.757 | fg 1352 | size 512
+  epoch 49 step 100/637 | loss 3.306 | box 0.144 cls 2.042 dfl 0.803 | fg 1609 | size 640
+  epoch 49 step 200/637 | loss 3.377 | box 0.153 cls 2.080 dfl 0.791 | fg 1538 | size 480
+  epoch 49 step 300/637 | loss 2.877 | box 0.133 cls 1.630 dfl 0.710 | fg 1083 | size 544
+  epoch 49 step 400/637 | loss 2.652 | box 0.116 cls 1.428 dfl 0.711 | fg 1225 | size 704
+  epoch 49 step 500/637 | loss 2.767 | box 0.122 cls 1.538 dfl 0.724 | fg 1002 | size 480
+  epoch 49 step 600/637 | loss 2.656 | box 0.119 cls 1.384 dfl 0.715 | fg 1292 | size 544
+epoch 49/60 | loss 3.0791 (box 0.133 cls 1.842 dfl 0.773) | fg/img 83.8 | lr 9.14e-06 | mosaic on | 4.3 min
+  epoch 50 step 0/637 | loss 2.496 | box 0.108 cls 1.380 dfl 0.664 | fg 1213 | size 640
+  epoch 50 step 100/637 | loss 3.246 | box 0.130 cls 2.058 dfl 0.826 | fg 1885 | size 800
+  epoch 50 step 200/637 | loss 2.787 | box 0.120 cls 1.585 dfl 0.730 | fg 1479 | size 640
+  epoch 50 step 300/637 | loss 3.032 | box 0.124 cls 1.889 dfl 0.773 | fg 1123 | size 704
+  epoch 50 step 400/637 | loss 2.862 | box 0.122 cls 1.683 dfl 0.736 | fg 773 | size 480
+  epoch 50 step 500/637 | loss 3.141 | box 0.141 cls 1.866 dfl 0.767 | fg 1826 | size 608
+  epoch 50 step 600/637 | loss 3.431 | box 0.136 cls 2.279 dfl 0.848 | fg 1443 | size 800
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.23s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=4.99s).
+Accumulating evaluation results...
+DONE (t=1.15s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.413
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.595
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.450
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.264
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.475
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.562
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.351
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.564
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.594
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.430
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.654
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.752
+epoch 50/60 | loss 3.0700 (box 0.132 cls 1.831 dfl 0.775) | fg/img 83.8 | lr 7.64e-06 | mosaic on | 4.7 min | AP 0.4130 | AP50 0.5948 | AP75 0.4505 | APs 0.2635 | APm 0.4751 | APl 0.5625
+  epoch 51 step 0/637 | loss 3.022 | box 0.120 cls 1.928 dfl 0.773 | fg 1215 | size 672
+  epoch 51 step 100/637 | loss 3.349 | box 0.149 cls 2.005 dfl 0.822 | fg 1898 | size 672
+  epoch 51 step 200/637 | loss 3.227 | box 0.142 cls 1.900 dfl 0.809 | fg 843 | size 704
+  epoch 51 step 300/637 | loss 3.247 | box 0.139 cls 1.882 dfl 0.841 | fg 1565 | size 800
+  epoch 51 step 400/637 | loss 3.023 | box 0.129 cls 1.734 dfl 0.794 | fg 1098 | size 576
+  epoch 51 step 500/637 | loss 2.885 | box 0.126 cls 1.678 dfl 0.732 | fg 1317 | size 576
+  epoch 51 step 600/637 | loss 3.371 | box 0.150 cls 2.021 dfl 0.822 | fg 1907 | size 800
+epoch 51/60 | loss 3.0612 (box 0.132 cls 1.823 dfl 0.772) | fg/img 82.9 | lr 6.26e-06 | mosaic off | 4.5 min
+  epoch 52 step 0/637 | loss 2.936 | box 0.131 cls 1.693 dfl 0.736 | fg 1606 | size 512
+  epoch 52 step 100/637 | loss 3.019 | box 0.132 cls 1.717 dfl 0.781 | fg 1788 | size 704
+  epoch 52 step 200/637 | loss 3.332 | box 0.155 cls 1.916 dfl 0.805 | fg 1520 | size 672
+  epoch 52 step 300/637 | loss 3.578 | box 0.145 cls 2.199 dfl 0.927 | fg 1101 | size 800
+  epoch 52 step 400/637 | loss 2.749 | box 0.119 cls 1.545 dfl 0.722 | fg 1466 | size 672
+  epoch 52 step 500/637 | loss 2.691 | box 0.120 cls 1.428 dfl 0.719 | fg 1521 | size 544
+  epoch 52 step 600/637 | loss 2.803 | box 0.119 cls 1.516 dfl 0.767 | fg 1488 | size 672
+epoch 52/60 | loss 3.0443 (box 0.132 cls 1.806 dfl 0.769) | fg/img 84.8 | lr 5.02e-06 | mosaic off | 4.5 min
+  epoch 53 step 0/637 | loss 2.930 | box 0.115 cls 1.792 dfl 0.783 | fg 794 | size 672
+  epoch 53 step 100/637 | loss 3.150 | box 0.137 cls 1.951 dfl 0.766 | fg 1172 | size 512
+  epoch 53 step 200/637 | loss 2.883 | box 0.129 cls 1.534 dfl 0.766 | fg 1400 | size 768
+  epoch 53 step 300/637 | loss 2.903 | box 0.115 cls 1.792 dfl 0.761 | fg 946 | size 768
+  epoch 53 step 400/637 | loss 3.184 | box 0.147 cls 1.945 dfl 0.739 | fg 1248 | size 480
+  epoch 53 step 500/637 | loss 3.070 | box 0.131 cls 1.897 dfl 0.759 | fg 977 | size 576
+  epoch 53 step 600/637 | loss 2.604 | box 0.110 cls 1.382 dfl 0.726 | fg 1399 | size 768
+epoch 53/60 | loss 3.0439 (box 0.131 cls 1.803 dfl 0.771) | fg/img 83.6 | lr 3.92e-06 | mosaic off | 4.6 min
+  epoch 54 step 0/637 | loss 2.825 | box 0.122 cls 1.515 dfl 0.767 | fg 1252 | size 672
+  epoch 54 step 100/637 | loss 3.097 | box 0.139 cls 1.768 dfl 0.778 | fg 1636 | size 608
+  epoch 54 step 200/637 | loss 2.876 | box 0.128 cls 1.678 dfl 0.717 | fg 1195 | size 480
+  epoch 54 step 300/637 | loss 2.845 | box 0.130 cls 1.520 dfl 0.742 | fg 1289 | size 800
+  epoch 54 step 400/637 | loss 3.306 | box 0.134 cls 2.046 dfl 0.853 | fg 1421 | size 800
+  epoch 54 step 500/637 | loss 3.282 | box 0.147 cls 1.769 dfl 0.863 | fg 1757 | size 800
+  epoch 54 step 600/637 | loss 3.163 | box 0.135 cls 1.730 dfl 0.857 | fg 1053 | size 800
+epoch 54/60 | loss 3.0144 (box 0.130 cls 1.777 dfl 0.767) | fg/img 84.4 | lr 2.95e-06 | mosaic off | 4.6 min
+  epoch 55 step 0/637 | loss 3.373 | box 0.155 cls 1.983 dfl 0.811 | fg 1686 | size 608
+  epoch 55 step 100/637 | loss 3.096 | box 0.134 cls 1.817 dfl 0.788 | fg 1248 | size 608
+  epoch 55 step 200/637 | loss 3.659 | box 0.165 cls 2.332 dfl 0.836 | fg 2020 | size 768
+  epoch 55 step 300/637 | loss 2.683 | box 0.106 cls 1.598 dfl 0.727 | fg 925 | size 608
+  epoch 55 step 400/637 | loss 3.178 | box 0.132 cls 1.973 dfl 0.799 | fg 1378 | size 704
+  epoch 55 step 500/637 | loss 2.946 | box 0.118 cls 1.717 dfl 0.803 | fg 1214 | size 800
+  epoch 55 step 600/637 | loss 3.447 | box 0.158 cls 2.139 dfl 0.795 | fg 1393 | size 480
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.50s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=5.01s).
+Accumulating evaluation results...
+DONE (t=1.13s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.412
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.594
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.451
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.261
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.472
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.567
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.350
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.561
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.591
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.425
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.650
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.750
+epoch 55/60 | loss 3.0201 (box 0.131 cls 1.785 dfl 0.764) | fg/img 81.9 | lr 2.13e-06 | mosaic off | 4.3 min | AP 0.4122 | AP50 0.5940 | AP75 0.4507 | APs 0.2612 | APm 0.4722 | APl 0.5666
+  epoch 56 step 0/637 | loss 3.028 | box 0.144 cls 1.634 dfl 0.754 | fg 1114 | size 512
+  epoch 56 step 100/637 | loss 3.020 | box 0.127 cls 1.757 dfl 0.792 | fg 1155 | size 640
+  epoch 56 step 200/637 | loss 3.462 | box 0.147 cls 2.144 dfl 0.856 | fg 1202 | size 736
+  epoch 56 step 300/637 | loss 3.794 | box 0.163 cls 2.455 dfl 0.898 | fg 1562 | size 672
+  epoch 56 step 400/637 | loss 3.183 | box 0.137 cls 2.054 dfl 0.750 | fg 1096 | size 672
+  epoch 56 step 500/637 | loss 3.088 | box 0.140 cls 1.774 dfl 0.768 | fg 1687 | size 672
+  epoch 56 step 600/637 | loss 3.115 | box 0.127 cls 1.985 dfl 0.782 | fg 1355 | size 576
+epoch 56/60 | loss 3.0487 (box 0.132 cls 1.813 dfl 0.766) | fg/img 83.1 | lr 1.46e-06 | mosaic off | 4.1 min
+  epoch 57 step 0/637 | loss 2.906 | box 0.124 cls 1.751 dfl 0.735 | fg 1260 | size 640
+  epoch 57 step 100/637 | loss 3.245 | box 0.142 cls 2.030 dfl 0.775 | fg 1242 | size 672
+  epoch 57 step 200/637 | loss 2.401 | box 0.093 cls 1.316 dfl 0.699 | fg 1211 | size 800
+  epoch 57 step 300/637 | loss 3.512 | box 0.151 cls 2.188 dfl 0.854 | fg 1330 | size 576
+  epoch 57 step 400/637 | loss 2.763 | box 0.120 cls 1.578 dfl 0.715 | fg 1263 | size 512
+  epoch 57 step 500/637 | loss 3.319 | box 0.145 cls 2.081 dfl 0.792 | fg 1083 | size 480
+  epoch 57 step 600/637 | loss 2.938 | box 0.129 cls 1.722 dfl 0.740 | fg 1714 | size 608
+epoch 57/60 | loss 3.0392 (box 0.132 cls 1.800 dfl 0.767) | fg/img 82.9 | lr 9.31e-07 | mosaic off | 4.3 min
+  epoch 58 step 0/637 | loss 3.182 | box 0.148 cls 1.832 dfl 0.770 | fg 1645 | size 640
+  epoch 58 step 100/637 | loss 3.278 | box 0.142 cls 1.964 dfl 0.820 | fg 2292 | size 768
+  epoch 58 step 200/637 | loss 3.679 | box 0.168 cls 2.289 dfl 0.851 | fg 1378 | size 640
+  epoch 58 step 300/637 | loss 2.683 | box 0.115 cls 1.516 dfl 0.707 | fg 1628 | size 704
+  epoch 58 step 400/637 | loss 2.860 | box 0.119 cls 1.681 dfl 0.753 | fg 1203 | size 704
+  epoch 58 step 500/637 | loss 2.676 | box 0.108 cls 1.508 dfl 0.742 | fg 1110 | size 672
+  epoch 58 step 600/637 | loss 2.997 | box 0.130 cls 1.778 dfl 0.755 | fg 1192 | size 512
+epoch 58/60 | loss 3.0308 (box 0.131 cls 1.787 dfl 0.768) | fg/img 84.0 | lr 5.53e-07 | mosaic off | 4.4 min
+  epoch 59 step 0/637 | loss 2.801 | box 0.125 cls 1.642 dfl 0.694 | fg 952 | size 480
+  epoch 59 step 100/637 | loss 3.103 | box 0.137 cls 1.898 dfl 0.753 | fg 1329 | size 576
+  epoch 59 step 200/637 | loss 3.027 | box 0.133 cls 1.907 dfl 0.718 | fg 1274 | size 704
+  epoch 59 step 300/637 | loss 3.212 | box 0.141 cls 1.925 dfl 0.794 | fg 1389 | size 544
+  epoch 59 step 400/637 | loss 2.896 | box 0.127 cls 1.661 dfl 0.744 | fg 1801 | size 800
+  epoch 59 step 500/637 | loss 3.090 | box 0.140 cls 1.720 dfl 0.789 | fg 1435 | size 544
+  epoch 59 step 600/637 | loss 2.934 | box 0.126 cls 1.826 dfl 0.716 | fg 1041 | size 480
+epoch 59/60 | loss 3.0257 (box 0.131 cls 1.788 dfl 0.767) | fg/img 82.3 | lr 3.26e-07 | mosaic off | 4.3 min
+  epoch 60 step 0/637 | loss 3.090 | box 0.135 cls 1.842 dfl 0.770 | fg 1895 | size 704
+  epoch 60 step 100/637 | loss 3.584 | box 0.156 cls 2.435 dfl 0.796 | fg 1222 | size 480
+  epoch 60 step 200/637 | loss 2.904 | box 0.142 cls 1.460 dfl 0.740 | fg 844 | size 480
+  epoch 60 step 300/637 | loss 3.467 | box 0.143 cls 2.238 dfl 0.850 | fg 1204 | size 480
+  epoch 60 step 400/637 | loss 3.232 | box 0.134 cls 2.098 dfl 0.786 | fg 1456 | size 512
+  epoch 60 step 500/637 | loss 2.872 | box 0.128 cls 1.473 dfl 0.784 | fg 1017 | size 768
+  epoch 60 step 600/637 | loss 3.320 | box 0.147 cls 1.974 dfl 0.820 | fg 2420 | size 800
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.35s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=4.96s).
+Accumulating evaluation results...
+DONE (t=1.11s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.412
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.593
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.451
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.261
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.470
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.570
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.350
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.560
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.590
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.424
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.645
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.754
+epoch 60/60 | loss 3.0230 (box 0.131 cls 1.782 dfl 0.765) | fg/img 83.0 | lr 2.50e-07 | mosaic off | 4.2 min | AP 0.4117 | AP50 0.5928 | AP75 0.4507 | APs 0.2607 | APm 0.4704 | APl 0.5705
+done: best val AP 0.4136 at epoch 40 | elapsed 279.7 min
+per-class AP (last eval): bottle 0.421, wine glass 0.463, cup 0.489, fork 0.341, knife 0.258, spoon 0.218, bowl 0.437, chair 0.317, couch 0.401, potted plant 0.303, dining table 0.280, tv 0.610, laptop 0.682, mouse 0.658, remote 0.367, keyboard 0.515, cell phone 0.392, book 0.139, clock 0.490, vase 0.451
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.40s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *bbox*
+DONE (t=5.29s).
+Accumulating evaluation results...
+DONE (t=1.59s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.416
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.600
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.454
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.269
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.483
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.548
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.353
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.572
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.606
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.444
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.671
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.752
+val AP with hflip TTA: 0.4164 | AP50 0.5999
+Wrote 9,060 images to /jupyter/nycu-code/deep-learning/lab-5/result/007-convnext-s.csv

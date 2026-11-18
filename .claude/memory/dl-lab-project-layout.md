@@ -5,12 +5,12 @@ metadata:
   node_type: memory
   type: feedback
   originSessionId: 64810614-4935-4046-8ce1-5ef8e791df1f
-  modified: 2026-10-29T13:26:45.712Z
+  modified: 2026-11-15T04:24:48.708Z
 ---
 
 For every DL lab folder, mirror `deep-learning/lab-3/` exactly:
 
-- Lab root: TA template `.ipynb` + `.pdf` untouched, `HWn_SID.ipynb`, `HWn_SID_report.pdf`, `kaggle-link.txt` (invite link), final submission CSV at root (`*.csv` is gitignored), `HWn_SID.zip` (gitignored).
+- Lab root: TA template `.ipynb` + `.pdf` untouched, `HWn_SID.ipynb`, `HWn_SID_report.pdf`, `kaggle-link.txt` (invite link), final submission CSV at root (`*.csv` is gitignored), `HWn_SID.zip` (gitignored). The zip always holds the executed `HWn_SID.ipynb` and `HWn_SID_report.pdf` at its root, plus any code package the notebook imports (lab-5: `src/`, `requirements.txt`); user 2026-11-15 rejected a lab-5 zip without the report ("你的 zip 檔案不對 看看之前的"). Rebuild the zip after every report change.
 - Data: one folder at lab root named as Kaggle ships it (lab-3: `Lab3_data_intel_2026/`), a real copy, listed explicitly in the repo `.gitignore`.
 - Experiments: `scripts/train/NNN-name.py` ↔ `logs/NNN-name.log` ↔ `result/NNN-name.csv` ↔ `checkpoints/NNN-name.pt` (same number + slug; `.pt` gitignored); `result/summary.md` tracks runs. From lab-4 on, `scripts/` is split: `scripts/train/` for numbered experiment runs, `scripts/tools/` for download / validation / inference / packaging helpers (user asked for the split on 2026-10-29 and left the exact names to me).
 - Report: `report/main.tex`, `report/make_figures.py`, `report/figures/*.pdf`; final PDF copied to lab root.

@@ -1,0 +1,4 @@
+convnext_large.fb_in1k size 992 batch 12: OOM
+convnext_large.fb_in1k size 992 batch 10: OOM
+convnext_large.fb_in1k size 992 batch 8: peak 20.4 GiB | step 1.17 s
+convnext_large.fb_in1k size 992 batch 6: peak 16.1 GiB | step 0.94 s

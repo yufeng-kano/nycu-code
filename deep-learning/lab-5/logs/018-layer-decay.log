@@ -1,0 +1,47 @@
+[018-layer-decay] config: {"seed": 2026, "image_size": 800, "multi_scale": [0.6, 1.25], "multi_scale_every": 10, "mosaic": 1.0, "mixup": 0.15, "copy_paste": 1.0, "copy_paste_objects": 6, "affine_scale": [0.5, 1.5], "affine_translate": 0.1, "close_mosaic": 10, "batch_size": 12, "num_workers": 12, "model_name": "convnext_base.fb_in1k", "width": 384, "depth": 3, "reg_max": 16, "drop_path_rate": 0.4, "grad_checkpointing": true, "top_k": 10, "alpha": 0.5, "beta": 6.0, "box_weight": 7.5, "cls_weight": 0.5, "dfl_weight": 1.5, "epochs": 40, "warmup_epochs": 3, "lr": 0.0004, "backbone_lr_mult": 1.0, "layer_decay": 0.8, "min_lr": 1e-06, "weight_decay": 0.05, "grad_clip": 10.0, "ema_decay": 0.9998, "ema_tau": 2000, "eval_interval": 5, "conf_thres": 0.001, "nms_thres": 0.65, "tta_hflip": true}
+train 10,193 | val 3,397 | test 9,060
+params 117.57M (backbone 87.56M) | convnext_base.fb_in1k
+  epoch 1 step 0/849 | loss 13.249 | box 0.490 cls 10.663 dfl 2.827 | fg 765 | size 576
+  epoch 1 step 100/849 | loss 12.696 | box 0.522 cls 9.663 dfl 2.635 | fg 758 | size 480
+  epoch 1 step 200/849 | loss 9.971 | box 0.396 cls 7.554 dfl 2.149 | fg 1255 | size 864
+  epoch 1 step 300/849 | loss 8.362 | box 0.302 cls 7.089 dfl 1.701 | fg 611 | size 768
+  epoch 1 step 400/849 | loss 8.099 | box 0.319 cls 6.818 dfl 1.531 | fg 1085 | size 864
+  epoch 1 step 500/849 | loss 6.852 | box 0.253 cls 5.630 dfl 1.428 | fg 1066 | size 960
+  epoch 1 step 600/849 | loss 6.723 | box 0.260 cls 5.396 dfl 1.385 | fg 1636 | size 960
+  epoch 1 step 700/849 | loss 7.043 | box 0.255 cls 6.062 dfl 1.402 | fg 1022 | size 992
+  epoch 1 step 800/849 | loss 6.967 | box 0.245 cls 5.985 dfl 1.423 | fg 994 | size 928
+epoch 1/40 | loss 8.4907 (box 0.328 cls 6.788 dfl 1.760) | fg/img 96.1 | lr 9.16e-06 | mosaic on | 12.1 min
+  epoch 2 step 0/849 | loss 5.930 | box 0.240 cls 4.622 dfl 1.213 | fg 1444 | size 736
+  epoch 2 step 100/849 | loss 5.742 | box 0.220 cls 4.557 dfl 1.208 | fg 951 | size 576
+  epoch 2 step 200/849 | loss 6.021 | box 0.218 cls 4.925 dfl 1.282 | fg 899 | size 960
+  epoch 2 step 300/849 | loss 6.262 | box 0.226 cls 5.588 dfl 1.181 | fg 1146 | size 928
+  epoch 2 step 400/849 | loss 5.951 | box 0.235 cls 4.830 dfl 1.181 | fg 1452 | size 800
+  epoch 2 step 500/849 | loss 5.318 | box 0.206 cls 4.300 dfl 1.083 | fg 1139 | size 640
+  epoch 2 step 600/849 | loss 6.090 | box 0.267 cls 4.825 dfl 1.119 | fg 995 | size 480
+  epoch 2 step 700/849 | loss 5.672 | box 0.203 cls 4.767 dfl 1.176 | fg 1109 | size 960
+  epoch 2 step 800/849 | loss 5.800 | box 0.193 cls 5.234 dfl 1.158 | fg 827 | size 992
+epoch 2/40 | loss 5.6508 (box 0.221 cls 4.522 dfl 1.156) | fg/img 99.0 | lr 1.83e-05 | mosaic on | 9.9 min
+  epoch 3 step 0/849 | loss 5.448 | box 0.232 cls 4.160 dfl 1.086 | fg 1036 | size 704
+  epoch 3 step 100/849 | loss 5.459 | box 0.189 cls 4.797 dfl 1.097 | fg 865 | size 960
+  epoch 3 step 200/849 | loss 4.740 | box 0.174 cls 3.902 dfl 0.989 | fg 1055 | size 736
+  epoch 3 step 300/849 | loss 5.208 | box 0.201 cls 3.987 dfl 1.137 | fg 1181 | size 928
+  epoch 3 step 400/849 | loss 5.194 | box 0.209 cls 4.134 dfl 1.042 | fg 1249 | size 576
+  epoch 3 step 500/849 | loss 5.243 | box 0.195 cls 4.231 dfl 1.112 | fg 1169 | size 800
+  epoch 3 step 600/849 | loss 5.362 | box 0.196 cls 4.502 dfl 1.093 | fg 1226 | size 672
+  epoch 3 step 700/849 | loss 4.907 | box 0.200 cls 3.692 dfl 1.040 | fg 959 | size 512
+  epoch 3 step 800/849 | loss 4.627 | box 0.176 cls 3.615 dfl 0.997 | fg 1106 | size 640
+epoch 3/40 | loss 5.0523 (box 0.200 cls 3.919 dfl 1.061) | fg/img 99.3 | lr 2.75e-05 | mosaic on | 9.0 min
+  epoch 4 step 0/849 | loss 5.408 | box 0.222 cls 4.238 dfl 1.081 | fg 1523 | size 896
+  epoch 4 step 100/849 | loss 5.171 | box 0.205 cls 4.228 dfl 1.015 | fg 1112 | size 576
+  epoch 4 step 200/849 | loss 4.474 | box 0.187 cls 3.306 dfl 0.948 | fg 1190 | size 576
+  epoch 4 step 300/849 | loss 5.167 | box 0.206 cls 3.959 dfl 1.096 | fg 789 | size 768
+  epoch 4 step 400/849 | loss 4.891 | box 0.233 cls 3.272 dfl 1.002 | fg 1035 | size 512
+  epoch 4 step 500/849 | loss 4.492 | box 0.189 cls 3.232 dfl 0.972 | fg 1231 | size 480
+  epoch 4 step 600/849 | loss 4.531 | box 0.192 cls 3.314 dfl 0.956 | fg 1397 | size 608
+  epoch 4 step 700/849 | loss 4.481 | box 0.181 cls 3.218 dfl 1.009 | fg 1880 | size 960
+  epoch 4 step 800/849 | loss 4.689 | box 0.188 cls 3.593 dfl 0.990 | fg 1246 | size 800
+epoch 4/40 | loss 4.6724 (box 0.185 cls 3.556 dfl 1.004) | fg/img 97.9 | lr 2.74e-05 | mosaic on | 8.8 min
+  epoch 5 step 0/849 | loss 4.443 | box 0.188 cls 3.250 dfl 0.941 | fg 1520 | size 704
+  epoch 5 step 100/849 | loss 4.725 | box 0.186 cls 3.581 dfl 1.027 | fg 1325 | size 800
+  epoch 5 step 200/849 | loss 4.510 | box 0.184 cls 3.199 dfl 1.018 | fg 1128 | size 896
+  epoch 5 step 300/849 | loss 4.054 | box 0.161 cls 3.013 dfl 0.894 | fg 1123 | size 768

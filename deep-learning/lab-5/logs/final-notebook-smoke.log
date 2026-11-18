@@ -1,0 +1,17 @@
+/app/.venv/lib/python3.12/site-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  _validate(nbdict, ref, version, version_minor, relax_add_props)
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+executed 18 code cells in 5.0 min, 0 errors -> notebook/checkpoints/smoke/HW5_smoke.ipynb
+  Train: 10,193 images
+  Validation: 3,397 images
+  Epoch 1/1 | Train loss: 4.5026 | Val loss: 3.6830 | LR: 0.000100
+  Validation AP: 0.0094 | AP50: 0.0373
+  Wrote 9,060 images to checkpoints/smoke/result_yolo.csv
+  Train (train + val minus hold-out): 13,190 images
+  Validation (hold-out): 400 images
+  epoch 1/2 | loss 14.7330 (box 0.521 cls 13.172 dfl 2.827) | fg/img 27.5 | lr 3.33e-05 | mosaic off | 0.1 min | AP 0.0000 | AP50 0.0000 | AP75 0.0000 | APs 0.0000 | APm 0.0000 | APl 0.0000 *
+  epoch 2/2 | loss 18.9413 (box 0.678 cls 19.310 dfl 2.803) | fg/img 35.8 | lr 6.67e-05 | mosaic off | 0.1 min | AP 0.0000 | AP50 0.0000 | AP75 0.0000 | APs 0.0000 | APm 0.0000 | APl 0.0000 *
+  done: best val AP 0.0000 at epoch 1 | kept last epoch | elapsed 0.2 min
+  hold-out @896 plain: AP 0.0000 | AP50 0.0000 | AP75 0.0000 | APs 0.0000 | APm 0.0000 | APl 0.0000
+  hold-out @896 hflip + scales (0.75, 1.1): AP 0.0000 | AP50 0.0000 | AP75 0.0000 | APs 0.0000 | APm 0.0000 | APl 0.0000
+  Wrote 32 images to checkpoints/smoke/result.csv

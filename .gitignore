@@ -32,3 +32,10 @@ deep-learning/lab-3/Lab3_data_intel_2026/
 
 # Submission archives (rebuilt from tracked files)
 *.zip
+
+# DL Lab 5 (symlink to data/dataset, which is gitignored)
+deep-learning/lab-5/notebook/dataset
+
+# DL Lab 5 notebook run (weights, log, smoke outputs)
+deep-learning/lab-5/notebook/checkpoints/
+deep-learning/lab-5/HW5_315834011.zip
