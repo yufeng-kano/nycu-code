@@ -39,8 +39,3 @@ deep-learning/lab-5/notebook/dataset
 # DL Lab 5 notebook run (weights, log, smoke outputs)
 deep-learning/lab-5/notebook/checkpoints/
 deep-learning/lab-5/HW5_315834011.zip
-
-# DS HW3 test image (tracked: the notebook loads it from GitHub raw)
-!data-science-software-and-computation-experiments/hw3/data/
-# DS HW3 game CG: kept local, not redistributed
-data-science-software-and-computation-experiments/hw3/data/image/焗雪莉.png

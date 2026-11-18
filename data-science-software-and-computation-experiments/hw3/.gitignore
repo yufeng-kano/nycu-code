@@ -1,0 +1,10 @@
+# Test image stays tracked: the notebook loads it from GitHub raw.
+# The repository root ignores every data/ folder, so re-include this one.
+!data/
+
+# Game CG: kept local, not redistributed
+data/image/焗雪莉.png
+
+# Local files: scratch figure and a slide deck used as a style reference
+output.png
+RAE_論文報告_ZH.pdf

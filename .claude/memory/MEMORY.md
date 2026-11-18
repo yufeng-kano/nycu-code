@@ -21,3 +21,4 @@
 - [DL Lab 4 iteration loop](dl-lab4-iteration-loop.md) — keep iterating on Colab until told to stop; cost-effective changes; search papers when stuck; no manual log syncing
 - [DL Lab 5 COCO detection](dl-lab5-coco-detection.md) — Lab 5 status and decisions live in lab-5/CLAUDE.md; read it first
 - [Human exploration narrative](human-exploration-narrative.md) — notebook analysis keeps the earlier guess and overturns it later, first person
+- [Per-folder gitignore](per-folder-gitignore.md) — assignment-specific ignore rules live in that folder's .gitignore, not the root
