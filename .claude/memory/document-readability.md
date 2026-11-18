@@ -21,3 +21,5 @@ Apply to all documents I produce for the user: homework notebooks, paper walkthr
 2026-10-19 HW3: I had turned README into a tutorial plus status log (300 lines, progress notes, verification tables); user said 「readme 不是讓你這樣用的，readme 應該是簡短好讀，你要記錄狀態專門建立一個 claude.md」.
 
 **How to apply:** check every markdown cell / section against this list before handing it over. Paper-specific delivery rules: [[paper-walkthrough-format]]. Sentence-level style: [[writing-style]].
+
+2026-11-18 DS HW3: the first notebook draft got 「你的 notebook 字數太多」 and the user re-pasted the full style rules. Notebook markdown follows the same short-answer limits as chat: one or two sentences per cell, written answers two or three sentences each, no per-method background lists unless asked. (My reading: "從零講起" applies when the user asks to be taught, not to every homework cell.)
