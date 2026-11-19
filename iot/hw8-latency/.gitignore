@@ -1,0 +1,2 @@
+# Measured data is part of the homework; root .gitignore ignores *.csv
+!latency_*.csv

@@ -1,0 +1,9 @@
+[project]
+name = "iottalk-hw8-latency"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.9",
+    "paho-mqtt~=2.1.0",
+    "requests>=2.32",
+]
